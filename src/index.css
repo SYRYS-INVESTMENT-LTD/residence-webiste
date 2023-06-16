@@ -1,3 +1,18 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+    font-family: "SFPRODISPLAYBOLD";
+    src: url("../public/Fonts/SFPRODISPLAYBOLD.TTF");
+  }
+
+  @font-face {
+    font-family: "SFPRODISPLAYMEDIUM";
+    src: url("../public/Fonts/SFPRODISPLAYMEDIUM.TTF");
+  }
+
+  @font-face {
+    font-family: "SFPRODISPLAYBOLD";
+    src: url("../public/Fonts/SFPRODISPLAYREGULAR.TTF");
+  }

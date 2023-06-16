@@ -1,9 +1,10 @@
 import React from 'react'
+import LandingPage from './Pages/LandingPage'
 
 function App() {
   return (
     <div>
-      <h1 className='bg-[#4e4e4e]'>hello</h1>
+      <LandingPage/>
     </div>
   )
 }
