@@ -9,9 +9,11 @@ module.exports = {
         sfprobold: ['SFPRODISPLAYBOLD', 'sans-serif'],
         sfpromedium: ['SFPRODISPLAYMEDIUM', 'sans-serif'],
         sfproregular: ['SFPRODISPLAYREGULAR', 'sans-serif'],
+        sfprosemibold: ['SFPRODISPLAYSEMIBOLD', 'sans-serif']
       },
       backgroundImage: {
         'hero': "url('/src/Assets/Images/HeroGradient.png')",
+        'who': "url('/src/Assets/Images/Whoarewe.png')",
       }
     },
   },

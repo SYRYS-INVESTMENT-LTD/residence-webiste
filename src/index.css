@@ -4,15 +4,20 @@
 
 @font-face {
     font-family: "SFPRODISPLAYBOLD";
-    src: url("../public/Fonts/SFPRODISPLAYBOLD.TTF");
+    src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
+  }
+
+  @font-face {
+    font-family: "SFPRODISPLAYSEMIBOLD";
+    src: url("../public/Fonts/SF-Pro-Text-Semibold.ttf");
   }
 
   @font-face {
     font-family: "SFPRODISPLAYMEDIUM";
-    src: url("../public/Fonts/SFPRODISPLAYMEDIUM.TTF");
+    src: url("../public/Fonts/SF-Pro-Text-Medium.ttf");
   }
 
   @font-face {
-    font-family: "SFPRODISPLAYBOLD";
-    src: url("../public/Fonts/SFPRODISPLAYREGULAR.TTF");
+    font-family: "SFPRODISPLAYREGULAR";
+    src: url("../public/Fonts/SF-Pro-Text-Regular.ttf");
   }
