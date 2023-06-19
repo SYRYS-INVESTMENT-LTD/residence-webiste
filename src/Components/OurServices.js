@@ -4,14 +4,14 @@ import { MdArrowForward } from "react-icons/md";
 
 function OurServices() {
   return (
-    <div className='m-20'>
+    <div className='md:m-20 mt-10 mx-6'>
       <div className='flex items-center justify-between'>
         <h1 className='font-sfpromedium text-lg tracking-wide'>OUR SERVICES</h1>
-        <img src={residentlogo} alt='residents' className='h-16' />
+        <img src={residentlogo} alt='residents' className='md:h-16 h-10' />
       </div>
 
-      <div className='flex items-center justify-between mt-8'>
-        <div className='space-y-4 w-[48%]'>
+      <div className='md:flex items-center md:space-y-0 space-y-10 justify-between md:mt-8 mt-14'>
+        <div className='space-y-4 md:w-[48%]'>
           <div className='bg-[#F2F2F2] h-48 w-[100%]'>
 
           </div>
@@ -32,7 +32,7 @@ function OurServices() {
           <MdArrowForward size={16}/>
           </div>
         </div>
-        <div className='space-y-4 w-[48%]'>
+        <div className='space-y-4 md:w-[48%]'>
         <div className='bg-[#F2F2F2] h-48 w-[100%]'>
 
         </div>
@@ -54,8 +54,8 @@ function OurServices() {
         </div>
       </div>
       </div>
-      <div className='flex items-center justify-between mt-20'>
-      <div className='space-y-4 w-[48%]'>
+      <div className='md:flex items-center md:space-y-0 space-y-10 justify-between mt-20'>
+      <div className='space-y-4 md:w-[48%]'>
         <div className='bg-[#F2F2F2] h-48 w-[100%]'>
 
         </div>
@@ -76,7 +76,7 @@ function OurServices() {
         <MdArrowForward size={16}/>
         </div>
       </div>
-      <div className='space-y-4 w-[48%]'>
+      <div className='space-y-4 md:w-[48%]'>
       <div className='bg-[#F2F2F2] h-48 w-[100%]'>
 
       </div>

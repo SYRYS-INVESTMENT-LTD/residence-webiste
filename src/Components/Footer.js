@@ -1,9 +1,12 @@
 import React from 'react'
 import { MdMail } from 'react-icons/md'
+import Instagram from '../Assets/Icons/Instagram.png'
+import Facebook from '../Assets/Icons/Facebook.png'
+import Linkedin from '../Assets/Icons/Linkedin.png'
 
 function Footer() {
   return (
-    <div className='bg-[#262626] p-14 flex justify-between items-start'>
+    <div className='bg-[#262626] p-14 md:flex justify-between items-start md:space-y-0 space-y-10'>
       <div>
         <h1 className='font-sfprobold text-xl text-white'>RESIDENCE</h1>
 
@@ -18,18 +21,20 @@ function Footer() {
           <h1 className='font-sfproregular text-white text-xs'>support@syrysapp.com</h1>
         </div>
         <div className='flex items-center space-x-3 mt-4'>
-        
+          <img src={Linkedin} alt='Linkedin' className='h-4'/>
           <h1 className='font-sfproregular text-white text-xs'>Linkedin</h1>
         </div>
         <div className='flex items-center space-x-3 mt-4'>
+        <img src={Facebook} alt='Facebook' className='h-4'/>
           <h1 className='font-sfproregular text-white text-xs'>Facebook</h1>
         </div>
         <div className='flex items-center space-x-3 mt-4'>
+        <img src={Instagram} alt='Instagram' className='h-4'/>
           <h1 className='font-sfproregular text-white text-xs'>Instagram</h1>
         </div>
       </div>
 
-      <div className='items-end justify-end flex flex-col'>
+      <div className='justify-end flex flex-col'>
       <h1 className='font-sfpromedium text-xs underline text-white underline-offset-1'>ABOUT US</h1>
       <h1 className='font-sfpromedium text-xs underline text-white underline-offset-1 mt-6'>OUR SERVICES</h1>
       </div>

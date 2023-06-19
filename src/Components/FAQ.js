@@ -3,7 +3,7 @@ import { MdArrowForward, MdOutlineArrowDropDown } from "react-icons/md";
 
 function FAQ() {
   return (
-    <div className='mt-20 mx-20 mb-20'>
+    <div className='mt-20 md:mx-20 mb-20 mx-10'>
        <div className='flex justify-between items-center'>
          <h1 className='text-xl font-sfprosemibold'>FAQS</h1>
          <div className='flex items-center space-x-2'>
@@ -13,7 +13,7 @@ function FAQ() {
 
        </div>
 
-       <div className='w-[77%] mt-12'>
+       <div className='md:w-[77%] mt-12'>
         <div className='flex items-center justify-between'>
         <h1 className='font-sfproregular text-[#262626] text-sm'>How can i search for available properties?</h1>
         <MdOutlineArrowDropDown/>
@@ -22,7 +22,7 @@ function FAQ() {
         <div className='h-0.5 bg-[#e3e3e3] w-[100%] mt-4'></div>
        </div>
 
-       <div className='w-[77%] mt-8'>
+       <div className='md:w-[77%] mt-8'>
        <div className='flex items-center justify-between'>
        <h1 className='font-sfproregular text-[#262626] text-sm'>How can i search for available properties?</h1>
        <MdOutlineArrowDropDown/>
@@ -31,7 +31,7 @@ function FAQ() {
        <div className='h-0.5 bg-[#e3e3e3] w-[100%] mt-4'></div>
       </div>
 
-      <div className='w-[77%] mt-8'>
+      <div className='md:w-[77%] mt-8'>
       <div className='flex items-center justify-between'>
       <h1 className='font-sfproregular text-[#262626] text-sm'>How can i search for available properties?</h1>
       <MdOutlineArrowDropDown/>
@@ -40,7 +40,7 @@ function FAQ() {
       <div className='h-0.5 bg-[#e3e3e3] w-[100%] mt-4'></div>
      </div>
 
-     <div className='w-[77%] mt-8'>
+     <div className='md:w-[77%] mt-8'>
      <div className='flex items-center justify-between'>
      <h1 className='font-sfproregular text-[#262626] text-sm'>How can i search for available properties?</h1>
      <MdOutlineArrowDropDown/>
