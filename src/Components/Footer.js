@@ -6,7 +6,7 @@ import Linkedin from '../Assets/Icons/Linkedin.png'
 
 function Footer() {
   return (
-    <div className='bg-[#262626] p-14 md:flex justify-between items-start md:space-y-0 space-y-10'>
+    <div className='bg-[#262626] py-14 px-4 md:p-14 md:flex justify-between items-start md:space-y-0 space-y-10'>
       <div>
         <h1 className='font-sfprobold text-xl text-white'>RESIDENCE</h1>
 

@@ -32,7 +32,7 @@ function InfoPage() {
                             <p className='font-sfpromedium text-sm text-[#000] cursor-pointer'>Overview</p>
                         </div>
                         <div className='w-40'>
-                        <p className='font-sfproregular text-sm text-[#5A5A5A] cursor-pointer'>Book a tour</p>
+                            <p className='font-sfproregular text-sm text-[#5A5A5A] cursor-pointer'>Book a tour</p>
                         </div>
                         <p className='font-sfproregular text-sm text-[#5A5A5A] cursor-pointer'>Availability</p>
                         <p className='font-sfproregular text-sm text-[#5A5A5A] cursor-pointer'>Location</p>
@@ -86,20 +86,20 @@ function InfoPage() {
 
                     <div className='mt-10 md:mx-16 mx-4'>
                         <h1 className='font-sfprosemibold text-xl'>Apartment Prices and availability</h1>
-                        <div className='flex items-center space-x-10 mt-10 mb-4'>
-                            <div className='bg-[#BBBBBB33] px-4 flex items-center justify-center py-3 rounded-full border border-[#262626] w-[12%]'>
+                        <div className='flex items-center flex-shrink-0 whitespace-nowrap  md:space-x-0 overflow-hidden overflow-x-auto overflow-y-hidden space-x-4 mt-10 mb-4'>
+                            <div className='bg-[#BBBBBB33] px-4 flex items-center justify-center py-3 rounded-full border border-[#262626] md:w-[12%]'>
                                 <p className='text-xs font-sfproregular text-[#262626]'>One Bedroom</p>
                             </div>
-                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] w-[12%]'>
+                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]'>
                                 <p className='text-xs font-sfproregular text-[#5A5A5A]'>Two Bedroom</p>
                             </div>
-                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] w-[12%]'>
+                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]'>
                                 <p className='text-xs font-sfproregular text-[#5A5A5A]'>Three Bedroom</p>
                             </div>
-                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] w-[12%]'>
+                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]'>
                                 <p className='text-xs font-sfproregular text-[#5A5A5A]'>Studio</p>
                             </div>
-                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] w-[12%]'>
+                            <div className='px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]'>
                                 <p className='text-xs font-sfproregular text-[#5A5A5A]'>Duplex</p>
                             </div>
                         </div>
@@ -144,12 +144,23 @@ function InfoPage() {
                                 <p className='font-sfproregular text-sm text-[#545454]'>/month</p>
                             </div>
                         </div>
-                        <div className='py-4 px-4 flex items-center rounded-md justify-between border border-[#DCDCDC]'>
+                        <div className='py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]'>
                             <div className='flex space-x-6'>
-                                <img src={apartment} alt='apartment' className='' />
-                                <div className='space-y-8'>
+                                <img src={apartment} alt='apartment' className='h-24 md:h-100' />
+                                <div className='md:space-y-8 space-y-4'>
                                     <h1 className='font-sfproregular text-sm'>Block 13, Number 5</h1>
-                                    <div className='flex items-center space-x-8'>
+                                    <div className='flex items-center md:hidden'>
+                                        <h1 className='text-base font-sfpromedium'>$800</h1>
+                                        <p className='font-sfproregular text-sm text-[#545454]'>/month</p>
+                                    </div>
+                                    <div className='flex md:hidden items-center space-x-3'>
+                                        <div className='flex items-center space-x-2 text-center'>
+                                            <MdBed />
+                                            <p className='font-fproregular text-[#545454] text-xs'>One Bed</p>
+                                        </div>
+                                        <h1 className=' font-sfproregular text-xs text-green-400'>Available</h1>
+                                    </div>
+                                    <div className='hidden md:flex items-center md:space-x-8 space-x-4'>
                                         <div className='flex flex-col items-center justify-center text-center'>
                                             <MdBed />
                                             <p className='font-fproregular text-[#545454] text-xs'>One Bed</p>
@@ -163,20 +174,31 @@ function InfoPage() {
                                             <p className='font-fproregular text-[#545454] text-xs'>One Bed</p>
                                         </div>
                                     </div>
-                                    <h1 className='font-sfproregular text-xs text-green-400'>Available</h1>
+                                    <h1 className='md:flex hidden font-sfproregular text-xs text-green-400'>Available</h1>
                                 </div>
                             </div>
-                            <div className='flex items-center'>
+                            <div className='md:flex items-center hidden'>
                                 <h1 className='text-base font-sfpromedium'>$800</h1>
                                 <p className='font-sfproregular text-sm text-[#545454]'>/month</p>
                             </div>
                         </div>
-                        <div className='py-4 px-4 flex items-center rounded-md justify-between border border-[#DCDCDC]'>
+                        <div className='py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]'>
                             <div className='flex space-x-6'>
-                                <img src={apartment} alt='apartment' className='' />
-                                <div className='space-y-8'>
+                                <img src={apartment} alt='apartment' className='h-24 md:h-100' />
+                                <div className='md:space-y-8 space-y-4'>
                                     <h1 className='font-sfproregular text-sm'>Block 13, Number 5</h1>
-                                    <div className='flex items-center space-x-8'>
+                                    <div className='flex items-center md:hidden'>
+                                        <h1 className='text-base font-sfpromedium'>$800</h1>
+                                        <p className='font-sfproregular text-sm text-[#545454]'>/month</p>
+                                    </div>
+                                    <div className='flex md:hidden items-center space-x-3'>
+                                        <div className='flex items-center space-x-2 text-center'>
+                                            <MdBed />
+                                            <p className='font-fproregular text-[#545454] text-xs'>One Bed</p>
+                                        </div>
+                                        <h1 className=' font-sfproregular text-xs text-green-400'>Available</h1>
+                                    </div>
+                                    <div className='hidden md:flex items-center md:space-x-8 space-x-4'>
                                         <div className='flex flex-col items-center justify-center text-center'>
                                             <MdBed />
                                             <p className='font-fproregular text-[#545454] text-xs'>One Bed</p>
@@ -190,10 +212,10 @@ function InfoPage() {
                                             <p className='font-fproregular text-[#545454] text-xs'>One Bed</p>
                                         </div>
                                     </div>
-                                    <h1 className='font-sfproregular text-xs text-green-400'>Available</h1>
+                                    <h1 className='md:flex hidden font-sfproregular text-xs text-green-400'>Available</h1>
                                 </div>
                             </div>
-                            <div className='flex items-center'>
+                            <div className='md:flex items-center hidden'>
                                 <h1 className='text-base font-sfpromedium'>$800</h1>
                                 <p className='font-sfproregular text-sm text-[#545454]'>/month</p>
                             </div>
@@ -202,7 +224,7 @@ function InfoPage() {
 
                     {/*LOCATION AND GOOGLE MAP */}
 
-                    <div className='mt-16 mx-16'>
+                    <div className='mt-16 md:mx-16 mx-4'>
                         <h1 className='text-[#232323] text-lg font-sfpromedium'>Location</h1>
 
                         <div className='items-center space-x-2 flex mt-4'>
@@ -217,9 +239,9 @@ function InfoPage() {
 
                     {/*Amenities*/}
 
-                    <div className='mt-14 md:mx-16'>
+                    <div className='mt-14 md:mx-16 mx-4'>
                         <h1 className='text-[#232323] text-lg font-sfpromedium'>Amenities</h1>
-                        <div className='md:flex md:items-start md:mx-0 mx-10 md:space-x-8 md:space-y-0 space-y-6 mt-10'>
+                        <div className='md:flex md:items-start md:space-x-8 md:space-y-0 space-y-6 mt-10'>
                             <div className='items-center flex-col flex justify-center md:w-[48%]'>
                                 <h1 className='text-[#545454] text-sm'>Unit amenities</h1>
                                 <div className='flex items-center space-x-4 mt-8'>
@@ -317,7 +339,7 @@ function InfoPage() {
                     </div>
 
                     {/*PROPERTY MAINTENANCE*/}
-                    <div className='mt-14 mx-16'>
+                    <div className='mt-14 md:mx-16 mx-4'>
                         <h1 className='text-[#232323] text-lg font-sfpromedium'>Property Maintenance</h1>
 
                         <div className='md:w-[77%] mt-12'>

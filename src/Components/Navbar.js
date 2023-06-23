@@ -1,14 +1,17 @@
 import React from 'react'
 import usflag from '../Assets/Icons/USFlag.png'
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
     <div>
       <div className='h-10 flex justify-between items-center md:p-10 py-10 px-4'>
-        <div>
-          <h1 className='font-sfprosemibold tracking-wide text-[#262626] text-xl'>RESIDENCE</h1>
-        </div>
+      <Link to={'/'}>
+      <div>
+        <h1 className='font-sfprosemibold tracking-wide text-[#262626] text-xl'>RESIDENCE</h1>
+      </div>
+      </Link>
         <div>
           <ul className='md:flex hidden space-x-12 items-center'>
             <li className='font-sfpromedium text-[#262626] text-sm cursor-pointer'>Home</li>
