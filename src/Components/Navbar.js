@@ -5,7 +5,7 @@ import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 function Navbar() {
   return (
     <div>
-      <div className='h-10 flex justify-between items-center p-10'>
+      <div className='h-10 flex justify-between items-center md:p-10 py-10 px-4'>
         <div>
           <h1 className='font-sfprosemibold tracking-wide text-[#262626] text-xl'>RESIDENCE</h1>
         </div>

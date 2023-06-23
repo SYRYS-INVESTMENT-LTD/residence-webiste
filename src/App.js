@@ -1,10 +1,10 @@
 import React from 'react'
-import LandingPage from './Pages/LandingPage'
+import Layout from './Routes/Layout'
 
 function App() {
   return (
     <div>
-      <LandingPage/>
+     <Layout/>
     </div>
   )
 }
