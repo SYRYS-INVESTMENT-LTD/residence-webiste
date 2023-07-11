@@ -1,5 +1,5 @@
-import React from 'react'
-import residentlogo from '../Assets/Icons/ResidentsCircular.png'
+import React from 'react';
+import residentlogo from '../Assets/Icons/ResidentsCircular.png';
 import { MdArrowForward } from "react-icons/md";
 import { Link } from 'react-router-dom';
 

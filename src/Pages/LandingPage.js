@@ -1,7 +1,8 @@
 import React from 'react'
 import Navbar from '../Components/Navbar'
 import HeroSection from '../Components/HeroSection'
-import OurServices from '../Components/OurServices'
+import RedesignServices from '../Components/RedesignServices'
+/*import OurServices from '../Components/OurServices'*/
 import WhoWeAre from '../Components/WhoWeAre'
 import FAQ from '../Components/FAQ'
 import Footer from '../Components/Footer'
@@ -13,7 +14,8 @@ function LandingPage() {
                 <Navbar />
                 <HeroSection />
             </div>
-            <OurServices />
+            {/*<OurServices />*/}
+            <RedesignServices/>
             <WhoWeAre />
             <FAQ />
             <Footer />
