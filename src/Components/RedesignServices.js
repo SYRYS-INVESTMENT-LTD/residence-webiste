@@ -10,7 +10,7 @@ function RedesignServices() {
         <h1 className="font-sfpromedium text-lg font-bold tracking-wide">OUR SERVICES</h1>
         <img src={residentlogo} alt="residents" className="md:h-16 h-10" />
       </div>
-      <div className="flex flex-col p-3">
+      <div className="flex flex-col p-3 space-y-12">
        
         <ServiceCard
           image={services2}
@@ -51,7 +51,7 @@ function ServiceCard({ image, title, description, reverse, fullWidthOnMedium }) 
 
   return (
     <div className={cardClasses}>
-      <div className="flex items-center mb-2">
+      <div className="md:flex items-center mb-2 md:space-y-0 space-y-12">
         {!reverse && (
           <div className={imageClasses}>
             <img src={image} alt="service" className="h-auto" />
