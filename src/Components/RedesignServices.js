@@ -51,7 +51,7 @@ function ServiceCard({ image, title, description, reverse, fullWidthOnMedium }) 
 
   return (
     <div className={cardClasses}>
-      <div className="md:flex items-center mb-2 md:space-y-0 space-y-12">
+      <div className="md:flex items-center mb-2 md:space-y-0 space-y-12 mt-12">
         {!reverse && (
           <div className={imageClasses}>
             <img src={image} alt="service" className="h-auto" />
