@@ -41,7 +41,7 @@ function RedesignServices() {
 }
 
 function ServiceCard({ image, title, description, reverse, fullWidthOnMedium }) {
-  // To remove redundancy, reverse makes the image appear first
+  // Calculate the appropriate classes based on the reverse and fullWidthOnMedium props
   const cardClasses = `flex flex-col md:w-1/2 md:mr-4 ${
     reverse ? "md:flex-row-reverse" : ""
   } ${fullWidthOnMedium ? "w-full md:w-auto" : ""}`;
@@ -49,10 +49,13 @@ function ServiceCard({ image, title, description, reverse, fullWidthOnMedium }) 
   const imageClasses = `md:w-1/2 ${reverse ? "md:ml-2" : "md:mr-2"}`;
   const contentClasses = `md:w-1/2 ${reverse ? "md:mr-2" : "md:ml-2"}`;
 
+  const shouldReverse = reverse && !fullWidthOnMedium;
+  const shouldShowImage = shouldReverse || !reverse;
+
   return (
     <div className={cardClasses}>
       <div className="md:flex items-center mb-2 md:space-y-0 space-y-12 mt-12">
-        {!reverse && (
+        {shouldShowImage && (
           <div className={imageClasses}>
             <img src={image} alt="service" className="h-auto" />
           </div>
@@ -67,7 +70,7 @@ function ServiceCard({ image, title, description, reverse, fullWidthOnMedium }) 
             </span>
           </div>
         </div>
-        {reverse && (
+        {shouldReverse && (
           <div className={imageClasses}>
             <img src={image} alt="service" className="h-auto" />
           </div>
@@ -76,5 +79,7 @@ function ServiceCard({ image, title, description, reverse, fullWidthOnMedium }) 
     </div>
   );
 }
+
+
 
 export default RedesignServices;
