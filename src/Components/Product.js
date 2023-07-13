@@ -3,7 +3,7 @@ import { RiMapPinLine } from "react-icons/ri";
 
 export default function Product(props) {
   return (
-    <div className="relative p-4">
+    <div className="relative py-4 px-1">
       <div className="relative">
         <img
           className="object-cover h-64 w-full"

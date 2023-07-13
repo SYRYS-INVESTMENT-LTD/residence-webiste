@@ -1,40 +1,25 @@
 import React from "react";
-import Carousel from 'react-multi-carousel';
-import 'react-multi-carousel/lib/styles.css';
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import { Navigation } from "swiper/modules";
 import Product from './Product';
 import { productData } from './data';
 
 function Apartments() {
-  const products = productData.map((product) => (
-    <Product
-      key={product.id}
-      name={product.name}
-      url={product.imageurl}
-      location={product.location}
-    />
+
+  const products = productData.map((product, i) => (
+    <SwiperSlide key={i}><Product
+          key={product.id}
+          name={product.name}
+          url={product.imageurl}
+          location={product.location}
+    /></SwiperSlide>
   ));
 
-  const responsiveSettings = {
-    desktop: {
-      breakpoint: { max: 3000, min: 1024 },
-      items: 2,
-      partialVisibilityGutter: 10, // Adjust this value as needed
-    },
-    tablet: {
-      breakpoint: { max: 1024, min: 640 },
-      items: 2,
-      partialVisibilityGutter: 30,
-    },
-    mobile: {
-      breakpoint: { max: 640, min: 0 },
-      items: 1,
-      partialVisibilityGutter: 20,
-    },
-  };
-
   return (
-    <div>
-      <div className="flex items-start justify-between">
+    <div className="pl-4">
+      <div className="flex items-center flex-col justify-center">
         <h1 className="font-sfprobold md:text-2xl text-base text-[rgb(38,38,38)] flex-row">
           APARTMENTS AND SITES
         </h1>
@@ -44,18 +29,18 @@ function Apartments() {
           </p>
         </div>
       </div>
-      <div className="mt-8">
-        <Carousel
-          responsive={responsiveSettings}
-          autoPlay={false}
-          autoPlaySpeed={3000}
-          infinite={true}
-          centerMode={true}
-          centerSlidePercentage={33.333} // Adjust this value as needed
-          containerClass="carousel-container"
-        >
-          {products}
-        </Carousel>
+      <div className="mt-8 pl-7">
+        <Swiper
+          spaceBetween={4}
+          slidesPerView={2.5}
+          pagination={{ clickable: true }}
+          navigation={true}
+          loop={true}
+          modules={[Navigation]}
+        >{products}
+
+       
+        </Swiper>
       </div>
     </div>
   );
