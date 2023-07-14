@@ -45,4 +45,4 @@ function Apartments() {
     </div>
   );
 }
-export default Apartments;
+export default Apartments; 

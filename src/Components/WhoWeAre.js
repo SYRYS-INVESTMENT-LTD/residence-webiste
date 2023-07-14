@@ -27,7 +27,7 @@ function WhoWeAre() {
         </div>
         <div className="flex items-start">
           <div className="h-80 w-80">
-            <img className="object-contain h-full w-full" src={ai} alt="Apps Image" />
+            <img className="object-contain h-full w-full" src={ai} alt="Apps_Image" />
           </div>
         </div>
       </div>
