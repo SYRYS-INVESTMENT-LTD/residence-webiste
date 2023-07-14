@@ -19,7 +19,7 @@ function Apartments() {
 
   return (
     <div className="mt-5">
-      <div className="flex items-center flex-col justify-center">
+      <div className="flex items-center flex-col justify-center sm:p-3">
         <h1 className="font-sfprobold md:text-2xl text-base text-[rgb(38,38,38)] flex-row">
           APARTMENTS AND SITES
         </h1>
@@ -37,12 +37,14 @@ function Apartments() {
           navigation={true}
           loop={true}
           modules={[Navigation]}
-        >{products}
-
+          
+      
+        >
+          {products}
        
         </Swiper>
       </div>
     </div>
   );
 }
-export default Apartments; 
+export default Apartments;                  
