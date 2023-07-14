@@ -1,4 +1,5 @@
 import React from 'react'
+import ai from "../Assets/Images/appsImage.svg"
 
 function WhoWeAre() {
   return (
