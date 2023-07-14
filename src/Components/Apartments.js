@@ -18,7 +18,7 @@ function Apartments() {
   ));
 
   return (
-    <div className="pl-4">
+    <div className="mt-5">
       <div className="flex items-center flex-col justify-center">
         <h1 className="font-sfprobold md:text-2xl text-base text-[rgb(38,38,38)] flex-row">
           APARTMENTS AND SITES
@@ -29,9 +29,9 @@ function Apartments() {
           </p>
         </div>
       </div>
-      <div className="mt-8 pl-7">
+      <div className="mt-8">
         <Swiper
-          spaceBetween={4}
+          spaceBetween={2}
           slidesPerView={2.5}
           pagination={{ clickable: true }}
           navigation={true}
@@ -45,5 +45,4 @@ function Apartments() {
     </div>
   );
 }
-
 export default Apartments;
