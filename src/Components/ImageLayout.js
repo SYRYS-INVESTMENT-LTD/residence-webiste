@@ -5,6 +5,8 @@ import h3 from "../Assets/Images/House2.svg";
 import bp from "../Assets/Icons/blueprintIcon.svg";
 import bi from "../Assets/Icons/buildingIcon.svg";
 import ti from "../Assets/Icons/trackIcon.svg";
+import apartment from "../Assets/Images/apartment.png";
+import { MdBed } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 
@@ -63,25 +65,284 @@ function ImageLayout() {
         </div>
       </div>
       <div>
-        <div className="w-full">
-          <h2 className="text-lg font-semibold">Description</h2>
-          <p className="text-sm">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.
-            Suspendisse sed nisi lacus sed viverra tellus in hac habitasse. Sed
-            viverra ipsum nunc aliquet bibendum enim facilisis. Pellentesque
-            habitant morbi tristique senectus et netus et malesuada fames.
-            Mattis nunc sed blandit libero volutpat sed. Vitae suscipit tellus
-            mauris a diam maecenas sed enim ut. Nullam vehicula ipsum a arcu
-            cursus vitae. Sed enim ut sem viverra aliquet eget sit amet tellus.
-            Tellus orci ac auctor augue mauris augue neque. Et ligula
-            ullamcorper malesuada proin libero nunc consequat interdum. Sit amet
-            tellus cras adipiscing enim eu. Ac felis donec et odio pellentesque
-            diam volutpat. Adipiscing enim eu turpis egestas pretium aenean
-            pharetra magna. Lorem ipsum dolor sit amet consectetur adipiscing.
-            Nibh sit amet commodo nulla facilisi nullam vehicula ipsum a.
-            Pellentesque adipiscing commodo elit at imperdiet dui accumsan.
-          </p>
+        <div className="w-1/2">
+          <div className="w-full">
+            <div>
+              <h2 className="text-lg font-semibold">Description</h2>
+              <p className="text-sm">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Suspendisse sed nisi lacus sed viverra tellus in hac habitasse.
+                Sed viverra ipsum nunc aliquet bibendum enim facilisis.
+                Pellentesque habitant morbi tristique senectus et netus et
+                malesuada fames. Mattis nunc sed blandit libero volutpat sed.
+                Vitae suscipit tellus mauris a diam maecenas sed enim ut. Nullam
+                vehicula ipsum a arcu cursus vitae. Sed enim ut sem viverra
+                aliquet eget sit amet tellus. Tellus orci ac auctor augue mauris
+                augue neque. Et ligula ullamcorper malesuada proin libero nunc
+                consequat interdum. Sit amet tellus cras adipiscing enim eu. Ac
+                felis donec et odio pellentesque diam volutpat. Adipiscing enim
+                eu turpis egestas pretium aenean pharetra magna. Lorem ipsum
+                dolor sit amet consectetur adipiscing. Nibh sit amet commodo
+                nulla facilisi nullam vehicula ipsum a. Pellentesque adipiscing
+                commodo elit at imperdiet dui accumsan.
+              </p>
+            </div>
+          </div>
+          <div>
+            <h2 className="text-lg font-semibold">Site details</h2>
+            <div className="mt-4 md:flex-row">
+              <div className="flex border-b border-black">
+                <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <h3 className="flex items-center py-2">Yes</h3>
+              </div>
+              <div className="flex border-b border-black">
+                <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <h3 className="flex items-center py-2 ">Yes</h3>
+              </div>
+              <div className="flex border-b border-black">
+                <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <h3 className="flex items-center py-2 ">Yes</h3>
+              </div>
+              <div className="flex border-b border-black">
+                <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <h3 className="flex items-center py-2 ">Yes</h3>
+              </div>
+              <div className="flex border-b border-black">
+                <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <h3 className="flex items-center py-2 ">Yes</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div className="mb-16">
+          {/*SITE INFORMATION*/}
+          <div>
+            {/*APARTMENT PRICES AND AVAILABILITY*/}
+
+            <div className="mt-10 md:mx-16 mx-4">
+              <h1 className="font-sfprosemibold text-xl">
+                Apartment Prices and availability
+              </h1>
+              <div className="flex items-center flex-shrink-0 whitespace-nowrap overflow-hidden overflow-x-auto overflow-y-hidden space-x-4 mt-10 mb-4 md:space-x-4">
+                <div className="bg-[#BBBBBB33] px-4 flex items-center justify-center py-3 rounded-full border border-[#262626] md:w-[12%]">
+                  <p className="text-xs font-sfproregular text-[#262626]">
+                    Bachelor
+                  </p>
+                </div>
+                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
+                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                    Studio
+                  </p>
+                </div>
+                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
+                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                    Duplex
+                  </p>
+                </div>
+                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
+                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                    Loft
+                  </p>
+                </div>
+                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
+                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                    loft
+                  </p>
+                </div>
+                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
+                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                    loft
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="mt-16 space-y-8 md:mx-16 mx-4 mb-6">
+              <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
+                <div className="flex space-x-6">
+                  <img
+                    src={apartment}
+                    alt="apartment"
+                    className="h-24 md:h-100"
+                  />
+                  <div className="md:space-y-8 space-y-4">
+                    <h1 className="font-sfproregular text-sm">
+                      Block 13, Number 5
+                    </h1>
+                    <div className="flex items-center md:hidden">
+                      <h1 className="text-base font-sfpromedium">$800</h1>
+                      <p className="font-sfproregular text-sm text-[#545454]">
+                        /month
+                      </p>
+                    </div>
+                    <div className="flex md:hidden items-center space-x-3">
+                      <div className="flex items-center space-x-2 text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <h1 className=" font-sfproregular text-xs text-green-400">
+                        Available
+                      </h1>
+                    </div>
+                    <div className="hidden md:flex items-center md:space-x-8 space-x-4">
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                    </div>
+                    <h1 className="md:flex hidden font-sfproregular text-xs text-green-400">
+                      Available
+                    </h1>
+                  </div>
+                </div>
+                <div className="md:flex items-center hidden">
+                  <h1 className="text-base font-sfpromedium">$800</h1>
+                  <p className="font-sfproregular text-sm text-[#545454]">
+                    /month
+                  </p>
+                </div>
+              </div>
+              <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
+                <div className="flex space-x-6">
+                  <img
+                    src={apartment}
+                    alt="apartment"
+                    className="h-24 md:h-100"
+                  />
+                  <div className="md:space-y-8 space-y-4">
+                    <h1 className="font-sfproregular text-sm">
+                      Block 13, Number 5
+                    </h1>
+                    <div className="flex items-center md:hidden">
+                      <h1 className="text-base font-sfpromedium">$800</h1>
+                      <p className="font-sfproregular text-sm text-[#545454]">
+                        /month
+                      </p>
+                    </div>
+                    <div className="flex md:hidden items-center space-x-3">
+                      <div className="flex items-center space-x-2 text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <h1 className=" font-sfproregular text-xs text-green-400">
+                        Available
+                      </h1>
+                    </div>
+                    <div className="hidden md:flex items-center md:space-x-8 space-x-4">
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                    </div>
+                    <h1 className="md:flex hidden font-sfproregular text-xs text-green-400">
+                      Available
+                    </h1>
+                  </div>
+                </div>
+                <div className="md:flex items-center hidden">
+                  <h1 className="text-base font-sfpromedium">$800</h1>
+                  <p className="font-sfproregular text-sm text-[#545454]">
+                    /month
+                  </p>
+                </div>
+              </div>
+              <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
+                <div className="flex space-x-6">
+                  <img
+                    src={apartment}
+                    alt="apartment"
+                    className="h-24 md:h-100"
+                  />
+                  <div className="md:space-y-8 space-y-4">
+                    <h1 className="font-sfproregular text-sm">
+                      Block 13, Number 5
+                    </h1>
+                    <div className="flex items-center md:hidden">
+                      <h1 className="text-base font-sfpromedium">$800</h1>
+                      <p className="font-sfproregular text-sm text-[#545454]">
+                        /month
+                      </p>
+                    </div>
+                    <div className="flex md:hidden items-center space-x-3">
+                      <div className="flex items-center space-x-2 text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <h1 className=" font-sfproregular text-xs text-green-400">
+                        Available
+                      </h1>
+                    </div>
+                    <div className="hidden md:flex items-center md:space-x-8 space-x-4">
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                      <div className="flex flex-col items-center justify-center text-center">
+                        <MdBed />
+                        <p className="font-fproregular text-[#545454] text-xs">
+                          One Bed
+                        </p>
+                      </div>
+                    </div>
+                    <h1 className="md:flex hidden font-sfproregular text-xs text-green-400">
+                      Available
+                    </h1>
+                  </div>
+                </div>
+                <div className="md:flex items-center hidden">
+                  <h1 className="text-base font-sfpromedium">$800</h1>
+                  <p className="font-sfproregular text-sm text-[#545454]">
+                    /month
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
