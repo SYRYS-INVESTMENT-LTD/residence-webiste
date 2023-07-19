@@ -1,5 +1,6 @@
 import React from 'react'
 import usflag from '../Assets/Icons/USFlag.png'
+import ricon from "../Assets/Icons/ResidentIcon.svg"
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 import { Link } from 'react-router-dom';
 
@@ -9,7 +10,7 @@ function Navbar() {
       <div className='h-10 flex justify-between items-center md:p-10 py-10 px-4'>
       <Link to={'/'}>
       <div>
-        <h1 className='font-sfprosemibold tracking-wide text-[#262626] text-xl'>RESIDENCE</h1>
+      <img src={ricon} alt='Resident' className='h-6' />
       </div>
       </Link>
         <div>

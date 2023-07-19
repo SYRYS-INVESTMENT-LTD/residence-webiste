@@ -5,16 +5,25 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Product from "./Product";
 import { productData } from "./data";
+import { useNavigate } from "react-router-dom";
 
 function Apartments() {
+  const navigate = useNavigate();
+
+  const handleClick = (productId) => {
+    navigate(`/products/${productId}`);
+  };
+
   const products = productData.map((product, i) => (
     <SwiperSlide key={i}>
-      <Product
-        key={product.id}
-        name={product.name}
-        url={product.imageurl}
-        location={product.location}
-      />
+      <div onClick={() => handleClick(product.id)}>
+        <Product
+          key={product.id}
+          name={product.name}
+          url={product.imageurl}
+          location={product.location}
+        />
+      </div>
     </SwiperSlide>
   ));
 
