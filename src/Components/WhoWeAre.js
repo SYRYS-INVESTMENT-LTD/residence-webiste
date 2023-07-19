@@ -1,7 +1,7 @@
 import React from "react";
 import ai from "../Assets/Images/appsImage.svg";
-import appstore from "../Assets/Icons/AppStore.png";
-import playstore from "../Assets/Icons/GooglePlay.png";
+import appstore from "../Assets/Icons/AppStoreGreen.svg";
+import playstore from "../Assets/Icons/PlayStoreGreen.svg";
 
 function WhoWeAre() {
   return (

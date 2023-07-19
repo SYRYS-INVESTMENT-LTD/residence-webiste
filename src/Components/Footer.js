@@ -1,5 +1,6 @@
 import React from 'react'
 import { MdMail } from 'react-icons/md'
+import rb from "../Assets/Icons/ResidentBlackIcon.svg"
 import Instagram from '../Assets/Icons/Instagram.png'
 import Facebook from '../Assets/Icons/Facebook.png'
 import Linkedin from '../Assets/Icons/Linkedin.png'
@@ -8,7 +9,7 @@ function Footer() {
   return (
     <div className='bg-[#262626] py-14 px-4 md:p-14 md:flex justify-between items-start md:space-y-0 space-y-10'>
       <div>
-        <h1 className='font-sfprobold text-xl text-white'>RESIDENCE</h1>
+        <img src={rb} alt='Resident' className='h-6' />
 
         <p className='font-sfproregular text-sm mt-4 text-white'>Experience hassle-free property</p>
         <p className='font-sfproregular text-sm text-white'>management like never before</p>

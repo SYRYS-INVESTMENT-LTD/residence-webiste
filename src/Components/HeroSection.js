@@ -1,6 +1,6 @@
 import React from "react";
-import appstore from "../Assets/Icons/AppStore.png";
-import playstore from "../Assets/Icons/GooglePlay.png";
+import appstore from "../Assets/Icons/AppStoreGreen.svg";
+import playstore from "../Assets/Icons/PlayStoreGreen.svg";
 
 import homescreen from "../Assets/Images/Rmobileapp.png";
 import payscreen from "../Assets/Images/Rpayscreen.png";
@@ -43,6 +43,7 @@ function HeroSection() {
         <img src={payscreen} alt="greem" className="md:h-72 h-40" />
       </div>
     </div>
+    
   );
 }
 
