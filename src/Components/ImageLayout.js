@@ -13,24 +13,24 @@ import { BsPerson } from "react-icons/bs";
 
 function ImageLayout() {
   return (
-    <div className="p-10">
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4">
+    <div className="md:p-10 ">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:0.5vh">
         <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
           <img
             src={h1}
             alt="House 1"
-            className="max-h-full object-cover cursor-pointer"
+            className="w-full h-full object-cover cursor-pointer"
           />
         </div>
         <div className="w-full md:w-1/2 flex flex-col space-y-2">
-          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1">
+          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
             <img
               src={h2}
               alt="House 2"
               className="w-full h-full object-cover cursor-pointer"
             />
           </div>
-          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1">
+          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
             <img
               src={h3}
               alt="House 3"
@@ -72,8 +72,8 @@ function ImageLayout() {
             </div>
           </div>
         </div>
-        <div className="flex mt-2">
-          <div className="md:w-1/2 sm:mr-3 flex-col md:space-x-2">
+        <div className="flex flex-col md:flex-row mt-2">
+          <div className="md:w-1/2 md:mr-3 flex flex-col md:space-y-2 mb-4">
             <div className="w-full">
               <div>
                 <h2 className="text-lg font-semibold">Description</h2>
@@ -125,7 +125,7 @@ function ImageLayout() {
             </div>
           </div>
 
-          <div className="md:w-1/2 md:mx-24 flex flex-col md:space-y-4">
+          <div className="md:w-1/2 flex flex-col md:space-y-4 sm:mt-4 md:mx-20">
             <div className="flex-row">
               <div className="bg-[#F5EEEB] p-4 rounded-lg shadow-lg">
                 <h2 className="text-xl text-center font-semibold">
@@ -416,7 +416,7 @@ function ImageLayout() {
         {/*Similar Listing*/}
         <div className="flex">
           <h1 className="font-sfprosemibold text-xl flex">Similar Listings</h1>
-          <h2 className="flex text-green-700 font-semibold md:ml-auto">
+          <h2 className="flex text-green-700 font-semibold ml-auto">
             See more
           </h2>
         </div>

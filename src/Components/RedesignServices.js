@@ -2,6 +2,7 @@ import React from "react";
 import residentlogo from "../Assets/Icons/ResidentsCircular.png";
 import services1 from "../Assets/Images/services1.svg";
 import services2 from "../Assets/Images/services2.svg";
+import services3 from "../Assets/Images/services3.svg";
 
 function RedesignServices() {
   return (
@@ -12,7 +13,7 @@ function RedesignServices() {
         </h1>
         <img src={residentlogo} alt="residents" className="md:h-16 h-10" />
       </div>
-      <div className="flex flex-col p-3 space-y-12">
+      <div className="flex flex-col p-3 space-y-6">
         <ServiceCard
           image={services2}
           title="Efficient Property Management"
@@ -27,7 +28,7 @@ function RedesignServices() {
           fullWidthOnMedium
         />
         <ServiceCard
-          image={services2}
+          image={services3}
           title="Rental and Sales Services"
           description="At Residence, we offer comprehensive rental and sales services. Whether you're looking to rent a property or sell your existing one, our dedicated team is here to assist you. With extensive property listings, tenant screening, strategic pricing, and professional representation, we ensure a smooth and successful rental or sales process."
           reverseOnMedium
@@ -64,11 +65,11 @@ function ServiceCard({
             reverseOnMedium ? "md:order-1 md:mr-2" : "md:ml-2"
           }`}
         >
-          <div className="flex flex-col">
-            <span className="text-[#5A5A5A] text-xs font-bold md:text-base mb-1">
+          <div className="flex flex-col space-y-3">
+            <span className="text-[#5A5A5A] text-3xl font-bold md:text-base mb-1">
               {title}
             </span>
-            <span className="text-xs text-[#5A5A5A] font-sfproregular md:text-sm sm:text-xs">
+            <span className="text-[#5A5A5A] text-xl font-sfproregular">
               {description}
             </span>
           </div>
