@@ -9,28 +9,28 @@ function RedesignServices() {
     <div className="md:m-20 mt-10 mx-6">
       <div className="flex items-center justify-between">
         <h1 className="font-sfpromedium text-lg font-bold tracking-wide">
-          OUR SERVICES
+          Explore Our Services
         </h1>
         <img src={residentlogo} alt="residents" className="md:h-16 h-10" />
       </div>
-      <div className="flex flex-col p-3 space-y-6">
+      <div className="flex flex-col p-1 space-y-1">
         <ServiceCard
           image={services2}
           title="Efficient Property Management"
-          description="At Residence, we offer comprehensive property management services to homeowners, landlords, and investors. Our experienced team handles tenant screening, rent collection, maintenance, financial reporting, and legal compliance. We maximize your property's value while minimizing your stress."
+          description="We use technology to ease communication and management for homeowners, landlords, and investors. Our experienced team handles tenant screening, rent collection, maintenance, financial reporting, and legal compliance. Watch your property's value increase and your stress reduce."
           reverseOnMedium
           fullWidthOnMedium
         />
         <ServiceCard
           image={services1}
-          title="Comprehensive Property Inspection"
-          description="At Residence, our experienced inspectors provide thorough property inspections for informed decision-making. We offer pre-purchase, routine maintenance, tenant move-in/out, and compliance inspections. Our detailed reports help identify issues, facilitate proactive maintenance, and ensure compliance."
+          title="All-inclusive Property Inspection"
+          description="Gain peace of mind with Resident's comprehensive property inspections. Our experienced inspectors provide detailed reports for informed decisions. From pre-purchase evaluations to routine maintenance, tenant move-in/out, and compliance inspections, we have you covered. Stay ahead of potential issues and ensure proactive maintenance and compliance. Your property is in safe hands with Resident."
           fullWidthOnMedium
         />
         <ServiceCard
           image={services3}
           title="Rental and Sales Services"
-          description="At Residence, we offer comprehensive rental and sales services. Whether you're looking to rent a property or sell your existing one, our dedicated team is here to assist you. With extensive property listings, tenant screening, strategic pricing, and professional representation, we ensure a smooth and successful rental or sales process."
+          description="Looking to rent or sell a property? Our dedicated team is here to assist you. With extensive property listings, tenant screening, strategic pricing, and professional representation, we ensure a smooth process. Finding your ideal property or achieving a successful sale has never been easier."
           reverseOnMedium
           fullWidthOnMedium
         />

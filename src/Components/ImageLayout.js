@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import h1 from "../Assets/Images/House1.svg";
 import h2 from "../Assets/Images/House.png";
 import h3 from "../Assets/Images/House2.svg";
@@ -7,14 +7,67 @@ import bi from "../Assets/Icons/buildingIcon.svg";
 import ti from "../Assets/Icons/trackIcon.svg";
 import bed from "../Assets/Icons/bedIcon.svg";
 import bath from "../Assets/Icons/bath-tubIcon.svg";
+import rent from "../Assets/Icons/ForRentIcon.svg";
+import money from "../Assets/Icons/MoneyIcon.svg";
+import tourImg from "../Assets/Icons/TourButton.svg";
 import apartment from "../Assets/Images/apartment.png";
+import { MdOutlineClose } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 
 function ImageLayout() {
+  // State to manage modal visibility and user selections
+  const [showModal, setShowModal] = useState(false);
+  const [selectedDate, setSelectedDate] = useState(null);
+  const [selectedTime, setSelectedTime] = useState(null);
+
+  // Array of time and date options for the modal form
+  const dateOptions = [
+    "2023-07-01",
+    "2023-07-02",
+    "2023-07-03",
+    "2023-07-01",
+    "2023-07-02",
+    "2023-07-03",
+    "2023-07-01",
+    "2023-07-02",
+    "2023-07-03",
+    "2023-07-01",
+    "2023-07-02",
+    "2023-07-03",
+  ];
+
+  const timeOptions = [
+    "09:00 AM",
+    "10:00 AM",
+    "11:00 AM",
+    "12:00 PM",
+    "01:00 PM",
+    "02:00 PM",
+    "03:00 PM",
+    "04:00 PM",
+    "05:00 PM",
+    "06:00 PM",
+    "07:00 PM",
+    "08:00 PM",
+  ];
+  // Function to handle the "Book a Physical tour" button click
+  const handleBookPhysicalTour = () => {
+    setShowModal(true);
+  };
+
+  // Function to handle when the user selects a date
+  const handleSelectDate = (date) => {
+    setSelectedDate(date);
+  };
+
+  // Function to handle when the user selects a time
+  const handleSelectTime = (time) => {
+    setSelectedTime(time);
+  };
   return (
     <div className="md:p-10 ">
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 md:0.5vh">
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-6 md:0.5vh">
         <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
           <img
             src={h1}
@@ -40,12 +93,14 @@ function ImageLayout() {
         </div>
       </div>
 
-      <div>
+      <div className="px-2">
         {/*Apartment Description*/}
         <div className="pt-4">
           <div className="flex flex-col md:flex-row">
             <div className="flex flex-col font-semibold md:flex-grow">
-              <p className="mt-6 text-2xl">Atoll Park Site</p>
+              <p className="mt-6 text-2xl font-sfproregular text-[#262626]">
+                Atoll Park Site
+              </p>
               <p className="text-xl">$40,000,000</p>
             </div>
             <div className="flex items-center md:ml-auto">
@@ -77,7 +132,7 @@ function ImageLayout() {
             <div className="w-full">
               <div>
                 <h2 className="text-lg font-semibold">Description</h2>
-                <p className="text-sm">
+                <p className="text-sm sm:px-2">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Suspendisse sed nisi lacus sed viverra tellus in hac
@@ -176,10 +231,141 @@ function ImageLayout() {
                 BOOK A PHYSICAL TOUR
               </h2>
               <p className="text-lg text-center">Experience a world unknown</p>
-              <button className="bg-green-700 text-white mt-4 px-6 py-2 w-full rounded-md">
+              <button
+                className="bg-green-700 text-white mt-4 px-6 py-2 w-full rounded-md"
+                onClick={handleBookPhysicalTour}
+              >
                 Book a Physical tour
               </button>
             </div>
+            {/* Modal Form */}
+            {showModal && (
+              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 p-10">
+                <div className="bg-white p-6 rounded-lg shadow-lg">
+                  <div className="text-center">
+                    <div>
+
+                    <h2 className="text-xl text-center font-semibold">
+                      BOOK A TOUR
+                    </h2>
+                    <h2>
+                      We'll connect you with a local agent who can give you a
+                    </h2>
+                    <h2>personalized tour of the home in person</h2>
+                    </div>
+                    <button
+                      onClick={() => {
+                        setShowModal(false);
+                        // Reset the selectedDate and selectedTime states if the user cancels
+                        setSelectedDate(null);
+                        setSelectedTime(null);
+                      }}
+                      className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
+                    >
+                      <MdOutlineClose size={20} className="mr-1" />
+                    </button>
+                  </div>
+                  <div className="flex items-center space-x-4">
+                    <img
+                      src={tourImg}
+                      alt="For Rent Button"
+                      className="w-32 h-32"
+                    />
+                    <div className="flex flex-col flex-grow space-y-2">
+                      <h1 className="text-[#262626] font-sfprosemibold text-xl">
+                        Atoll Park Site
+                      </h1>
+                      <div className="flex items-center space-x-2">
+                        <img
+                          src={money}
+                          alt="For Rent Button"
+                          className="w-6 h-6"
+                        />
+                        <h3 className="text-[#262626] font-sfprotext text-lg">
+                          $800/month
+                        </h3>
+                      </div>
+                      <div className="flex items-center space-x-2">
+                        <RiMapPinLine color="#000" size={18} className="mr-1" />
+                        <h3 className="text-[#262626] font-sfprotext">
+                          Kardesleer sokak, Edremit Kyrenia
+                        </h3>
+                      </div>
+                    </div>
+                    <div className="ml-auto">
+                      <img src={rent} alt="For Rent Button" className="h-10" />
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <h3 className="text-lg font-semibold">Select a date</h3>
+                    <div className="flex flex-wrap mt-2 space-x-2 space-y-4">
+                      {dateOptions.map((date, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleSelectDate(date)}
+                          className={`w-full h-full px-2 py-2 rounded-md ${
+                            selectedDate === date
+                              ? "bg-green-700 text-white"
+                              : "bg-gray-200"
+                          }`}
+                          style={{
+                            flexBasis: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                            maxWidth: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                          }}
+                        >
+                          {date}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+                  <div className="mt-6">
+                    <h3 className="text-lg font-semibold">Select a time</h3>
+                    <div className="flex flex-wrap mt-2 space-x-2 space-y-4">
+                      {timeOptions.map((time, index) => (
+                        <button
+                          key={index}
+                          onClick={() => handleSelectTime(time)}
+                          className={`w-full h-full px-2 py-2 rounded-md ${
+                            selectedTime === time
+                              ? "bg-green-700 text-white"
+                              : "bg-gray-200"
+                          }`}
+                          style={{
+                            flexBasis: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                            maxWidth: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                          }}
+                        >
+                          {time}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex mt-6 space-x-2">
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:border-blue-300"
+                      placeholder="Enter your email"
+                    />
+                    <button
+                      onClick={() => {
+                        // Add your function to handle form submission here
+                        // For example, you can display a success message and close the modal.
+                        setShowModal(false);
+                        // Reset the selectedDate and selectedTime states
+                        setSelectedDate(null);
+                        setSelectedTime(null);
+                      }}
+                      className="bg-green-700 text-white px-6 py-2 rounded-md mr-2"
+                    >
+                      Book Tour
+                    </button>
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -190,7 +376,7 @@ function ImageLayout() {
             {/*APARTMENT PRICES AND AVAILABILITY*/}
 
             <div className="mt-10 md:mx-16 mx-4">
-              <h1 className="font-sfprosemibold text-xl">
+              <h1 className="font-sfprosemibold  text-xl">
                 Apartment Prices and availability
               </h1>
               <div className="flex items-center flex-shrink-0 whitespace-nowrap overflow-hidden overflow-x-auto overflow-y-hidden space-x-4 mt-10 mb-4 md:space-x-4">
@@ -420,7 +606,7 @@ function ImageLayout() {
             See more
           </h2>
         </div>
-        <div className="flex md:space-x-4">
+        <div className="flex p-2 space-x-2">
           <div className="flex flex-col items-start my-4 w-full">
             <img
               src={h3}

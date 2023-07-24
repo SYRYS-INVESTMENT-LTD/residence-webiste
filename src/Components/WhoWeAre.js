@@ -2,28 +2,30 @@ import React from "react";
 import ai from "../Assets/Images/appsImage.svg";
 import appstore from "../Assets/Icons/AppStoreGreen.svg";
 import playstore from "../Assets/Icons/PlayStoreGreen.svg";
+import ri from "../Assets/Icons/ResidentBlackIcon.svg";
 
 function WhoWeAre() {
   return (
-    <div className="bg-who bg-cover mt-10 md:p-10 pt-10 px-6 pb-10">
-      <h1 className="font-sfprobold text-2xl">WHO ARE</h1>
+    <div className="bg-who bg-cover mt-10 md:p-10 pt-10 px-6 pb-5">
+      <div className="flex space-x-2 justify-center">
+        <img src={ri} alt="greem" className="h-8 flex-col" />
+        <h1 className="font-sfprobold text-2xl flex-col">We are Resident!</h1>
+      </div>
       <div className="md:flex md:space-x-20 items-start">
         <div>
           <div className="flex items-start space-x-4">
-            <h1 className="font-sfprobold text-2xl">WE?</h1>
-            <div>
-              <p className="font-sfproregular text-[#5A5A5A] text-xs mt-1">
-                At Resident, we understand the unique needs of both tenants and
-                landlords. With years of experience in the industry, we have
-                honed our expertise in delivering comprehensive property
-                management solutions that prioritize efficiency, transparency,
-                and customer satisfaction.
+            <div className= "mt-2">
+              <p className="font-sfproregular text-[#5A5A5A] mt-1">
+                We use technology to build efficiency and delight in property
+                management and life. No barriers to an organized and happy life.
+                Our expertise focuses on a guaranteed return on investment,
+                property longevity, and a gratifying experience.
               </p>
-              <p className="font-sfproregular text-[#5A5A5A] text-xs mt-8">
-                Our mission is to alleviate the stress and complexities often
-                associated with property management, whether you are a tenant
-                seeking a comfortable and well-maintained living space or a
-                landlord.
+              <p className="font-sfproregular text-[#5A5A5A] mt-8">
+                Our team is fast-paced, result-driven, and enjoys creative
+                freedom. With years of experience in the industry, we strive to
+                give everyone access to a well-managed and enjoyable life. Join
+                the Resident family today!
               </p>
             </div>
           </div>

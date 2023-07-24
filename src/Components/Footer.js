@@ -1,6 +1,6 @@
 import React from 'react'
 import { MdMail } from 'react-icons/md'
-import rb from "../Assets/Icons/ResidentBlackIcon.svg"
+import rb from "../Assets/Icons/ResidentWhiteIcon.svg"
 import Instagram from '../Assets/Icons/Instagram.png'
 import Facebook from '../Assets/Icons/Facebook.png'
 import Linkedin from '../Assets/Icons/Linkedin.png'

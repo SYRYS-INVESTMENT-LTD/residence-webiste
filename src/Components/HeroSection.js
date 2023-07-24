@@ -9,16 +9,14 @@ function HeroSection() {
   return (
     <div className="itms-center justify-center text-center mt-16">
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
-        UNLOCKING SEAMLESS PROPERTY
+        Enjoy a Stress-Free Life with Our
       </h1>
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
-        MANAGEMENT SOLUTIONS
+        Property Management Solutions
       </h1>
       <div className="md:mx-60 mx-4">
         <p className="font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
-          Experience hassle-free property management like never before with
-          Residence. Our comprehensive suite of services bridges the gap between
-          tenants and landlords, offering a seamless experience for all.
+          Experience guaranteed returns and a quality lifestyle with Resident. Our comprehensive services bridge the gap between tenants and property owners, ensuring efficiency and delight for everyone.
         </p>
       </div>
       <div className="flex items-center mt-10 md:space-x-8 space-x-4 justify-center">
