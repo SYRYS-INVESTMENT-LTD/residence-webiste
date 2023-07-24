@@ -28,7 +28,7 @@ function Apartments() {
   ));
 
   return (
-    <div className="mt-7">
+    <div className="mt-20">
       <div className="flex items-center flex-col justify-center">
         <h1 className="font-sfprobold md:text-2xl text-base text-[rgb(38,38,38)] flex-row">
           APARTMENTS AND SITES

@@ -6,37 +6,22 @@ import services3 from "../Assets/Images/services3.svg";
 
 function RedesignServices() {
   return (
-    <div className="md:m-20 mt-10 mx-6">
-      <div className="flex items-center justify-between">
-        <h1 className="font-sfpromedium text-lg font-bold tracking-wide">
-          Explore Our Services
-        </h1>
-        <img src={residentlogo} alt="residents" className="md:h-16 h-10" />
+    <div className="mx-20">
+      <div className="items-center text-center justify-center mt-20">
+        <h1 className="font-sfproregular text-base">COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS</h1>
+        <p className="font-sfproregular text-[#5a5a5a] text-xs text-center mt-1">Discover a Wide Range of Services for Buying, Selling, and Managing Properties</p>
       </div>
-      <div className="flex flex-col p-1 space-y-1">
-        <ServiceCard
-          image={services2}
-          title="Efficient Property Management"
-          description="We use technology to ease communication and management for homeowners, landlords, and investors. Our experienced team handles tenant screening, rent collection, maintenance, financial reporting, and legal compliance. Watch your property's value increase and your stress reduce."
-          reverseOnMedium
-          fullWidthOnMedium
-        />
-        <ServiceCard
-          image={services1}
-          title="All-inclusive Property Inspection"
-          description="Gain peace of mind with Resident's comprehensive property inspections. Our experienced inspectors provide detailed reports for informed decisions. From pre-purchase evaluations to routine maintenance, tenant move-in/out, and compliance inspections, we have you covered. Stay ahead of potential issues and ensure proactive maintenance and compliance. Your property is in safe hands with Resident."
-          fullWidthOnMedium
-        />
-        <ServiceCard
-          image={services3}
-          title="Rental and Sales Services"
-          description="Looking to rent or sell a property? Our dedicated team is here to assist you. With extensive property listings, tenant screening, strategic pricing, and professional representation, we ensure a smooth process. Finding your ideal property or achieving a successful sale has never been easier."
-          reverseOnMedium
-          fullWidthOnMedium
-        />
+
+      <div className="md:flex items-center mt-20 justify-center md:space-x-4">
+        <div className="w-[50%]">
+          <h1 className="font-sfproregular text-sm">Efficient Property Management</h1>
+          <p className="font-sfproregular text-[#5a5a5a] text-xs mt-1 w-[70%]">We use technology to ease communication and management for homeowner, landlords and investors. Our experienced team handles tenants screening, rent collection, maintenance, and much more. Watch your property’s value increase and your stress reduce.</p>
+        </div>
+        <div>
+        <img src={services1} className="h-80 w-80"/>
+        </div>
       </div>
-    </div>
-  );
+    </div>);
 }
 
 function ServiceCard({
@@ -48,22 +33,19 @@ function ServiceCard({
 }) {
   return (
     <div
-      className={`flex flex-col md:w-1/2 md:mr-4 ${
-        fullWidthOnMedium ? "w-full md:w-auto" : ""
-      }`}
+      className={`flex flex-col md:w-1/2 md:mr-4 ${fullWidthOnMedium ? "w-full md:w-auto" : ""
+        }`}
     >
       <div className="md:flex items-center mb-2 md:space-y-0 space-y-12 mt-12">
         <div
-          className={`md:w-1/2 ${
-            reverseOnMedium ? "md:order-2 md:ml-2" : "md:mr-2"
-          }`}
+          className={`md:w-1/2 ${reverseOnMedium ? "md:order-2 md:ml-2" : "md:mr-2"
+            }`}
         >
-          <img src={image} alt="service" className="h-auto" />
+          <img src={image} alt="service" className="" />
         </div>
         <div
-          className={`md:w-1/2 ${
-            reverseOnMedium ? "md:order-1 md:mr-2" : "md:ml-2"
-          }`}
+          className={`md:w-1/2 ${reverseOnMedium ? "md:order-1 md:mr-2" : "md:ml-2"
+            }`}
         >
           <div className="flex flex-col space-y-3">
             <span className="text-[#5A5A5A] text-3xl font-bold md:text-base mb-1">
