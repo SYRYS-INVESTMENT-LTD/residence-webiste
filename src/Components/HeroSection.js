@@ -7,7 +7,7 @@ import payscreen from "../Assets/Images/Rpayscreen.png";
 
 function HeroSection() {
   return (
-    <div className="itms-center justify-center text-center mt-16">
+    <div className="items-center justify-center text-center mt-16">
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
         Enjoy a Stress-Free Life with Our
       </h1>

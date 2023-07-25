@@ -4,7 +4,7 @@ import { RiMapPinLine } from "react-icons/ri";
 export default function Product(props) {
   return (
     <div className="relative p-4">
-      <div className="relative">
+      <div className="relative cursor-pointer">
         <img
           className="object-cover h-64 w-full"
           src={props.url}

@@ -3,20 +3,29 @@ import { MdArrowForward, MdOutlineArrowDropDown } from "react-icons/md";
 import ri from "../Assets/Icons/ResidentIcon.svg";
 
 function FAQ() {
-  const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const questions = [
-    "How can I search for available properties?",
-    "Question 2",
-    "Question 3",
-    "Question 4",
+    "What is property and site management on the Resident platform?",
+    "Who can use the Resident platform?",
+    "Can the features be customized based on my preferences?",
+    "Yes, Resident can accessed and managed through our mobile app which is available on the App Store and Google Play.",
+    "How does the support system work?",
+    "What is property inspection?",
   ];
 
   const answers = [
-    "Answer 1: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Answer 2: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Answer 3: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-    "Answer 4: Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    "Property and Site Management on the Resident platform allows you to manage your properties and sites with ease. It provides a comprehensive overview of each property, including contract details, utility payment information, and payment history.",
+
+    "The Resident platform is open to all property owners, landlords, and tenants looking to streamline property management, access additional services, and enhance communication with the management company.",
+
+    "Yes, the features on the Resident platform can be tailored and expanded upon to meet your individual needs.The Services Section offers additional services beyond regular maintenance. Users can browse available services, select desired options, and make service requests, ensuring convenience and personalized solutions.",
+    
+    "Yes, Resident can accessed and managed through our mobile app which is available on the App Store and Google Play.",
+
+    "The support system facilitates direct communication with the management company. You can report maintenance issues, seek assistance, and make inquiries, fostering seamless and efficient support.",
+
+    "The property inspection feature, currently in BETA mode, allows you to conduct property inspections, perform checks, and provide feedback on your property's condition, further enhancing property management efficiency.",
   ];
 
   const handleQuestionClick = (index) => {

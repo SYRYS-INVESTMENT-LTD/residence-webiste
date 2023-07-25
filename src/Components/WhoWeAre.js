@@ -11,7 +11,7 @@ function WhoWeAre() {
         <img src={ri} alt="greem" className="h-8 flex-col" />
         <h1 className="font-sfprobold text-2xl flex-col">We are Resident!</h1>
       </div>
-      <div className="md:flex md:space-x-20 items-start">
+      <div className="md:flex md:space-x-20 items-start mt-10">
         <div>
           <div className="flex items-start space-x-4">
             <div className= "mt-2">
@@ -51,7 +51,7 @@ function WhoWeAre() {
           </div>
         </div>
         <div className="flex items-start">
-          <div className="h-80 w-80">
+          <div className="h-90 w-80">
             <img
               className="object-contain h-full w-full"
               src={ai}

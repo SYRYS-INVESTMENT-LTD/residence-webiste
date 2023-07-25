@@ -14,8 +14,55 @@ import apartment from "../Assets/Images/apartment.png";
 import { MdOutlineClose } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
+import "react-multi-carousel/lib/styles.css";
+import Carousel from "react-multi-carousel";
 
+const ImageCarousel = ({ images }) => {
+  const responsive = {
+    desktop: {
+      breakpoint: { max: 3000, min: 1024 },
+      items: 3,
+    },
+    tablet: {
+      breakpoint: { max: 1024, min: 768 },
+      items: 2,
+    },
+    mobile: {
+      breakpoint: { max: 768, min: 0 },
+      items: 1,
+    },
+  };
+
+  return (
+    <Carousel
+      responsive={responsive}
+      additionalTransfrom={0}
+      arrows
+      draggable
+      swipeable
+      centerMode
+      infinite
+      focusOnSelect
+      containerClass="carousel-container"
+      itemClass="carousel-item-padding-40-px"
+    >
+      {images.map((image, index) => (
+        <div key={index}>
+          <img src={image} alt={`House ${index + 1}`} />
+        </div>
+      ))}
+    </Carousel>
+  );
+};
 function ImageLayout() {
+  const images = [h1, h2, h3];
+
+  const [showImageCarousel, setShowImageCarousel] = useState(false);
+
+  const handleSeeMoreClick = () => {
+    setShowImageCarousel(!showImageCarousel);
+  };
+
   // State to manage modal visibility and user selections
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
@@ -74,6 +121,11 @@ function ImageLayout() {
             alt="House 1"
             className="w-full h-full object-cover cursor-pointer"
           />
+          {showImageCarousel && (
+            <div className="md:hidden">
+              <ImageCarousel images={images} />
+            </div>
+          )}
         </div>
         <div className="w-full md:w-1/2 flex flex-col space-y-2">
           <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
@@ -83,14 +135,25 @@ function ImageLayout() {
               className="w-full h-full object-cover cursor-pointer"
             />
           </div>
-          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
+          <div
+            className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer"
+            onClick={handleSeeMoreClick}
+          >
             <img
               src={h3}
               alt="House 3"
-              className="w-full h-full object-cover cursor-pointer"
+              className="w-full h-full object-cover"
             />
+            <div className="bottom-4 right-4 text-white text-lg font-bold">
+              See More
+            </div>
           </div>
         </div>
+        {showImageCarousel && (
+          <div className="md:hidden mt-4">
+            <ImageCarousel images={images} />
+          </div>
+        )}
       </div>
 
       <div className="px-2">
@@ -244,14 +307,13 @@ function ImageLayout() {
                 <div className="bg-white p-6 rounded-lg shadow-lg">
                   <div className="text-center">
                     <div>
-
-                    <h2 className="text-xl text-center font-semibold">
-                      BOOK A TOUR
-                    </h2>
-                    <h2>
-                      We'll connect you with a local agent who can give you a
-                    </h2>
-                    <h2>personalized tour of the home in person</h2>
+                      <h2 className="text-xl text-center font-semibold">
+                        BOOK A TOUR
+                      </h2>
+                      <h2>
+                        We'll connect you with a local agent who can give you a
+                      </h2>
+                      <h2>personalized tour of the home in person</h2>
                     </div>
                     <button
                       onClick={() => {
