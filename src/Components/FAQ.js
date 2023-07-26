@@ -50,7 +50,6 @@ function FAQ() {
               <div className="flex items-center justify-between m-3 space-y-2">
                 <h1 className="font-sfproregular text-[#262626] text-base">
                   {" "}
-                  {/* Increased font size */}
                   {question}
                 </h1>
                 <MdOutlineArrowDropDown />
@@ -65,18 +64,15 @@ function FAQ() {
         </div>
         <div className="md:w-[50%] flex items-center">
           {" "}
-          {/* Added flex class */}
           <div className="md:ml-8 md:mt-4">
             <img src={ri} alt="Resident Icon Green" className="text-center" />
             {activeIndex !== null && (
               <div>
                 <p className="text-lg mt-4 font-semibold">
                   {" "}
-                  {/* Increased font size */}
                   {questions[activeIndex]}
                 </p>
                 <p className="text-base">{answers[activeIndex]}</p>{" "}
-                {/* Increased font size */}
               </div>
             )}
           </div>

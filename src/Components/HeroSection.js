@@ -25,14 +25,14 @@ function HeroSection() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={appstore} alt="greem" className="h-10 cursor-pointer" />
+          <img src={appstore} alt="greem" className="h-14 cursor-pointer" />
         </a>
         <a
           href="https://play.google.com/store/apps/details?id=com.syrysdevelopers.syrysresidents"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={playstore} alt="greem" className="h-10 cursor-pointer" />
+          <img src={playstore} alt="greem" className="h-14 cursor-pointer" />
         </a>
       </div>
 

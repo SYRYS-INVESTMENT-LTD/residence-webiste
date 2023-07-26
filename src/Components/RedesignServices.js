@@ -5,12 +5,12 @@ import services3 from "../Assets/Images/services3.svg";
 
 function RedesignServices() {
   return (
-    <div className="mx-4">
+    <div className="">
       <div className="items-center text-center justify-center mt-20">
-        <p className="font-sfproregular text-base font-bold 3xl ">
+        <p className="font-sfproregular font-bold text-4xl ">
           COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
         </p>
-        <p className="font-sfproregular text-[#5a5a5a] text-2xl text-center mt-1">
+        <p className="font-sfproregular text-[#5a5a5a] text-xl text-center mt-1">
           Discover a Wide Range of Services for Buying, Selling, and Managing
           Properties
         </p>
@@ -21,7 +21,7 @@ function RedesignServices() {
           <h1 className="font-sfproregular text-sm">
             Efficient Property Management
           </h1>
-          <p className="font-sfproregular text-[#5a5a5a] text-xs mt-1">
+          <p className="font-sfproregular text-[#5a5a5a] mt-1">
             We use technology to ease communication and management for
             homeowner, landlords and investors. Our experienced team handles
             tenants screening, rent collection, maintenance, and much more.
@@ -32,15 +32,15 @@ function RedesignServices() {
           <img src={services1} className="h-100 w-80" alt="greemily" />
         </div>
       </div>
-      <div className="md:flex items-center mt-20 justify-center md:space-x-8 sm:flex-col">
+      <div>
         {window.innerWidth < 640 ? (
           <>
             <div className="md:flex items-center mt-20 justify-center md:space-x-8 sm:flex-row">
               <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-sfproregular text-sm">
+                <h1 className="font-sfproregular">
                   All-inclusive Property Inspection
                 </h1>
-                <p className="font-sfproregular text-[#5a5a5a] text-xs mt-1">
+                <p className="font-sfproregular text-[#5a5a5a] mt-1">
                   Gain peace of mind with Resident's comprehensive property
                   inspections. Our experienced inspectors provide detailed
                   reports for informed decisions. From pre-purchase evaluations
@@ -62,10 +62,10 @@ function RedesignServices() {
                 <img src={services2} className="h-100 w-80 " alt="greemily" />
               </div>
               <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-sfproregular text-sm">
+                <h1 className="font-sfproregular">
                   All-inclusive Property Inspection
                 </h1>
-                <p className="font-sfproregular text-[#5a5a5a] text-xs mt-1">
+                <p className="font-sfproregular text-[#5a5a5a] mt-1">
                   Gain peace of mind with Resident's comprehensive property
                   inspections. Our experienced inspectors provide detailed
                   reports for informed decisions. From pre-purchase evaluations
@@ -82,10 +82,10 @@ function RedesignServices() {
 
       <div className="md:flex items-center mt-20 justify-center md:space-x-8 ">
         <div className="md:w-[50%] flex flex-col">
-          <h1 className="font-sfproregular text-sm">
+          <h1 className="font-sfproregular">
             Rental and Sales Services
           </h1>
-          <p className="font-sfproregular text-[#5a5a5a] text-xs mt-1">
+          <p className="font-sfproregular text-[#5a5a5a] mt-1">
             Looking to rent or sell a property? Our dedicated team is here to
             assist you. With extensive property listings, tenant screening,
             strategic pricing, and professional representation, we ensure a

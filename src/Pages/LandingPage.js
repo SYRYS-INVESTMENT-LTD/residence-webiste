@@ -15,9 +15,9 @@ function LandingPage() {
                 <Navbar />
                 <HeroSection />
             </div>
-            <Apartments/>
             {/*<OurServices />*/}
             <RedesignServices/>
+            <Apartments/>
             <WhoWeAre />
             <FAQ />
             <Footer />

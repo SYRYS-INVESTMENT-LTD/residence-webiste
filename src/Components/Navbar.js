@@ -16,22 +16,22 @@ function Navbar() {
         <div>
           <ul className="md:flex hidden space-x-12 items-center">
             <Link to={"/"}>
-              <div className="font-sfpromedium text-[#262626] text-sm cursor-pointer">
+              <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
                 Home
               </div>
             </Link>
             <Link to={"/listings"}>
-              <div className="font-sfpromedium text-[#262626] text-sm cursor-pointer">
+              <div className="font-sfpromedium text-[#262626]  hover:text-green-700 text-sm cursor-pointer">
                 Listings
               </div>
             </Link>
-            <li className="font-sfpromedium text-[#262626] text-sm cursor-pointer">
+            <li className="font-sfpromedium text-[#262626]  hover:text-green-700 text-sm cursor-pointer">
               Our Services
             </li>
-            <li className="font-sfpromedium text-[#262626] text-sm cursor-pointer">
+            <li className="font-sfpromedium text-[#262626]  hover:text-green-700 text-sm cursor-pointer">
               About Us
             </li>
-            <li className="font-sfpromedium text-[#262626] text-sm cursor-pointer">
+            <li className="font-sfpromedium text-[#262626]  hover:text-green-700 text-sm cursor-pointer">
               Contact
             </li>
           </ul>
