@@ -15,6 +15,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
 
 const ImageCarousel = ({ images }) => {
@@ -60,7 +61,7 @@ function ImageLayout() {
   const [showImageCarousel, setShowImageCarousel] = useState(false);
 
   const handleSeeMoreClick = () => {
-    setShowImageCarousel(!showImageCarousel);
+    setShowImageCarousel((prevShowImageCarousel) => !prevShowImageCarousel);
   };
 
   // State to manage modal visibility and user selections
@@ -139,14 +140,18 @@ function ImageLayout() {
             className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer"
             onClick={handleSeeMoreClick}
           >
+            <div className="text-white absolute text-lg font-bold rounded-full pointer-events-none bottom-0 right-12 border border-white p-2">
+            <Link to={"/listings"}>
+              <div className="font-sfpromedium text-[#262626] text-sm cursor-pointer">
+                See More
+              </div>
+            </Link>
+            </div>
             <img
               src={h3}
               alt="House 3"
               className="w-full h-full object-cover"
             />
-            <div className="bottom-4 right-4 text-white text-lg font-bold">
-              See More
-            </div>
           </div>
         </div>
         {showImageCarousel && (
