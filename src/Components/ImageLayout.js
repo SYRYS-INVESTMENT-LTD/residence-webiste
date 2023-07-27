@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import h1 from "../Assets/Images/House1.svg";
-import h2 from "../Assets/Images/House.png";
-import h3 from "../Assets/Images/House2.svg";
+import h2 from "../Assets/Images/photo1apt.jpg";
+import h3 from "../Assets/Images/photo2apt.jpg";
 import bp from "../Assets/Icons/blueprintIcon.svg";
 import bi from "../Assets/Icons/buildingIcon.svg";
 import ti from "../Assets/Icons/trackIcon.svg";
@@ -85,18 +85,21 @@ function ImageLayout() {
               className="w-full h-full object-cover cursor-pointer"
             />
           </div>
-          <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer">
-            <Link to={"/listings"}>
-              <div className="text-white absolute font-bold rounded-full pointer-events-none bottom-0 right-12 border border-white p-2 font-sfpromedium text-sm cursor-pointer">
-                  See More
-              </div>
-            </Link>
-            <img
-              src={h3}
-              alt="House 3"
-              className="w-full h-full object-cover"
-            />
-          </div>
+          <Link to={"/listings"}>
+  <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
+    <img
+      src={h3}
+      alt="House 3"
+      className="w-full h-full object-cover"
+    />
+    <div className="absolute flex justify-end items-end bottom-4 right-4">
+      <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
+        See More
+      </div>
+    </div>
+  </div>
+</Link>
+
         </div>
       </div>
 
