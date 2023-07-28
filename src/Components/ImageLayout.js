@@ -86,20 +86,19 @@ function ImageLayout() {
             />
           </div>
           <Link to={"/listings"}>
-  <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
-    <img
-      src={h3}
-      alt="House 3"
-      className="w-full h-full object-cover"
-    />
-    <div className="absolute flex justify-end items-end bottom-4 right-4">
-      <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
-        See More
-      </div>
-    </div>
-  </div>
-</Link>
-
+            <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
+              <img
+                src={h3}
+                alt="House 3"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute flex justify-end items-end bottom-4 right-4">
+                <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
+                  See More
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
 
@@ -620,7 +619,7 @@ function ImageLayout() {
             <img
               src={h3}
               alt="House 3"
-              className="w-full h-full object-contain cursor-pointer"
+              className="md:w-full md:h-full h-16 object-contain cursor-pointer"
             />
             <div className="flex flex-col ml-4">
               <h2 className="text-lg font-semibold">Name of Apartment</h2>

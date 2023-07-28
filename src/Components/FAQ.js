@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdArrowForward, MdOutlineArrowDropDown } from "react-icons/md";
+import { MdArrowForward} from "react-icons/md";
 import ri from "../Assets/Icons/ResidentIcon.svg";
 
 function FAQ() {
@@ -48,11 +48,11 @@ function FAQ() {
               onClick={() => handleQuestionClick(index)}
             >
               <div className="flex items-center justify-between m-3 space-y-2">
-                <h1 className="font-sfproregular text-[#262626] text-base">
+                <h1 className="font-sfproregular text-[#262626] hover:text-[#199976] text-base">
                   {" "}
                   {question}
                 </h1>
-                <MdOutlineArrowDropDown />
+                {activeIndex === index ? <MdArrowForward size={56} color="#199976" /> : null}
               </div>
               <div
                 className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${

@@ -6,17 +6,17 @@ import services3 from "../Assets/Images/services3.svg";
 function RedesignServices() {
   return (
     <div className="">
-      <div className="items-center text-center justify-center mt-20">
+      <div className="items-center text-center justify-center mt-20 space-y-4">
         <p className="font-sfproregular font-bold text-4xl ">
           COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
         </p>
-        <p className="font-sfproregular text-[#5a5a5a] text-xl text-center mt-1">
+        <p className="font-sfproregular text-[#5a5a5a] text-xl text-center font-semibold">
           Discover a Wide Range of Services for Buying, Selling, and Managing
           Properties
         </p>
       </div>
 
-      <div className="md:flex items-center mt-20 justify-center md:space-x-8">
+      <div className="md:flex items-center mt-20 justify-center md:space-x-32">
         <div className="md:w-[50%] flex flex-col">
           <h1 className="font-sfproregular text-sm">
             Efficient Property Management
@@ -35,7 +35,7 @@ function RedesignServices() {
       <div>
         {window.innerWidth < 640 ? (
           <>
-            <div className="md:flex items-center mt-20 justify-center md:space-x-8 sm:flex-row">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
               <div className="md:w-[50%] flex flex-col">
                 <h1 className="font-sfproregular">
                   All-inclusive Property Inspection
@@ -57,7 +57,7 @@ function RedesignServices() {
           </>
         ) : (
           <>
-            <div className="md:flex items-center mt-20 justify-center md:space-x-8 sm:flex-row">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
               <div>
                 <img src={services2} className="h-100 w-80 " alt="greemily" />
               </div>
@@ -80,8 +80,8 @@ function RedesignServices() {
         )}
       </div>
 
-      <div className="md:flex items-center mt-20 justify-center md:space-x-8 ">
-        <div className="md:w-[50%] flex flex-col">
+      <div className="md:flex items-center mt-20 justify-center md:space-x-32 ">
+<div className="md:w-[50%] flex flex-col">
           <h1 className="font-sfproregular">
             Rental and Sales Services
           </h1>

@@ -26,7 +26,7 @@ const ApartmentCard = ({ name, price, location, image }) => {
 function Listings() {
   return (
     <div>
-      <div className="bg-listbg2 bg-cover bg-opacity-30" style={{ backgroundColor: 'rgba(0, 0, 0, 0.3)' }}>
+      <div className="bg-listbg2 bg-cover bg-opacity-30" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
         <div>
           <div className="h-10 flex justify-between items-center md:p-10 py-10 px-4">
             <Link to={"/"}>
