@@ -12,10 +12,10 @@ module.exports = {
         sfprosemibold: ['SFPRODISPLAYSEMIBOLD', 'sans-serif']
       },
       backgroundImage: {
-        'hero': "url('/src/Assets/Images/HeroGradient.png')",
+        'hero': "url('/src/Assets/Images/HeroGradient1.png')",
         'who': "url('/src/Assets/Images/Whoarewe.png')",
-        'listbg': "url('/src/Assets/Images/listingsbg.svg')",
-        'listbg2': "url('/src/Assets/Images/listingsbg3.png')",
+        'listbg': "url('/src/Assets/Images/listingsbg3.png')",
+        'listbg2': "url('/src/Assets/Images/listingsbg5.png')",
       }
     },
   },

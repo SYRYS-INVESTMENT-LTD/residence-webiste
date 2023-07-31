@@ -26,7 +26,7 @@ const ApartmentCard = ({ name, price, location, image }) => {
 function Listings() {
   return (
     <div>
-      <div className="bg-listbg2 bg-cover bg-opacity-30" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)' }}>
+      <div className="bg-listbg2 bg-cover bg-opacity-30" style={{ backgroundColor: 'rgba(0, 0, 0, 0.75)', backgroundBlendMode: 'multiply'}}>
         <div>
           <div className="h-10 flex justify-between items-center md:p-10 py-10 px-4">
             <Link to={"/"}>
@@ -60,7 +60,7 @@ function Listings() {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 cursor-pointer">
                 <img src={usflag} alt="language" className="h-6" />
-                <MdKeyboardArrowDown size={24} />
+                <MdKeyboardArrowDown size={24} color="fff" />
               </div>
 
               <MdOutlineMenu size={24} className="md:hidden cursor-pointer" />
@@ -68,13 +68,14 @@ function Listings() {
           </div>
         </div>
         <div className="items-center justify-center text-center py-20">
-          <h1 className="font-sfprobold md:text-2xl text-base text-white">
-            EXPLORE OUR PROPERTIES
-          </h1>
-          <h1 className="font-sfprobold md:text-xl text-base text-white">
-            Experience guaranteed returns a quality lifestyle with Resident
-          </h1>
-        </div>
+  <h1 className="font-sfprotext font-semibold text-3xl md:text-2xl text-white leading-10 tracking-tight">
+    EXPLORE OUR PROPERTIES
+  </h1>
+  <h1 className="font-sfprotext font-semibold text-xl md:text-xl text-white leading-8 tracking-tight">
+    Experience guaranteed returns a quality lifestyle with Resident
+  </h1>
+</div>
+
       </div>
       <div className="mt-10 md:mx-16 mx-4">
         <div className="justify-center flex items-center flex-shrink-0 overflow-x-auto space-x-4 mt-10 mb-4 md:space-x-4">

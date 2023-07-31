@@ -7,10 +7,10 @@ function RedesignServices() {
   return (
     <div className="">
       <div className="items-center text-center justify-center mt-20 space-y-4">
-        <p className="font-sfproregular font-bold text-4xl ">
+        <p className="font-sfproregular font-semibold text-4xl ">
           COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
         </p>
-        <p className="font-sfproregular text-[#5a5a5a] text-xl text-center font-semibold">
+        <p className="font-sfproregular text-[#5a5a5a] text-xl text-center font-medium">
           Discover a Wide Range of Services for Buying, Selling, and Managing
           Properties
         </p>
@@ -29,7 +29,7 @@ function RedesignServices() {
           </p>
         </div>
         <div>
-          <img src={services1} className="h-100 w-80" alt="greemily" />
+          <img src={services2} className="h-100 w-80" alt="greemily" />
         </div>
       </div>
       <div>
@@ -51,7 +51,7 @@ function RedesignServices() {
                 </p>
               </div>
               <div>
-                <img src={services2} className="h-100 w-80 " alt="greemily" />
+                <img src={services1} className="h-100 w-80 " alt="greemily" />
               </div>
             </div>
           </>
@@ -59,7 +59,7 @@ function RedesignServices() {
           <>
             <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
               <div>
-                <img src={services2} className="h-100 w-80 " alt="greemily" />
+                <img src={services1} className="h-100 w-80 " alt="greemily" />
               </div>
               <div className="md:w-[50%] flex flex-col">
                 <h1 className="font-sfproregular">

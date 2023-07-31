@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { MdArrowForward} from "react-icons/md";
-import ri from "../Assets/Icons/ResidentIcon.svg";
+import ri from "../Assets/Icons/ResidentIconGreen.svg";
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -64,11 +64,11 @@ function FAQ() {
         </div>
         <div className="md:w-[50%] flex items-center">
           {" "}
-          <div className="md:ml-8 md:mt-4">
-            <img src={ri} alt="Resident Icon Green" className="text-center" />
+          <div className="md:ml-8 md:mt-4 justify-center items-center">
+            <img src={ri} alt="Resident Icon Green" className="justify-center" />
             {activeIndex !== null && (
               <div>
-                <p className="text-lg mt-4 font-semibold">
+                <p className="text-lg mt-4 font-semibold justify-center">
                   {" "}
                   {questions[activeIndex]}
                 </p>

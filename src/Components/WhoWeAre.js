@@ -1,7 +1,7 @@
 import React from "react";
 import ai from "../Assets/Images/appsImage.svg";
-import appstore from "../Assets/Icons/AppStoreGreen.svg";
-import playstore from "../Assets/Icons/PlayStoreGreen.svg";
+import appstore from "../Assets/Icons/AppStore.png";
+import playstore from "../Assets/Icons/GooglePlay.png";
 
 function WhoWeAre() {
   return (
@@ -27,7 +27,7 @@ function WhoWeAre() {
               </p>
             </div>
           </div>
-          <div className="flex items-center mt-10 md:space-x-8 space-x-4 justify-center">
+          <div className="flex mt-10 md:space-x-8 space-x-4">
             <a
               href="https://apps.apple.com/ng/app/residents/id1669505527"
               target="_blank"

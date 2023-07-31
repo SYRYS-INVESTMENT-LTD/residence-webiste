@@ -1,7 +1,6 @@
 import React from "react";
-import appstore from "../Assets/Icons/AppStoreGreen.svg";
-import playstore from "../Assets/Icons/PlayStoreGreen.svg";
-
+import appstore from "../Assets/Icons/AppStore.png";
+import playstore from "../Assets/Icons/GooglePlay.png";
 import homescreen from "../Assets/Images/Rmobileapp.png";
 import payscreen from "../Assets/Images/Rpayscreen.png";
 
@@ -9,14 +8,20 @@ function HeroSection() {
   return (
     <div className="items-center justify-center text-center mt-16">
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
-        Enjoy a Stress-Free Life with Our
+        ENJOY A STRESS-FREE LIFE WITH OUR PROPERTY 
       </h1>
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
-        Property Management Solutions
+        MANAGEMENT SOLUTIONS
       </h1>
-      <div className="md:mx-60 mx-4">
-        <p className="font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
-          Experience guaranteed returns and a quality lifestyle with Resident. Our comprehensive services bridge the gap between tenants and property owners, ensuring efficiency and delight for everyone.
+      <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
+        <p>
+          Experience guaranteed returns and a quality lifestyle with Resident. Our 
+        </p>
+        <p>
+        comprehensive services bridge the gap between tenants and property owners, 
+        </p>
+        <p>
+        ensuring efficiency and delight for everyone.
         </p>
       </div>
       <div className="flex items-center mt-10 md:space-x-8 space-x-4 justify-center">
@@ -25,14 +30,14 @@ function HeroSection() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={appstore} alt="greem" className="h-14 cursor-pointer" />
+          <img src={appstore} alt="greem" className="h-10 cursor-pointer" />
         </a>
         <a
           href="https://play.google.com/store/apps/details?id=com.syrysdevelopers.syrysresidents"
           target="_blank"
           rel="noopener noreferrer"
         >
-          <img src={playstore} alt="greem" className="h-14 cursor-pointer" />
+          <img src={playstore} alt="greem" className="h-10 cursor-pointer" />
         </a>
       </div>
 
