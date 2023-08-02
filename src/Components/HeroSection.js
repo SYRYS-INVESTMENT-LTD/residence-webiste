@@ -8,22 +8,40 @@ function HeroSection() {
   return (
     <div className="items-center justify-center text-center mt-16">
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
-        ENJOY A STRESS-FREE LIFE WITH OUR PROPERTY 
+        ENJOY A STRESS-FREE LIFE WITH OUR PROPERTY
       </h1>
       <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
         MANAGEMENT SOLUTIONS
       </h1>
-      <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
-        <p>
-          Experience guaranteed returns and a quality lifestyle with Resident. Our 
-        </p>
-        <p>
-        comprehensive services bridge the gap between tenants and property owners, 
-        </p>
-        <p>
-        ensuring efficiency and delight for everyone.
-        </p>
+      <div>
+        {window.innerWidth < 640 ? (
+          <>
+            <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
+              <p>
+                Experience guaranteed returns and a quality lifestyle with
+                Resident. Our comprehensive services bridge the gap between
+                tenants and property owners, ensuring efficiency and delight for
+                everyone.
+              </p>
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
+              <p>
+                Experience guaranteed returns and a quality lifestyle with
+                Resident. Our
+              </p>
+              <p>
+                comprehensive services bridge the gap between tenants and
+                property owners,
+              </p>
+              <p>ensuring efficiency and delight for everyone.</p>
+            </div>
+          </>
+        )}
       </div>
+
       <div className="flex items-center mt-10 md:space-x-8 space-x-4 justify-center">
         <a
           href="https://apps.apple.com/ng/app/residents/id1669505527"
@@ -46,7 +64,6 @@ function HeroSection() {
         <img src={payscreen} alt="greem" className="md:h-72 h-40" />
       </div>
     </div>
-    
   );
 }
 
