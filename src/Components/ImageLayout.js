@@ -69,38 +69,40 @@ function ImageLayout() {
   };
   return (
     <div className="md:p-10 ">
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-6 md:0.5vh">
-        <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
-          <img
-            src={h1}
-            alt="House 1"
-            className="w-full h-full object-cover cursor-pointer"
-          />
-        </div>
-        <div className="w-full md:w-1/2 flex flex-col space-y-2">
-          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
-            <img
-              src={h2}
-              alt="House 2"
-              className="w-full h-full object-cover cursor-pointer"
-            />
+<div className="flex space-y-4 md:space-y-0 md:space-x-6 md:h-1/2">
+  <div className="w-full md:w-1/2">
+    <div className="bg-red-500 h-full flex items-center justify-center">
+      <img
+        src={h1}
+        alt="House 1"
+        className="w-full h-full object-cover cursor-pointer"
+      />
+    </div>
+  </div>
+  <div className="w-full md:w-1/2 flex flex-col space-y-2">
+    <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
+      <img
+        src={h2}
+        alt="House 2"
+        className="w-full h-full object-cover cursor-pointer"
+      />
+    </div>
+    <Link to={"/listings"}>
+      <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
+        <img
+          src={h3}
+          alt="House 3"
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute flex justify-end items-end bottom-4 right-4">
+          <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
+            See More
           </div>
-          <Link to={"/listings"}>
-            <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
-              <img
-                src={h3}
-                alt="House 3"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute flex justify-end items-end bottom-4 right-4">
-                <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
-                  See More
-                </div>
-              </div>
-            </div>
-          </Link>
         </div>
       </div>
+    </Link>
+  </div>
+</div>
 
       <div className="px-2">
         {/*Apartment Description*/}
@@ -318,8 +320,8 @@ function ImageLayout() {
                               : "bg-gray-200"
                           }`}
                           style={{
-                            flexBasis: "calc(100% / 7)", // Adjust this to show 6 buttons per row
-                            maxWidth: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                            flexBasis: "calc(100% / 7)",
+                            maxWidth: "calc(100% / 7)",
                           }}
                         >
                           {date}
@@ -340,8 +342,8 @@ function ImageLayout() {
                               : "bg-gray-200"
                           }`}
                           style={{
-                            flexBasis: "calc(100% / 7)", // Adjust this to show 6 buttons per row
-                            maxWidth: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                            flexBasis: "calc(100% / 7)", 
+                            maxWidth: "calc(100% / 7)", 
                           }}
                         >
                           {time}

@@ -14,7 +14,7 @@ function HeroSection() {
         MANAGEMENT SOLUTIONS
       </h1>
       <div>
-        {window.innerWidth < 640 ? (
+        {window.innerWidth < 700 ? (
           <>
             <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
               <p>

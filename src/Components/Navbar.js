@@ -19,11 +19,11 @@ function Navbar() {
             <img src={ricon} alt="Resident" className="h-6" />
           </div>
         </Link>
-        <div>
+        <div className="relative">
           <ul
-            className={`md:flex hidden space-x-12 items-center ${
-              isMenuOpen ? "flex" : "hidden"
-            }`}
+            className={`md:flex ${
+              isMenuOpen ? "flex flex-col md:flex-row" : "hidden md:flex"
+            } space-x-12 items-center`}
           >
             <Link to="/">
               <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
@@ -45,11 +45,22 @@ function Navbar() {
               Contact
             </li>
           </ul>
+
+          {/* Overlay for the menu */}
+          {isMenuOpen && (
+            <div
+              className="fixed top-0 left-0 w-full h-full bg-black opacity-60 mt-2 justify-right"
+              onClick={handleMenuToggle}
+            />
+          )}
         </div>
+
         <div className="flex items-center space-x-4">
           <div
             className="flex items-center space-x-2 cursor-pointer"
             onClick={handleMenuToggle}
+            // Add ARIA label for accessibility
+            aria-label="Toggle Menu"
           >
             <img src={usflag} alt="language" className="h-6" />
             <MdKeyboardArrowDown size={24} />
@@ -59,6 +70,7 @@ function Navbar() {
             size={24}
             className="md:hidden cursor-pointer"
             onClick={handleMenuToggle}
+            aria-label="Toggle Menu"
           />
         </div>
       </div>
