@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import h1 from "../Assets/Images/House1.svg";
 import h2 from "../Assets/Images/photo1apt.jpg";
 import h3 from "../Assets/Images/photo2apt.jpg";
@@ -18,10 +18,19 @@ import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
 function ImageLayout() {
-  // State to manage modal visibility and user selections
+  // State to control modal visibility and user selections
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+
+  // To prevent bg from scrolling
+  useEffect(() => {
+    if (showModal) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  }, [showModal]);
 
   // Array of time and date options for the modal form
   const dateOptions = [
@@ -69,40 +78,38 @@ function ImageLayout() {
   };
   return (
     <div className="md:p-10 ">
-<div className="flex space-y-4 md:space-y-0 md:space-x-6 md:h-1/2">
-  <div className="w-full md:w-1/2">
-    <div className="bg-red-500 h-full flex items-center justify-center">
-      <img
-        src={h1}
-        alt="House 1"
-        className="w-full h-full object-cover cursor-pointer"
-      />
-    </div>
-  </div>
-  <div className="w-full md:w-1/2 flex flex-col space-y-2">
-    <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
-      <img
-        src={h2}
-        alt="House 2"
-        className="w-full h-full object-cover cursor-pointer"
-      />
-    </div>
-    <Link to={"/listings"}>
-      <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
-        <img
-          src={h3}
-          alt="House 3"
-          className="w-full h-full object-cover"
-        />
-        <div className="absolute flex justify-end items-end bottom-4 right-4">
-          <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
-            See More
+      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-6 md:0.5vh">
+        <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
+          <img
+            src={h1}
+            alt="House 1"
+            className="w-full h-full object-cover cursor-pointer"
+          />
+        </div>
+        <div className="w-full md:w-1/2 flex flex-col space-y-2">
+          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
+            <img
+              src={h2}
+              alt="House 2"
+              className="w-full h-full object-cover cursor-pointer"
+            />
           </div>
+          <Link to={"/listings"}>
+            <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
+              <img
+                src={h3}
+                alt="House 3"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute flex justify-end items-end bottom-4 right-4">
+                <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
+                  See More
+                </div>
+              </div>
+            </div>
+          </Link>
         </div>
       </div>
-    </Link>
-  </div>
-</div>
 
       <div className="px-2">
         {/*Apartment Description*/}
@@ -252,7 +259,7 @@ function ImageLayout() {
             {/* Modal Form */}
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 p-10">
-                <div className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="bg-white p-6 rounded-lg shadow-lg sm:max-h-[80vh] overflow-y-auto">
                   <div className="text-center">
                     <div>
                       <h2 className="text-xl text-center font-semibold">
@@ -266,7 +273,6 @@ function ImageLayout() {
                     <button
                       onClick={() => {
                         setShowModal(false);
-                        // Reset the selectedDate and selectedTime states if the user cancels
                         setSelectedDate(null);
                         setSelectedTime(null);
                       }}
@@ -342,8 +348,8 @@ function ImageLayout() {
                               : "bg-gray-200"
                           }`}
                           style={{
-                            flexBasis: "calc(100% / 7)", 
-                            maxWidth: "calc(100% / 7)", 
+                            flexBasis: "calc(100% / 7)",
+                            maxWidth: "calc(100% / 7)",
                           }}
                         >
                           {time}
@@ -361,10 +367,7 @@ function ImageLayout() {
                     />
                     <button
                       onClick={() => {
-                        // Add your function to handle form submission here
-                        // For example, you can display a success message and close the modal.
                         setShowModal(false);
-                        // Reset the selectedDate and selectedTime states
                         setSelectedDate(null);
                         setSelectedTime(null);
                       }}
@@ -621,7 +624,7 @@ function ImageLayout() {
             <img
               src={h3}
               alt="House 3"
-              className="md:w-full md:h-full h-16 object-contain cursor-pointer"
+              className="md:w-full md:h-full  h-16 object-contain cursor-pointer"
             />
             <div className="flex flex-col ml-4">
               <h2 className="text-lg font-semibold">Name of Apartment</h2>
