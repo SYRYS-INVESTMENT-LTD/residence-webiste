@@ -13,40 +13,34 @@ function Navbar() {
 
   return (
     <div>
-      <div className="h-10 flex justify-between items-center md:p-10 py-10 px-4">
+      <div className="h-10 md:p-10 py-10 px-4 flex justify-between items-center">
         <Link to="/">
           <div>
             <img src={ricon} alt="Resident" className="h-6" />
           </div>
         </Link>
-        <div>
-          <ul
-            className={`md:flex hidden space-x-12 items-center ${
-              isMenuOpen ? "flex" : "hidden"
-            }`}
-          >
-            <Link to="/">
-              <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
-                Home
-              </div>
-            </Link>
-            <Link to="/listings">
-              <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
-                Listings
-              </div>
-            </Link>
-            <li className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
-              Our Services
-            </li>
-            <li className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
-              About Us
-            </li>
-            <li className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
-              Contact
-            </li>
-          </ul>
+        <div className="hidden md:flex space-x-12 items-center">
+          <Link to="/">
+            <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+              Home
+            </div>
+          </Link>
+          <Link to="/listings">
+            <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+              Listings
+            </div>
+          </Link>
+          <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            Our Services
+          </div>
+          <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            About Us
+          </div>
+          <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            Contact
+          </div>
         </div>
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-4 md:hidden">
           <div
             className="flex items-center space-x-2 cursor-pointer"
             onClick={handleMenuToggle}
@@ -57,11 +51,35 @@ function Navbar() {
 
           <MdOutlineMenu
             size={24}
-            className="md:hidden cursor-pointer"
+            className="cursor-pointer"
             onClick={handleMenuToggle}
           />
         </div>
       </div>
+      {/* Mobile menu */}
+      {isMenuOpen && (
+        <div className="md:hidden bg-[#0a192f] text-gray-300 flex flex-col items-center space-y-4 py-4 left-0 " >
+          <Link to="/">
+            <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+              Home
+            </div>
+          </Link>
+          <Link to="/listings">
+            <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+              Listings
+            </div>
+          </Link>
+          <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            Our Services
+          </div>
+          <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            About Us
+          </div>
+          <div className="font-sfpromedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            Contact
+          </div>
+        </div>
+      )}
     </div>
   );
 }
