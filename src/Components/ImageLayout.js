@@ -18,10 +18,19 @@ import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
 function ImageLayout() {
-  // State to manage modal visibility and user selections
+  // State to control modal visibility and user selections
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+
+  // To prevent bg from scrolling
+  useEffect(() => {
+    if (showModal) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  }, [showModal]);
 
   // Array of time and date options for the modal form
   const dateOptions = [
@@ -250,7 +259,7 @@ function ImageLayout() {
             {/* Modal Form */}
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 p-10">
-                <div className="bg-white p-6 rounded-lg shadow-lg">
+                <div className="bg-white p-6 rounded-lg shadow-lg sm:max-h-[80vh] overflow-y-auto">
                   <div className="text-center">
                     <div>
                       <h2 className="text-xl text-center font-semibold">
@@ -264,7 +273,6 @@ function ImageLayout() {
                     <button
                       onClick={() => {
                         setShowModal(false);
-                        // Reset the selectedDate and selectedTime states if the user cancels
                         setSelectedDate(null);
                         setSelectedTime(null);
                       }}
@@ -318,8 +326,8 @@ function ImageLayout() {
                               : "bg-gray-200"
                           }`}
                           style={{
-                            flexBasis: "calc(100% / 7)", // Adjust this to show 6 buttons per row
-                            maxWidth: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                            flexBasis: "calc(100% / 7)",
+                            maxWidth: "calc(100% / 7)",
                           }}
                         >
                           {date}
@@ -340,8 +348,8 @@ function ImageLayout() {
                               : "bg-gray-200"
                           }`}
                           style={{
-                            flexBasis: "calc(100% / 7)", // Adjust this to show 6 buttons per row
-                            maxWidth: "calc(100% / 7)", // Adjust this to show 6 buttons per row
+                            flexBasis: "calc(100% / 7)",
+                            maxWidth: "calc(100% / 7)",
                           }}
                         >
                           {time}
@@ -359,10 +367,7 @@ function ImageLayout() {
                     />
                     <button
                       onClick={() => {
-                        // Add your function to handle form submission here
-                        // For example, you can display a success message and close the modal.
                         setShowModal(false);
-                        // Reset the selectedDate and selectedTime states
                         setSelectedDate(null);
                         setSelectedTime(null);
                       }}
@@ -619,7 +624,7 @@ function ImageLayout() {
             <img
               src={h3}
               alt="House 3"
-              className="md:w-full md:h-full h-16 object-contain cursor-pointer"
+              className="md:w-full md:h-full  h-16 object-contain cursor-pointer"
             />
             <div className="flex flex-col ml-4">
               <h2 className="text-lg font-semibold">Name of Apartment</h2>
