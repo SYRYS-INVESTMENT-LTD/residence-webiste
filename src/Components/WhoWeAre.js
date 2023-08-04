@@ -1,18 +1,21 @@
 import React from "react";
 import ai from "../Assets/Images/appsImage.svg";
+import sg from "../Assets/Images/Signature.svg";
 import appstore from "../Assets/Icons/AppStore.png";
 import playstore from "../Assets/Icons/GooglePlay.png";
 
 function WhoWeAre() {
   return (
     <div className="bg-who bg-cover mt-10 md:p-10 pt-10 px-4 pb-3">
-      <div className="flex space-x-2 justify-center">
-        <h1 className="font-sfprobold text-2xl flex-col">WE ARE RESIDENT</h1>
+      <div className="flex flex-col items-center justify-center space-x-2">
+        <h1 className="font-sfprobold text-3xl">WE ARE RESIDENT</h1>
+        <img src={sg} alt="grimmy signature" className="mt-2 h-7" />
       </div>
+
       <div className="md:flex md:space-x-20 items-start mt-10">
-        <div className= "md:w-[65%]">
+        <div className="md:w-[65%]">
           <div className="flex items-start space-x-4">
-            <div className= "mt-2">
+            <div className="mt-2">
               <p className="font-sfproregular text-[#5A5A5A] mt-1">
                 We use technology to build efficiency and delight in property
                 management and life. No barriers to an organized and happy life.
