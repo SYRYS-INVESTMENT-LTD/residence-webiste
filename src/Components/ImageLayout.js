@@ -110,12 +110,13 @@ function ImageLayout() {
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   return (
     <div className="md:p-10 ">
-      <div className="h-80vh">
-        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-6 md:0.5vh">
+      <div >
+        <div >
+        <div className="h-3/5 flex flex-col md:flex-row space-y-5 md:space-y-0 space-x-5">
           {/*Apartment Display and DirectorList Gallery*/}
           <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
             <img
-              src={h1}
+              src={h2}
               alt="House 1"
               className="w-full h-full object-cover cursor-pointer"
             />
@@ -143,6 +144,7 @@ function ImageLayout() {
               </div>
            
           </div>
+        </div>
         </div>
         {showGallery && (    
         <div className="fixed inset-0">
@@ -179,49 +181,49 @@ function ImageLayout() {
               setCurrentSlideIndex(swiper.activeIndex);
             }}
           >
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-128">
               <img
                 src={slide_image_1}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-128">
               <img
                 src={slide_image_2}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-60vh">
               <img
                 src={slide_image_3}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-128">
               <img
                 src={slide_image_4}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-128">
               <img
                 src={slide_image_5}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-128">
               <img
                 src={slide_image_6}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-108">
+            <SwiperSlide className="w-96 h-128">
               <img
                 src={slide_image_7}
                 alt="slide_image"
