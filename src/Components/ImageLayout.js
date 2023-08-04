@@ -14,6 +14,20 @@ import apartment from "../Assets/Images/apartment.png";
 import { MdOutlineClose } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/effect-coverflow';
+import 'swiper/css/pagination';
+import 'swiper/css/navigation';
+import { EffectCoverflow, Pagination, Navigation } from 'swiper/modules';
+import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
+import slide_image_1 from '../Assets/Images/photo1apt.jpg';
+import slide_image_2 from '../Assets/Images/photo2apt.jpg';
+import slide_image_3 from '../Assets/Images/photo3apt.jpg';
+import slide_image_4 from '../Assets/Images/photo4apt.jpg';
+import slide_image_5 from '../Assets/Images/photo5apt.jpg';
+import slide_image_6 from '../Assets/Images/photo6apt.jpg';
+import slide_image_7 from '../Assets/Images/House.png';
 import "react-multi-carousel/lib/styles.css";
 import { Link } from "react-router-dom";
 
@@ -78,36 +92,93 @@ function ImageLayout() {
   };
   return (
     <div className="md:p-10 ">
-      <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-6 md:0.5vh">
-        <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
-          <img
-            src={h1}
-            alt="House 1"
-            className="w-full h-full object-cover cursor-pointer"
-          />
-        </div>
-        <div className="w-full md:w-1/2 flex flex-col space-y-2">
-          <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
+      <div>
+
+        <div className="flex flex-col md:flex-row space-y-4 md:space-y-0 space-x-6 md:0.5vh">
+          {/*Apartment Display and DirectorList Gallery*/}
+          <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
             <img
-              src={h2}
-              alt="House 2"
+              src={h1}
+              alt="House 1"
               className="w-full h-full object-cover cursor-pointer"
             />
           </div>
-          <Link to={"/listings"}>
-            <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
+          <div className="w-full md:w-1/2 flex flex-col space-y-2">
+            <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
               <img
-                src={h3}
-                alt="House 3"
-                className="w-full h-full object-cover"
+                src={h2}
+                alt="House 2"
+                className="w-full h-full object-cover cursor-pointer"
               />
-              <div className="absolute flex justify-end items-end bottom-4 right-4">
-                <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
-                  See More
+            </div>
+            <Link to={"/listings"}>
+              <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
+                <img
+                  src={h3}
+                  alt="House 3"
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute flex justify-end items-end bottom-4 right-4">
+                  <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer">
+                    See More
+                  </div>
                 </div>
               </div>
+            </Link>
+          </div>
+        </div>
+        <div><Swiper
+          effect={'coverflow'}
+          grabCursor={true}
+          centeredSlides={true}
+          loop={true}
+          slidesPerView={'auto'}
+          coverflowEffect={{
+            rotate: 0,
+            stretch: 0,
+            depth: 100,
+            modifier: 2.5,
+          }}
+          pagination={{ el: '.swiper-pagination', clickable: true }}
+          navigation={{
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+            clickable: true,
+          }}
+          modules={[EffectCoverflow, Pagination, Navigation]}
+          className="swiper_container"
+        >
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_1} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_2} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_3} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_4} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_5} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_6} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <SwiperSlide className="w-96 h-108">
+            <img src={slide_image_7} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
+          </SwiperSlide>
+          <div className="slider-controler">
+            <div className="swiper-button-prev slider-arrow">
+              <FaChevronLeft className="text-2xl" />
             </div>
-          </Link>
+            <div className="swiper-button-next slider-arrow">
+              <FaChevronRight className="text-2xl" />
+            </div>
+            <div className="swiper-pagination"></div>
+          </div>
+        </Swiper>
         </div>
       </div>
 
@@ -320,11 +391,10 @@ function ImageLayout() {
                         <button
                           key={index}
                           onClick={() => handleSelectDate(date)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${
-                            selectedDate === date
+                          className={`w-full h-full px-2 py-2 rounded-md ${selectedDate === date
                               ? "bg-green-700 text-white"
                               : "bg-gray-200"
-                          }`}
+                            }`}
                           style={{
                             flexBasis: "calc(100% / 7)",
                             maxWidth: "calc(100% / 7)",
@@ -342,11 +412,10 @@ function ImageLayout() {
                         <button
                           key={index}
                           onClick={() => handleSelectTime(time)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${
-                            selectedTime === time
+                          className={`w-full h-full px-2 py-2 rounded-md ${selectedTime === time
                               ? "bg-green-700 text-white"
                               : "bg-gray-200"
-                          }`}
+                            }`}
                           style={{
                             flexBasis: "calc(100% / 7)",
                             maxWidth: "calc(100% / 7)",
