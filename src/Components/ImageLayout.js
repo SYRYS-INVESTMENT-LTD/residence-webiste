@@ -90,6 +90,9 @@ function ImageLayout() {
   const handleSelectTime = (time) => {
     setSelectedTime(time);
   };
+
+  //To handle, Linking thumbnails to images
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   return (
     <div className="md:p-10 ">
       <div>
@@ -147,6 +150,9 @@ function ImageLayout() {
           }}
           modules={[EffectCoverflow, Pagination, Navigation]}
           className="swiper_container"
+          onSlideChange={(swiper) => {
+            setCurrentSlideIndex(swiper.activeIndex);
+          }}
         >
           <SwiperSlide className="w-96 h-108">
             <img src={slide_image_1} alt="slide_image" className="w-full h-full rounded-2xl object-cover" />
@@ -179,6 +185,28 @@ function ImageLayout() {
             <div className="swiper-pagination"></div>
           </div>
         </Swiper>
+        {/* Display the images at the bottom of the carousel */}
+        <div className="flex justify-center mt-4 space-x-4">
+          <img
+            src={slide_image_1}
+            alt="thumbnail"
+            className={`thumbnail h-20 ${currentSlideIndex === 0 ? "active" : ""}`}
+            onClick={() => setCurrentSlideIndex(0)}
+          />
+          <img
+            src={slide_image_2}
+            alt="thumbnail"
+            className={`thumbnail h-20 ${currentSlideIndex === 1 ? "active" : ""}`}
+            onClick={() => setCurrentSlideIndex(1)}
+          />
+          <img
+            src={slide_image_3}
+            alt="thumbnail"
+            className={`thumbnail h-20 ${currentSlideIndex === 2 ? "active" : ""}`}
+            onClick={() => setCurrentSlideIndex(2)}
+          />
+          {/* ... Add more thumbnail images here ... */}
+        </div>
         </div>
       </div>
 
