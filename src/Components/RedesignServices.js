@@ -18,7 +18,7 @@ function RedesignServices() {
 
       <div className="md:flex items-center mt-20 justify-center md:space-x-32">
         <div className="md:w-[50%] flex flex-col">
-          <h1 className="font-sfproregular text-sm">
+          <h1 className="font-sfproregular font-medium text-3xl">
             Efficient Property Management
           </h1>
           <p className="font-sfproregular text-[#5a5a5a] mt-1">
@@ -37,7 +37,7 @@ function RedesignServices() {
           <>
             <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
               <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-sfproregular">
+                <h1 className="font-sfproregular font-medium text-3xl">
                   All-inclusive Property Inspection
                 </h1>
                 <p className="font-sfproregular text-[#5a5a5a] mt-1">
@@ -61,8 +61,8 @@ function RedesignServices() {
               <div>
                 <img src={services1} className="h-100 w-80 " alt="greemily" />
               </div>
-              <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-sfproregular">
+              <div className="md:w-[50%] flex flex-col text-right">
+                <h1 className="font-sfproregular font-medium text-3xl">
                   All-inclusive Property Inspection
                 </h1>
                 <p className="font-sfproregular text-[#5a5a5a] mt-1">
@@ -81,8 +81,8 @@ function RedesignServices() {
       </div>
 
       <div className="md:flex items-center mt-20 justify-center md:space-x-32 ">
-<div className="md:w-[50%] flex flex-col">
-          <h1 className="font-sfproregular">
+        <div className="md:w-[50%] flex flex-col">
+          <h1 className="font-sfproregular font-medium text-3xl">
             Rental and Sales Services
           </h1>
           <p className="font-sfproregular text-[#5a5a5a] mt-1">

@@ -65,7 +65,8 @@ function FAQ() {
         <div className="md:w-[50%] flex items-center">
           {" "}
           <div className="md:ml-8 md:mt-4 justify-center items-center">
-            <img src={ri} alt="Resident Icon Green" className="justify-center" />
+            <img src={ri} alt="Resident Icon Green" className="justify-center itemsp-center" />
+            <div className="">
             {activeIndex !== null && (
               <div>
                 <p className="text-lg mt-4 font-semibold justify-center">
@@ -75,6 +76,7 @@ function FAQ() {
                 <p className="text-base">{answers[activeIndex]}</p>{" "}
               </div>
             )}
+            </div>
           </div>
         </div>
       </div>

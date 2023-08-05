@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import h1 from "../Assets/Images/House1.svg";
+//import h1 from "../Assets/Images/House1.svg";
 import h2 from "../Assets/Images/photo1apt.jpg";
 import h3 from "../Assets/Images/photo2apt.jpg";
 import bp from "../Assets/Icons/blueprintIcon.svg";
@@ -112,13 +112,13 @@ function ImageLayout() {
     <div className="md:p-10 ">
       <div >
         <div >
-        <div className="h-3/5 flex flex-col md:flex-row space-y-5 md:space-y-0 space-x-5">
+        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
           {/*Apartment Display and DirectorList Gallery*/}
-          <div className="w-full md:w-1/2 bg-red-500 flex items-center justify-center">
+          <div className="w-full md:w-1/2 flex items-center justify-center">
             <img
               src={h2}
               alt="House 1"
-              className="w-full h-full object-cover cursor-pointer"
+              className="w-full h-[34rem] object-cover cursor-pointer"
             />
           </div>
           <div className="w-full md:w-1/2 flex flex-col space-y-2">
@@ -126,7 +126,7 @@ function ImageLayout() {
               <img
                 src={h2}
                 alt="House 2"
-                className="w-full h-full object-cover cursor-pointer"
+                className="w-full h-[18rem] object-cover cursor-pointer"
               />
             </div>
            
@@ -134,7 +134,7 @@ function ImageLayout() {
                 <img
                   src={h3}
                   alt="House 3"
-                  className="w-full h-full object-cover"
+                  className="w-full h-[16rem] object-cover"
                 />
                 <div className="absolute flex justify-end items-end bottom-4 right-4">
                   <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer" onClick={handleGalleryDisplay}>
@@ -181,14 +181,14 @@ function ImageLayout() {
               setCurrentSlideIndex(swiper.activeIndex);
             }}
           >
-            <SwiperSlide className="w-96 h-128">
+            <SwiperSlide className="w-96 h-[24rem]">
               <img
                 src={slide_image_1}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-128">
+            <SwiperSlide className="h-[24rem]">
               <img
                 src={slide_image_2}
                 alt="slide_image"
@@ -202,28 +202,28 @@ function ImageLayout() {
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-128">
+            <SwiperSlide className="h-[24rem]">
               <img
                 src={slide_image_4}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-128">
+            <SwiperSlide className="h-[24rem]">
               <img
                 src={slide_image_5}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-128">
+            <SwiperSlide className="h-[24rem]">
               <img
                 src={slide_image_6}
                 alt="slide_image"
                 className="w-full h-full object-cover"
               />
             </SwiperSlide>
-            <SwiperSlide className="w-96 h-128">
+            <SwiperSlide className="h-[24rem]">
               <img
                 src={slide_image_7}
                 alt="slide_image"
