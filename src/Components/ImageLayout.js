@@ -98,7 +98,7 @@ function ImageLayout() {
   const handleCloseGallery = () => {
     setShowGallery(false);
   };
-   const handleGalleryDisplay = () => {
+  const handleGalleryDisplay = () => {
     setShowGallery(true);
   };
 
@@ -162,132 +162,134 @@ function ImageLayout() {
           </div>
         </div>
 
-        {showGallery && (    
-        <div className="fixed inset-0 focus:outline-none container bg-opacity-30">
-          <button onClick={handleCloseGallery} className="ml-auto">
-            X
-          </button>
-          <div           
-          className="swiper-container"
-          style={{
-            width: "625px",
-            height: "664px",
-            position: "relative",
-            top: "115px",
-            left: "408px",
-          }} >
-          <Swiper
-            effect={"coverflow"}
-            grabCursor={true}
-            centeredSlides={true}
-            loop={true}
-            slidesPerView={"auto"}
-            coverflowEffect={{
-              rotate: 0,
-              stretch: 0,
-              depth: 100,
-              modifier: 2.5,
-            }}
-            pagination={{ el: ".swiper-pagination", clickable: true }}
-            navigation={{
-              nextEl: ".swiper-button-next",
-              prevEl: ".swiper-button-prev",
-              clickable: true,
-            }}
-            modules={[EffectCoverflow, Pagination, Navigation]}
-            className="swiper_container"
-            onSlideChange={(swiper) => {
-              setCurrentSlideIndex(swiper.activeIndex);
-            }}
-          >
-            <SwiperSlide className="w-96 h-[24rem]">
-              <img
-                src={slide_image_1}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <SwiperSlide className="h-[24rem]">
-              <img
-                src={slide_image_2}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <SwiperSlide className="w-96 h-60vh">
-              <img
-                src={slide_image_3}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <SwiperSlide className="h-[24rem]">
-              <img
-                src={slide_image_4}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <SwiperSlide className="h-[24rem]">
-              <img
-                src={slide_image_5}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <SwiperSlide className="h-[24rem]">
-              <img
-                src={slide_image_6}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <SwiperSlide className="h-[24rem]">
-              <img
-                src={slide_image_7}
-                alt="slide_image"
-                className="w-full h-full object-cover"
-              />
-            </SwiperSlide>
-            <div className="slider-controler">
-              <div className="swiper-button-prev slider-arrow">
-                <FaChevronLeft className="text-2xl" />
-              </div>
-              <div className="swiper-button-next slider-arrow">
-                <FaChevronRight className="text-2xl" />
-              </div>
-              <div className="swiper-pagination"></div>
-            </div>
-          </Swiper>
-          </div>
-          {/* Display the images at the bottom of the carousel */}
-          <div className="gap-[20px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
-            {[
-              slide_image_1,
-              slide_image_2,
-              slide_image_4,
-              slide_image_5,
-              slide_image_6,
-              slide_image_7,
-              slide_image_3,
-            ].map((imagePath, index) => (
-              <img
-                key={index}
-                src={imagePath}
-                alt="thumbnail"
-                style={{
-                  width: "175px",
-                  height: "120px",
-                  border: "5px solid transparent",
+        {showGallery && (
+          <div className="fixed inset-0 focus:outline-none container bg-opacity-30">
+            <button onClick={handleCloseGallery} className="ml-auto">
+              X
+            </button>
+            <div
+              className="swiper-container"
+              style={{
+                width: "625px",
+                height: "664px",
+                position: "relative",
+                top: "115px",
+                left: "408px",
+              }} >
+              <Swiper
+                effect={"coverflow"}
+                grabCursor={true}
+                centeredSlides={true}
+                loop={true}
+                slidesPerView={"auto"}
+                coverflowEffect={{
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 2.5,
                 }}
-                className={`thumbnail h-20 ${
-                  currentSlideIndex === index ? "active" : ""
-                } group group-hover:border-199976`}
-                onClick={() => setCurrentSlideIndex(index)}
-              />
-            ))}
+                pagination={{ el: ".swiper-pagination", clickable: true }}
+                navigation={{
+                  nextEl: ".swiper-button-next",
+                  prevEl: ".swiper-button-prev",
+                  clickable: true,
+                }}
+                modules={[EffectCoverflow, Pagination, Navigation]}
+                className="swiper_container"
+                onSlideChange={(swiper) => {
+                  setCurrentSlideIndex(swiper.activeIndex);
+                }}
+              >
+                <SwiperSlide className="w-96 h-[24rem]">
+                  <img
+                    src={slide_image_1}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="h-[24rem]">
+                  <img
+                    src={slide_image_2}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="w-96 h-60vh">
+                  <img
+                    src={slide_image_3}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="h-[24rem]">
+                  <img
+                    src={slide_image_4}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="h-[24rem]">
+                  <img
+                    src={slide_image_5}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="h-[24rem]">
+                  <img
+                    src={slide_image_6}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <SwiperSlide className="h-[24rem]">
+                  <img
+                    src={slide_image_7}
+                    alt="slide_image"
+                    className="w-full h-full object-cover"
+                  />
+                </SwiperSlide>
+                <div className="slider-controler">
+                  <div className="swiper-button-prev slider-arrow">
+                    <FaChevronLeft className="text-2xl" />
+                  </div>
+                  <div className="swiper-button-next slider-arrow">
+                    <FaChevronRight className="text-2xl" />
+                  </div>
+                  <div className="swiper-pagination"></div>
+                </div>
+              </Swiper>
+            </div>
+            <div className="text-black font-bold rounded-full bg-white p-2 font-sfpromedium text-sm cursor-pointer">
+              {currentSlideIndex + 1}/7
+            </div>
+            {/* Display the images at the bottom of the carousel */}
+            <div className="gap-[20px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
+              {[
+                slide_image_1,
+                slide_image_2,
+                slide_image_4,
+                slide_image_5,
+                slide_image_6,
+                slide_image_7,
+                slide_image_3,
+              ].map((imagePath, index) => (
+                <img
+                  key={index}
+                  src={imagePath}
+                  alt="thumbnail"
+                  style={{
+                    width: "175px",
+                    height: "120px",
+                    border: "5px solid transparent",
+                  }}
+                  className={`thumbnail h-20 ${currentSlideIndex === index ? "active" : ""
+                    } group group-hover:border-199976`}
+                  onClick={() => setCurrentSlideIndex(index)}
+                />
+              ))}
+            </div>
           </div>
-        </div>
         )}
 
       </div>
