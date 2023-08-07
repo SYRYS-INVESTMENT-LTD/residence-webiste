@@ -172,16 +172,23 @@ function ImageLayout() {
         </div>
 
         {showGallery && (
-          <div className="fixed inset-0 bg-black bg-opacity-20 focus:outline-none container">
-            <div className="mr:8">
+          <div
+            className="fixed inset-0 bg-black bg-opacity-20 focus:outline-none container"
+            style={{
+              backgroundColor: "rgba(0, 0, 0, 0.75)",
+              backgroundBlendMode: "multiply",
+            }}
+          >
+            <div className="mr-8 relative">
               <button
                 onClick={handleCloseGallery}
-                className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
+                className="px-3 py-2 rounded-md justify-center flex items-center absolute top-16 right-16"
               >
-                <MdOutlineClose size={20} className="mr-1" />
+                <MdOutlineClose size={24} className="mr-1" color="white" />
               </button>
+
               <div
-                className="swiper-container"
+                className="swiper-container relative"
                 style={{
                   width: "625px",
                   height: "28rem",
@@ -214,7 +221,7 @@ function ImageLayout() {
                     setCurrentSlideIndex(swiper.activeIndex);
                   }}
                 >
-                  <SwiperSlide className="w-96 h-[28rem]">
+                  <SwiperSlide className="h-[36rem]">
                     <img
                       src={slide_image_1}
                       alt="slide_image"
@@ -228,7 +235,7 @@ function ImageLayout() {
                       className="w-full h-full object-cover"
                     />
                   </SwiperSlide>
-                  <SwiperSlide className="w-96 h-[28rem]">
+                  <SwiperSlide className="h-[36rem]">
                     <img
                       src={slide_image_3}
                       alt="slide_image"
@@ -275,7 +282,7 @@ function ImageLayout() {
                 </Swiper>
               </div>
             </div>
-            <div className="text-black font-bold rounded-full bg-white p-2 font-sfpromedium text-sm cursor-pointer">
+            <div className="text-black w-14 font-bold rounded-full px-12 py-3 justify-center bg-white font-sfpromedium text-sm absolute right-20 cursor-pointer">
               <button>{currentSlideIndex + 1}/7</button>
             </div>
             {/* Displaying the images at the bottom of the carousel */}
@@ -456,7 +463,7 @@ function ImageLayout() {
             </div>
             {/* Modal Form */}
             {showModal && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-30 p-10">
+              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-10">
                 <div className="bg-white p-6 rounded-lg shadow-lg sm:max-h-[80vh] overflow-y-auto">
                   <div className="text-center">
                     <div>
@@ -813,9 +820,7 @@ function ImageLayout() {
         <div className="flex">
           <h1 className="font-inter text-xl flex">Similar Listing</h1>
           <h2 className="flex text-green-700 font-semibold ml-auto">
-          <Link to = "/listings">   
-            See more
-          </Link>
+            <Link to="/listings">See more</Link>
           </h2>
         </div>
 

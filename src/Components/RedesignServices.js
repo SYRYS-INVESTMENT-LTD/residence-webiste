@@ -33,7 +33,7 @@ function RedesignServices() {
         </div>
       </div>
       <div>
-        {window.innerWidth < 700 ? (
+        {window.innerWidth < 741 ? (
           <>
             <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
               <div className="md:w-[50%] flex flex-col">
