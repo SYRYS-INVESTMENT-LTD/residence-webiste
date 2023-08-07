@@ -3,11 +3,11 @@ import { RiMapPinLine } from "react-icons/ri";
 
 export default function Product(props) {
   return (
-    <div className="relative p-4">
+    <div className="relative p-4 h-[28rem]">
       <div className="relative cursor-pointer">
-        <div className="h-81 overflow-hidden"> 
+        <div className=" overflow-hidden"> 
           <img
-            className="object-cover h-full w-full"
+            className="object-cover h-[26rem] w-full"
             src={props.url}
             alt={`${props.name} - ${props.location}`}
           />

@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom";
 //import h1 from "../Assets/Images/House1.svg";
 import h2 from "../Assets/Images/photo1apt.jpg";
 import h3 from "../Assets/Images/photo2apt.jpg";
@@ -31,7 +32,7 @@ import slide_image_7 from "../Assets/Images/House.png";
 import "react-multi-carousel/lib/styles.css";
 
 function ImageLayout() {
-  // State to control modal visibility and user selections
+  // State to control modal(for Book a Tour) visibility and user selections
   const [showModal, setShowModal] = useState(false);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
@@ -75,22 +76,7 @@ function ImageLayout() {
     "07:00 PM",
     "08:00 PM",
   ];
-  //To handle galley dispaly
-  //Function to handle gallery display
-  const [showGallery, setShowGallery] = useState(false);
 
-  const handleGalleryDisplay = () => {
-    setShowGallery(true);
-  };
-
-  useEffect(() => {
-    if (showGallery) {
-      document.body.classList.add("overflow-y-hidden");
-    } else {
-      document.body.classList.remove("overflow-y-hidden");
-    }
-  }, [showGallery]);
-  
   // Function to handle the "Book a Physical tour" button click
   const handleBookPhysicalTour = () => {
     setShowModal(true);
@@ -106,35 +92,64 @@ function ImageLayout() {
     setSelectedTime(time);
   };
 
+  //To handle galley dispaly
+  //Function to handle gallery display
+  const [showGallery, setShowGallery] = useState(false);
+  const handleCloseGallery = () => {
+    setShowGallery(false);
+  };
+   const handleGalleryDisplay = () => {
+    setShowGallery(true);
+  };
+
+  useEffect(() => {
+    if (showGallery) {
+      document.body.classList.add("overflow-y-hidden");
+    } else {
+      document.body.classList.remove("overflow-y-hidden");
+    }
+  }, [showGallery]);
+
+  const ModalOverlay = ({ onClick }) => {
+    return (
+      <div className="fixed inset-0 bg-opacity-30 hidden" onClick={onClick} >
+      </div>
+    );
+  };
+  // Function to handle when the overlay is clicked to close the modal
+  const handleOverlayClick = () => {
+    setShowModal(false);
+  };
+
   //To handle, Linking thumbnails to images
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   return (
     <div className="md:p-10 ">
-      <div >
+      <div className={`md:py-5 ${showGallery ? 'bg-opacity-75' : ''}`} >
         <div >
-        <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
-          {/*Apartment Display and DirectorList Gallery*/}
-          <div className="w-full md:w-1/2 flex items-center justify-center">
-            <img
-              src={h2}
-              alt="House 1"
-              className="w-full h-[34rem] object-cover cursor-pointer"
-            />
-          </div>
-          <div className="w-full md:w-1/2 flex flex-col space-y-2">
-            <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
+            {/*Apartment Display and DirectorList Gallery*/}
+            <div className="w-full md:w-1/2 flex items-center justify-center">
               <img
                 src={h2}
-                alt="House 2"
-                className="w-full h-[18rem] object-cover cursor-pointer"
+                alt="House 1"
+                className="w-full h-[36rem] object-cover cursor-pointer"
               />
             </div>
-           
+            <div className="w-full md:w-1/2 flex flex-col space-y-2">
+              <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
+                <img
+                  src={h2}
+                  alt="House 2"
+                  className="w-full h-[18rem] object-cover cursor-pointer"
+                />
+              </div>
+
               <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
                 <img
                   src={h3}
                   alt="House 3"
-                  className="w-full h-[16rem] object-cover"
+                  className="w-full h-[18rem] object-cover"
                 />
                 <div className="absolute flex justify-end items-end bottom-4 right-4">
                   <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer" onClick={handleGalleryDisplay}>
@@ -142,12 +157,16 @@ function ImageLayout() {
                   </div>
                 </div>
               </div>
-           
+
+            </div>
           </div>
         </div>
-        </div>
+
         {showGallery && (    
-        <div className="fixed inset-0">
+        <div className="fixed inset-0 focus:outline-none container bg-opacity-30">
+          <button onClick={handleCloseGallery} className="ml-auto">
+            X
+          </button>
           <div           
           className="swiper-container"
           style={{
@@ -242,20 +261,23 @@ function ImageLayout() {
           </Swiper>
           </div>
           {/* Display the images at the bottom of the carousel */}
-          <div className="gap-[39.6px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
+          <div className="gap-[20px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
             {[
               slide_image_1,
               slide_image_2,
+              slide_image_4,
+              slide_image_5,
+              slide_image_6,
+              slide_image_7,
               slide_image_3,
-              // Add more thumbnail image paths here as needed
             ].map((imagePath, index) => (
               <img
                 key={index}
                 src={imagePath}
                 alt="thumbnail"
                 style={{
-                  width: "205px",
-                  height: "157px",
+                  width: "175px",
+                  height: "120px",
                   border: "5px solid transparent",
                 }}
                 className={`thumbnail h-20 ${
@@ -267,13 +289,14 @@ function ImageLayout() {
           </div>
         </div>
         )}
+
       </div>
 
       <div className="px-2">
         {/*Apartment Description*/}
         <div className="pt-4">
           <div className="flex flex-col md:flex-row">
-            <div className="flex flex-col font-sfprotext font-semibold md:flex-grow">
+            <div className="flex flex-col font-sfprotext font-semibold md:flex-grow space-y-2">
               <p className="mt-6 text-2xl font-sfproregular text-[#262626]">
                 Atoll Park Site
               </p>
@@ -284,7 +307,7 @@ function ImageLayout() {
               <p>Kardesler sokak, Edremit Kyrenia</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:space-y-3 justify-between">
+          <div className="flex flex-col md:flex-row md:space-y-3 justify-between md:my-6">
             <div className="flex items-center flex-grow space-x-4">
               <img src={bi} alt="Building Icon" className="h-6" />
               <p>200 units</p>
@@ -304,7 +327,7 @@ function ImageLayout() {
           </div>
         </div>
         <div className="flex flex-col md:flex-row mt-2">
-          <div className="md:w-1/2 md:mr-3 flex flex-col md:space-y-2 mb-4">
+          <div className="md:w-3/5 md:mr-3 flex flex-col md:space-y-2 mb-4">
             <div className="w-full">
               <div>
                 <h2 className="text-lg font-semibold">Description</h2>
@@ -356,7 +379,7 @@ function ImageLayout() {
             </div>
           </div>
 
-          <div className="md:w-1/2 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
+          <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
             <div className="flex-row">
               <div className="bg-[#F5EEEB] p-4 px-3 rounded-lg shadow-lg">
                 <h2 className="text-xl text-center font-semibold">
@@ -470,7 +493,6 @@ function ImageLayout() {
                       <img src={rent} alt="For Rent Button" className="h-10" />
                     </div>
                   </div>
-
                   <div className="mt-6">
                     <h3 className="text-lg font-semibold">Select a date</h3>
                     <div className="flex flex-wrap mt-2 space-x-2 space-y-4">
@@ -478,20 +500,20 @@ function ImageLayout() {
                         <button
                           key={index}
                           onClick={() => handleSelectDate(date)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${
-                            selectedDate === date
-                              ? "bg-green-700 text-white"
-                              : "bg-gray-200"
-                          }`}
+                          className={`w-full h-full px-2 py-2 rounded-md ${selectedDate === date
+                            ? "bg-green-700 text-white"
+                            : "bg-gray-200"
+                            }`}
                           style={{
-                            flexBasis: "calc(100% / 7)",
-                            maxWidth: "calc(100% / 7)",
+                            flexBasis: "calc(100% / 7.2)",
+                            maxWidth: "calc(100% / 7.2)",
                           }}
                         >
                           {date}
                         </button>
                       ))}
                     </div>
+
                   </div>
                   <div className="mt-6">
                     <h3 className="text-lg font-semibold">Select a time</h3>
@@ -500,11 +522,10 @@ function ImageLayout() {
                         <button
                           key={index}
                           onClick={() => handleSelectTime(time)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${
-                            selectedTime === time
-                              ? "bg-green-700 text-white"
-                              : "bg-gray-200"
-                          }`}
+                          className={`w-full h-full px-2 py-2 rounded-md ${selectedTime === time
+                            ? "bg-green-700 text-white"
+                            : "bg-gray-200"
+                            }`}
                           style={{
                             flexBasis: "calc(100% / 7)",
                             maxWidth: "calc(100% / 7)",
@@ -546,7 +567,7 @@ function ImageLayout() {
           <div>
             {/*APARTMENT PRICES AND AVAILABILITY*/}
 
-            <div className="mt-10 md:mx-16 mx-4">
+            <div className="mt-10 ">
               <h1 className="font-sfprosemibold  text-xl">
                 Apartment Prices and availability
               </h1>
@@ -584,7 +605,7 @@ function ImageLayout() {
               </div>
             </div>
 
-            <div className="mt-16 space-y-8 md:mx-16 mx-4 mb-6">
+            <div className="mt-16 space-y-8 mb-6">
               <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
                 <div className="flex space-x-6">
                   <img

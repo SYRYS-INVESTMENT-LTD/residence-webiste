@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MdArrowForward} from "react-icons/md";
+import { MdArrowForward } from "react-icons/md";
 import ri from "../Assets/Icons/ResidentIconGreen.svg";
 
 function FAQ() {
@@ -20,7 +20,7 @@ function FAQ() {
     "The Resident platform is open to all property owners, landlords, and tenants looking to streamline property management, access additional services, and enhance communication with the management company.",
 
     "Yes, the features on the Resident platform can be tailored and expanded upon to meet your individual needs.The Services Section offers additional services beyond regular maintenance. Users can browse available services, select desired options, and make service requests, ensuring convenience and personalized solutions.",
-    
+
     "Yes, Resident can accessed and managed through our mobile app which is available on the App Store and Google Play.",
 
     "The support system facilitates direct communication with the management company. You can report maintenance issues, seek assistance, and make inquiries, fostering seamless and efficient support.",
@@ -55,30 +55,30 @@ function FAQ() {
                 {activeIndex === index ? <MdArrowForward size={56} color="#199976" /> : null}
               </div>
               <div
-                className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${
-                  activeIndex === index ? "block" : "hidden"
-                }`}
+                className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${activeIndex === index ? "block" : "hidden"
+                  }`}
               ></div>
             </div>
           ))}
         </div>
         <div className="md:w-[50%] flex items-center">
-          {" "}
           <div className="md:ml-8 md:mt-4 justify-center items-center">
-            <img src={ri} alt="Resident Icon Green" className="justify-center itemsp-center" />
-            <div className="">
-            {activeIndex !== null && (
+            <div className="flex flex-col items-center">
+              <img src={ri} alt="Resident Icon Green" className="justify-center items-center" />
               <div>
-                <p className="text-lg mt-4 font-semibold justify-center">
-                  {" "}
-                  {questions[activeIndex]}
-                </p>
-                <p className="text-base">{answers[activeIndex]}</p>{" "}
+                {activeIndex !== null && (
+                  <div>
+                    <p className="text-lg mt-4 font-semibold text-center">
+                      {questions[activeIndex]}
+                    </p>
+                    <p className="text-base text-center">{answers[activeIndex]}</p>
+                  </div>
+                )}
               </div>
-            )}
             </div>
           </div>
         </div>
+
       </div>
     </div>
   );
