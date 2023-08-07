@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom";
 //import h1 from "../Assets/Images/House1.svg";
 import h2 from "../Assets/Images/photo1apt.jpg";
 import h3 from "../Assets/Images/photo2apt.jpg";
@@ -16,6 +15,7 @@ import { MdOutlineClose } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { similarListingData } from "../Components/data";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
@@ -30,6 +30,7 @@ import slide_image_5 from "../Assets/Images/photo5apt.jpg";
 import slide_image_6 from "../Assets/Images/photo6apt.jpg";
 import slide_image_7 from "../Assets/Images/House.png";
 import "react-multi-carousel/lib/styles.css";
+import { Link } from "react-router-dom";
 
 function ImageLayout() {
   // State to control modal(for Book a Tour) visibility and user selections
@@ -110,23 +111,29 @@ function ImageLayout() {
     }
   }, [showGallery]);
 
-  const ModalOverlay = ({ onClick }) => {
+  const ApartmentCard = ({ name, price, location, image }) => {
     return (
-      <div className="fixed inset-0 bg-opacity-30 hidden" onClick={onClick} >
+      <div className="border rounded-lg p-4 shadow-md bg-whites relative">
+        <button className="bg-white text-green-600 font-bold py-2 px-4 rounded-full top-6 left-5 absolute">
+          For Rent
+        </button>
+        <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />
+
+        <div className="mb-4">
+          <h2 className="text-xl font-semibold">{name}</h2>
+          <p className="text-gray-700 dark:text-gray-300">{price}</p>
+          <p className="text-gray-600 dark:text-gray-400">{location}</p>
+        </div>
       </div>
     );
-  };
-  // Function to handle when the overlay is clicked to close the modal
-  const handleOverlayClick = () => {
-    setShowModal(false);
   };
 
   //To handle, Linking thumbnails to images
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   return (
     <div className="md:p-10 ">
-      <div className={`md:py-5 ${showGallery ? 'bg-opacity-75' : ''}`} >
-        <div >
+      <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
+        <div>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
             {/*Apartment Display and DirectorList Gallery*/}
             <div className="w-full md:w-1/2 flex items-center justify-center">
@@ -152,118 +159,126 @@ function ImageLayout() {
                   className="w-full h-[18rem] object-cover"
                 />
                 <div className="absolute flex justify-end items-end bottom-4 right-4">
-                  <div className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer" onClick={handleGalleryDisplay}>
+                  <div
+                    className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer"
+                    onClick={handleGalleryDisplay}
+                  >
                     25+ photos
                   </div>
                 </div>
               </div>
-
             </div>
           </div>
         </div>
 
         {showGallery && (
-          <div className="fixed inset-0 focus:outline-none container bg-opacity-30">
-            <button onClick={handleCloseGallery} className="ml-auto">
-              X
-            </button>
-            <div
-              className="swiper-container"
-              style={{
-                width: "625px",
-                height: "664px",
-                position: "relative",
-                top: "115px",
-                left: "408px",
-              }} >
-              <Swiper
-                effect={"coverflow"}
-                grabCursor={true}
-                centeredSlides={true}
-                loop={true}
-                slidesPerView={"auto"}
-                coverflowEffect={{
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 2.5,
-                }}
-                pagination={{ el: ".swiper-pagination", clickable: true }}
-                navigation={{
-                  nextEl: ".swiper-button-next",
-                  prevEl: ".swiper-button-prev",
-                  clickable: true,
-                }}
-                modules={[EffectCoverflow, Pagination, Navigation]}
-                className="swiper_container"
-                onSlideChange={(swiper) => {
-                  setCurrentSlideIndex(swiper.activeIndex);
+          <div className="fixed inset-0 bg-black bg-opacity-20 focus:outline-none container">
+            <div className="mr:8">
+              <button
+                onClick={handleCloseGallery}
+                className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
+              >
+                <MdOutlineClose size={20} className="mr-1" />
+              </button>
+              <div
+                className="swiper-container"
+                style={{
+                  width: "625px",
+                  height: "28rem",
+                  position: "relative",
+                  top: "115px",
+                  left: "408px",
                 }}
               >
-                <SwiperSlide className="w-96 h-[24rem]">
-                  <img
-                    src={slide_image_1}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="h-[24rem]">
-                  <img
-                    src={slide_image_2}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="w-96 h-60vh">
-                  <img
-                    src={slide_image_3}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="h-[24rem]">
-                  <img
-                    src={slide_image_4}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="h-[24rem]">
-                  <img
-                    src={slide_image_5}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="h-[24rem]">
-                  <img
-                    src={slide_image_6}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <SwiperSlide className="h-[24rem]">
-                  <img
-                    src={slide_image_7}
-                    alt="slide_image"
-                    className="w-full h-full object-cover"
-                  />
-                </SwiperSlide>
-                <div className="slider-controler">
-                  <div className="swiper-button-prev slider-arrow">
-                    <FaChevronLeft className="text-2xl" />
+                <Swiper
+                  effect={"coverflow"}
+                  grabCursor={true}
+                  centeredSlides={true}
+                  loop={true}
+                  slidesPerView={"auto"}
+                  coverflowEffect={{
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 2.5,
+                  }}
+                  pagination={{ el: ".swiper-pagination", clickable: true }}
+                  navigation={{
+                    nextEl: ".swiper-button-next",
+                    prevEl: ".swiper-button-prev",
+                    clickable: true,
+                  }}
+                  modules={[EffectCoverflow, Pagination, Navigation]}
+                  className="swiper_container"
+                  onSlideChange={(swiper) => {
+                    setCurrentSlideIndex(swiper.activeIndex);
+                  }}
+                >
+                  <SwiperSlide className="w-96 h-[28rem]">
+                    <img
+                      src={slide_image_1}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="h-[28rem]">
+                    <img
+                      src={slide_image_2}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="w-96 h-[28rem]">
+                    <img
+                      src={slide_image_3}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="h-[28rem]">
+                    <img
+                      src={slide_image_4}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="h-[28rem]">
+                    <img
+                      src={slide_image_5}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="h-[28rem]">
+                    <img
+                      src={slide_image_6}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <SwiperSlide className="h-[28rem]">
+                    <img
+                      src={slide_image_7}
+                      alt="slide_image"
+                      className="w-full h-full object-cover"
+                    />
+                  </SwiperSlide>
+                  <div className="slider-controler">
+                    <div className="swiper-button-prev slider-arrow">
+                      <FaChevronLeft className="text-2xl" />
+                    </div>
+                    <div className="swiper-button-next slider-arrow">
+                      <FaChevronRight className="text-2xl" />
+                    </div>
+                    <div className="swiper-pagination"></div>
                   </div>
-                  <div className="swiper-button-next slider-arrow">
-                    <FaChevronRight className="text-2xl" />
-                  </div>
-                  <div className="swiper-pagination"></div>
-                </div>
-              </Swiper>
+                </Swiper>
+              </div>
             </div>
             <div className="text-black font-bold rounded-full bg-white p-2 font-sfpromedium text-sm cursor-pointer">
-              {currentSlideIndex + 1}/7
+              <button>{currentSlideIndex + 1}/7</button>
             </div>
-            {/* Display the images at the bottom of the carousel */}
+            {/* Displaying the images at the bottom of the carousel */}
             <div className="gap-[20px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
               {[
                 slide_image_1,
@@ -283,15 +298,15 @@ function ImageLayout() {
                     height: "120px",
                     border: "5px solid transparent",
                   }}
-                  className={`thumbnail h-20 ${currentSlideIndex === index ? "active" : ""
-                    } group group-hover:border-199976`}
+                  className={`thumbnail h-20 ${
+                    currentSlideIndex === index ? "active" : ""
+                  } group group-hover:border-199976`}
                   onClick={() => setCurrentSlideIndex(index)}
                 />
               ))}
             </div>
           </div>
         )}
-
       </div>
 
       <div className="px-2">
@@ -502,10 +517,11 @@ function ImageLayout() {
                         <button
                           key={index}
                           onClick={() => handleSelectDate(date)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${selectedDate === date
-                            ? "bg-green-700 text-white"
-                            : "bg-gray-200"
-                            }`}
+                          className={`w-full h-full px-2 py-2 rounded-md ${
+                            selectedDate === date
+                              ? "bg-green-700 text-white"
+                              : "bg-gray-200"
+                          }`}
                           style={{
                             flexBasis: "calc(100% / 7.2)",
                             maxWidth: "calc(100% / 7.2)",
@@ -515,7 +531,6 @@ function ImageLayout() {
                         </button>
                       ))}
                     </div>
-
                   </div>
                   <div className="mt-6">
                     <h3 className="text-lg font-semibold">Select a time</h3>
@@ -524,10 +539,11 @@ function ImageLayout() {
                         <button
                           key={index}
                           onClick={() => handleSelectTime(time)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${selectedTime === time
-                            ? "bg-green-700 text-white"
-                            : "bg-gray-200"
-                            }`}
+                          className={`w-full h-full px-2 py-2 rounded-md ${
+                            selectedTime === time
+                              ? "bg-green-700 text-white"
+                              : "bg-gray-200"
+                          }`}
                           style={{
                             flexBasis: "calc(100% / 7)",
                             maxWidth: "calc(100% / 7)",
@@ -795,46 +811,20 @@ function ImageLayout() {
       <div>
         {/*Similar Listing*/}
         <div className="flex">
-          <h1 className="font-sfprosemibold text-xl flex">Similar Listings</h1>
+          <h1 className="font-inter text-xl flex">Similar Listing</h1>
           <h2 className="flex text-green-700 font-semibold ml-auto">
+          <Link to = "/listings">   
             See more
+          </Link>
           </h2>
         </div>
-        <div className="flex p-2 space-x-2">
-          <div className="flex flex-col items-start my-4 w-full">
-            <img
-              src={h3}
-              alt="House 3"
-              className="md:w-full md:h-full  h-16 object-contain cursor-pointer"
-            />
-            <div className="flex flex-col ml-4">
-              <h2 className="text-lg font-semibold">Name of Apartment</h2>
-              <h2 className="text-lg">$500/month</h2>
-              <h2 className="flex-grow">Kardesler sokak, Edremit Kyrenia</h2>
-            </div>
-          </div>
-          <div className="flex flex-col items-start my-4 w-full">
-            <img
-              src={h3}
-              alt="House 3"
-              className="w-full h-full object-contain cursor-pointer"
-            />
-            <div className="flex flex-col ml-4">
-              <h2 className="text-lg font-semibold">Name of Apartment</h2>
-              <h2 className="text-lg">$500/month</h2>
-              <h2 className="flex-grow">Kardesler sokak, Edremit Kyrenia</h2>
-            </div>
-          </div>
-          <div className="flex flex-col items-start my-4 w-full">
-            <img
-              src={h3}
-              alt="House 3"
-              className="w-full h-full object-contain cursor-pointer"
-            />
-            <div className="flex flex-col ml-4">
-              <h2 className="text-lg font-semibold">Name of Apartment</h2>
-              <h2 className="text-lg">$500/month</h2>
-              <h2 className="flex-grow">Kardesler sokak, Edremit Kyrenia</h2>
+
+        <div className="mt-6">
+          <div className="container mx-auto">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {similarListingData.map((apartment) => (
+                <ApartmentCard key={apartment.id} {...apartment} />
+              ))}
             </div>
           </div>
         </div>

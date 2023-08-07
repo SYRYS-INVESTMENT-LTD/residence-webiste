@@ -120,3 +120,27 @@ import apt6 from "../Assets/Images/photo6apt.jpg";
       price: "500$/month",
     },
   ]
+
+  export const similarListingData = [
+    {
+      id: 1,
+      image: h3,
+      name: "Atoll Park Site",
+      location: "Kardesier sokak Edremit Kyrenia. Cyprus", 
+      price: "500$/month",
+    },
+    {
+      id: 2,
+      image: h1,
+      name: "Atoll Park Site",
+      location: "Kardagar cokak Edema Kyrenia Cyprus",
+      price: "500$/month",
+    },
+    {
+      id: 3,
+      image: h1,
+      name: "Atoll Park Site",
+      location: "Kardagar cokak Edema Kyrenia Cyprus",
+      price: "500$/month",
+    },
+  ]
