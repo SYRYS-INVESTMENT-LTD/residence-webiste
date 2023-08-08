@@ -305,9 +305,8 @@ function ImageLayout() {
                     height: "120px",
                     border: "5px solid transparent",
                   }}
-                  className={`thumbnail h-20 ${
-                    currentSlideIndex === index ? "active" : ""
-                  } group group-hover:border-199976`}
+                  className={`thumbnail h-20 ${currentSlideIndex === index ? "active" : ""
+                    } group group-hover:border-199976`}
                   onClick={() => setCurrentSlideIndex(index)}
                 />
               ))}
@@ -467,26 +466,28 @@ function ImageLayout() {
                 <div className="bg-white p-6 rounded-lg shadow-lg sm:max-h-[80vh] overflow-y-auto">
                   <div className="text-center">
                     <div>
-                      <h2 className="text-xl text-center font-semibold">
-                        BOOK A TOUR
-                      </h2>
-                      <h2>
-                        We'll connect you with a local agent who can give you a
-                      </h2>
-                      <h2>personalized tour of the home in person</h2>
+                      <div className="flex items-center justify-between">
+                        <h2 className="text-xl text-center font-semibold flex-grow">
+                          BOOK A TOUR
+                        </h2>
+                        <button
+                          onClick={() => {
+                            setShowModal(false);
+                            setSelectedDate(null);
+                            setSelectedTime(null);
+                          }}
+                          className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
+                        >
+                          <MdOutlineClose size={20} className="mr-1" />
+                        </button>
+                      </div>
                     </div>
-                    <button
-                      onClick={() => {
-                        setShowModal(false);
-                        setSelectedDate(null);
-                        setSelectedTime(null);
-                      }}
-                      className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
-                    >
-                      <MdOutlineClose size={20} className="mr-1" />
-                    </button>
+                    <h2>
+                      We'll connect you with a local agent who can give you a
+                    </h2>
+                    <h2>personalized tour of the home in person</h2>
                   </div>
-                  <div className="flex items-center space-x-4">
+                  <div className="flex items-center space-x-4 mt-4">
                     <img
                       src={tourImg}
                       alt="For Rent Button"
@@ -517,56 +518,48 @@ function ImageLayout() {
                       <img src={rent} alt="For Rent Button" className="h-10" />
                     </div>
                   </div>
-                  <div className="mt-6">
-                    <h3 className="text-lg font-semibold">Select a date</h3>
-                    <div className="flex flex-wrap mt-2 space-x-2 space-y-4">
-                      {dateOptions.map((date, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleSelectDate(date)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${
-                            selectedDate === date
+                  <div>
+                    <div className="mt-6">
+                      <h3 className="text-lg font-semibold">Select a date</h3>
+                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6">
+                        {dateOptions.map((date, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleSelectDate(date)}
+                            className={`w-full h-12 px-2 py-2 rounded-md ${selectedDate === date
                               ? "bg-green-700 text-white"
-                              : "bg-gray-200"
-                          }`}
-                          style={{
-                            flexBasis: "calc(100% / 7.2)",
-                            maxWidth: "calc(100% / 7.2)",
-                          }}
-                        >
-                          {date}
-                        </button>
-                      ))}
+                              : "border border-gray-300 border-1"
+                              }`}
+                          >
+                            {date}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                  <div className="mt-6">
-                    <h3 className="text-lg font-semibold">Select a time</h3>
-                    <div className="flex flex-wrap mt-2 space-x-2 space-y-4">
-                      {timeOptions.map((time, index) => (
-                        <button
-                          key={index}
-                          onClick={() => handleSelectTime(time)}
-                          className={`w-full h-full px-2 py-2 rounded-md ${
-                            selectedTime === time
+                    <div className="mt-6">
+                      <h3 className="text-lg font-semibold">Select a time</h3>
+                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6">
+                        {timeOptions.map((time, index) => (
+                          <button
+                            key={index}
+                            onClick={() => handleSelectTime(time)}
+                            className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === time
                               ? "bg-green-700 text-white"
-                              : "bg-gray-200"
-                          }`}
-                          style={{
-                            flexBasis: "calc(100% / 7)",
-                            maxWidth: "calc(100% / 7)",
-                          }}
-                        >
-                          {time}
-                        </button>
-                      ))}
+                              : "border border-gray-300 border-1"
+                              }`}
+                          >
+                            {time}
+                          </button>
+                        ))}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="flex mt-6 space-x-2">
+                  </div>
+                  <div className="flex mt-6 space-x-4">
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-2 rounded-md bg-gray-100 focus:outline-none focus:ring focus:border-blue-300"
+                      className="w-full px-4 py-2 rounded-md text-[#B5B5B5] focus:outline-none focus:ring border border-[#B5B5B5] border-1"
                       placeholder="Enter your email"
                     />
                     <button

@@ -6,7 +6,15 @@
     font-family: "SFPRODISPLAYBOLD";
     src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
   }
-
+  @font-face {
+    font-family: "Inter";
+    src: url("../public/Fonts/Inter-Bold.otf");
+  }
+  
+  @font-face {
+    font-family: "INTERDISPLAYLIGHT";
+    src: url("../public/Fonts/Inter-Light.otf");
+  }
   @font-face {
     font-family: "SFPRODISPLAYSEMIBOLD";
     src: url("../public/Fonts/SF-Pro-Text-Semibold.ttf");
