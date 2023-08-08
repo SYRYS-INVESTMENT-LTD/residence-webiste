@@ -15,13 +15,13 @@ import { MdOutlineClose } from "react-icons/md";
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { similarListingData } from "../Components/data";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { similarListingData } from "../Components/data";
 import slide_image_1 from "../Assets/Images/photo1apt.jpg";
 import slide_image_2 from "../Assets/Images/photo2apt.jpg";
 import slide_image_3 from "../Assets/Images/photo3apt.jpg";
@@ -131,7 +131,7 @@ function ImageLayout() {
   //To handle, Linking thumbnails to images
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
   return (
-    <div className="md:p-10 ">
+    <div className="md:p-10 sm:p-2">
       <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
         <div>
           <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
@@ -142,6 +142,14 @@ function ImageLayout() {
                 alt="House 1"
                 className="w-full h-[36rem] object-cover cursor-pointer"
               />
+              <div className="md:hidden lg:hidden absolute flex justify-end items-end bottom-4 right-4">
+                <div
+                  className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer"
+                  onClick={handleGalleryDisplay}
+                >
+                  25+ photos
+                </div>
+              </div>
             </div>
             <div className="w-full md:w-1/2 flex flex-col space-y-2">
               <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">

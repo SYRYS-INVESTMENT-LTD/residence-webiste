@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { MdArrowForward } from "react-icons/md";
-import ri from "../Assets/Icons/ResidentIconGreen.svg";
+import { BsArrowRight } from "react-icons/bs";
+import ri from "../Assets/Icons/ResidentIcon2.svg";
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -29,16 +29,12 @@ function FAQ() {
   ];
 
   const handleQuestionClick = (index) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+    setActiveIndex(index);
+  };  
 
   return (
     <div className="mt-20 md:mx-20 mb-20 mx-10">
       <h1 className="text-xl font-sfprosemibold">FAQS</h1>
-      <div className="flex items-center space-x-2">
-        <p className="text-xs font-sfpromedium underline ml-auto">Read More</p>
-        <MdArrowForward size={14} />
-      </div>
       <div className="flex mt-4">
         <div className="md:w-[50%]">
           {questions.map((question, index) => (
@@ -48,11 +44,11 @@ function FAQ() {
               onClick={() => handleQuestionClick(index)}
             >
               <div className="flex items-center justify-between m-3 space-y-2">
-                <h1 className="font-sfproregular text-[#262626] hover:text-[#199976] text-base">
+                <h1 className="font-sfproregular text-[#262626] hover:text-[#199976] text-base items-center justify-center">
                   {" "}
                   {question}
                 </h1>
-                {activeIndex === index ? <MdArrowForward size={56} color="#199976" /> : null}
+                {activeIndex === index ? <BsArrowRight size={56} color="#199976" /> : null}
               </div>
               <div
                 className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${activeIndex === index ? "block" : "hidden"
@@ -61,17 +57,17 @@ function FAQ() {
             </div>
           ))}
         </div>
-        <div className="md:w-[50%] flex items-center">
-          <div className="md:ml-8 md:mt-4 justify-center items-center">
+        <div className="md:w-[50%] flex text-left">
+          <div className="md:ml-8 md:mt-4 ">
             <div className="flex flex-col items-center">
               <img src={ri} alt="Resident Icon Green" className="justify-center items-center" />
               <div>
                 {activeIndex !== null && (
                   <div>
-                    <p className="text-lg mt-4 font-semibold text-center">
+                    <p className="text-lg mt-4 font-semibold ">
                       {questions[activeIndex]}
                     </p>
-                    <p className="text-base text-center">{answers[activeIndex]}</p>
+                    <p className="text-base">{answers[activeIndex]}</p>
                   </div>
                 )}
               </div>
