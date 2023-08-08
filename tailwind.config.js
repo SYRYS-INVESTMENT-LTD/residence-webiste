@@ -11,7 +11,11 @@ module.exports = {
         sfprobold: ['SFPRODISPLAYBOLD', 'sans-serif'],
         sfpromedium: ['SFPRODISPLAYMEDIUM', 'sans-serif'],
         sfproregular: ['SFPRODISPLAYREGULAR', 'sans-serif'],
-        sfprosemibold: ['SFPRODISPLAYSEMIBOLD', 'sans-serif']
+        sfprosemibold: ['SFPRODISPLAYSEMIBOLD', 'sans-serif'],
+        generalsans: ['GeneralSans', 'sans-serif'],
+        generalsansbold: ['GeneralSansBold', 'sans-serif'],
+        generalsanssemibold: ['GeneralSansSemiBold', 'sans-serif'],
+        generalsanslight: ['GeneralSansLight', 'sans-serif'],
       },
       backgroundImage: {
         'hero': "url('/src/Assets/Images/HeroGradient1.png')",

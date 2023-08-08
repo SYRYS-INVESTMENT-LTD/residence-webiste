@@ -7,6 +7,22 @@
     src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
   }
   @font-face {
+    font-family: "GeneralSans";
+    src: url("../public/Fonts/GeneralSans-Regular.otf");
+  }
+  @font-face {
+    font-family: "GeneralSansBold";
+    src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
+  }
+  @font-face {
+    font-family: "GeneralSansLight";
+    src: url("../public/Fonts/GeneralSans-Light.otf");
+  }
+  @font-face {
+    font-family: "GeneralSansSemiBold";
+    src: url("../public/Fonts/GeneralSans-Semibold.otf");
+  }
+  @font-face {
     font-family: "Inter";
     src: url("../public/Fonts/Inter-Bold.otf");
   }
