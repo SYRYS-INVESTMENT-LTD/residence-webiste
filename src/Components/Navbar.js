@@ -21,23 +21,23 @@ function Navbar() {
         </Link>
         <div className="hidden md:flex space-x-12 items-center">
           <Link to="/">
-            <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
               Home
             </div>
           </Link>
           <Link to="/listings">
-            <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
               Listings
             </div>
           </Link>
-          <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+          <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
             Our Services
           </div>
-          <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+          <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
             About Us
           </div>
           <Link to="/contact">
-            <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
               Contact
             </div>
           </Link>
@@ -62,22 +62,22 @@ function Navbar() {
       {isMenuOpen && (
         <div className="md:hidden bg-transparent border-white b-1 text-gray-300 flex flex-col items-center space-y-4 py-4 left-0 " >
           <Link to="/">
-            <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
               Home
             </div>
           </Link>
           <Link to="/listings">
-            <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+            <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
               Listings
             </div>
           </Link>
-          <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+          <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
             Our Services
           </div>
-          <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+          <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
             About Us
           </div>
-          <div className="font-generalsansmedium text-[#262626] hover:text-green-700 text-sm cursor-pointer">
+          <div className="font-generalsans text-[#262626] hover:text-green-700 text-sm cursor-pointer">
             Contact
           </div>
         </div>
