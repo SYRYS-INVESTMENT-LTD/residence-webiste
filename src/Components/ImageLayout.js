@@ -331,14 +331,14 @@ function ImageLayout() {
               <p className="mt-6 text-2xl font-generalsans text-[#262626]">
                 Atoll Park Site
               </p>
-              <p className="text-xl">$40,000,000</p>
+              <p className="text-xl text-[#262626]">$40,000,000</p>
             </div>
             <div className="flex items-center md:ml-auto">
               <RiMapPinLine color="#000" size={18} className="mr-1" />
               <p>Kardesler sokak, Edremit Kyrenia</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:space-y-3 justify-between md:my-6">
+          <div className="flex flex-col md:flex-row md:space-y-3 justify-between md:my-6 text-[#262626]">
             <div className="flex items-center flex-grow space-x-4">
               <img src={bi} alt="Building Icon" className="h-6" />
               <p>200 units</p>
@@ -361,8 +361,8 @@ function ImageLayout() {
           <div className="md:w-3/5 md:mr-3 flex flex-col md:space-y-2 mb-4">
             <div className="w-full">
               <div>
-                <h2 className="text-lg font-generalsansmedium">Description</h2>
-                <span className="text-sm sm:px-2 font-generalsans">
+                <h2 className="text-lg font-generalsans text-[262626]">Description</h2>
+                <span className="text-sm sm:px-2 font-generalsans text-[#5A5A5A]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Suspendisse sed nisi lacus sed viverra tellus in hac
@@ -383,27 +383,27 @@ function ImageLayout() {
                 </span>
               </div>
             </div>
-            <div className="mt-4">
+            <div className="mt-8">
               <h2 className="text-lg font-generalsansmedium">Site details</h2>
               <div className="mt-4 md:flex-row font-generalsans">
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
               </div>
@@ -412,18 +412,18 @@ function ImageLayout() {
 
           <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
             <div className="flex-row">
-              <div className="bg-[#F5EEEB] p-4 px-3 rounded-lg shadow-lg">
+              <div className="bg-[#F5EEEB] text-[#262626] p-4 px-3 rounded-lg shadow-lg">
                 <h2 className="text-xl text-center font-generalsansmedium">
                   VIRTUAL TOUR
                 </h2>
-                <p className="text-lg text-center font-generalsans">
+                <p className="text-lg text-center font-generalsans text-[#808080]">
                   Experience your dream properties
                 </p>
                 <div className="relative mt-4">
                   <img
                     src={h2}
                     alt="Virtual Tour"
-                    className="w-full h-auto opacity-40"
+                    className="w-full h-auto"
                   />
                   <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4">
                     <svg
@@ -451,7 +451,7 @@ function ImageLayout() {
                     </svg>
                   </button>
                 </div>
-                <button className="bg-green-700 text-white mt-4 px-6 py-2 w-full rounded-md font-generalsans">
+                <button className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md font-generalsans">
                   Book A Virtual Tour
                 </button>
               </div>
@@ -460,9 +460,9 @@ function ImageLayout() {
               <h2 className="text-xl text-center font-semibold">
                 BOOK A PHYSICAL TOUR
               </h2>
-              <p className="text-lg text-center">Experience a world unknown</p>
+              <p className="text-lg text-center text-[#808080]">Experience a world unknown</p>
               <button
-                className="bg-green-700 text-white mt-4 px-6 py-2 w-full rounded-md"
+                className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md"
                 onClick={handleBookPhysicalTour}
               >
                 Book a Physical tour
