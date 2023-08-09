@@ -15,6 +15,10 @@
     src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
   }
   @font-face {
+    font-family: "GeneralSansMedium";
+    src: url("../public/Fonts/GeneralSans-Medium.otf");
+  }
+  @font-face {
     font-family: "GeneralSansLight";
     src: url("../public/Fonts/GeneralSans-Light.otf");
   }

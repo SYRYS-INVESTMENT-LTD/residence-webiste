@@ -7,16 +7,16 @@ import payscreen from "../Assets/Images/Rpayscreen.png";
 function HeroSection() {
   return (
     <div className="items-center justify-center text-center mt-16">
-      <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
+      <h1 className="font-generalsansmedium md:text-2xl text-base text-[#262626]">
         ENJOY A STRESS-FREE LIFE WITH OUR PROPERTY
       </h1>
-      <h1 className="font-sfprobold md:text-2xl text-base text-[#262626]">
+      <h1 className="font-generalsansmedium md:text-2xl text-base text-[#262626]">
         MANAGEMENT SOLUTIONS
       </h1>
       <div>
         {window.innerWidth < 700 ? (
           <>
-            <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
+            <div className="md:mx-60 mx-4 font-generalsans text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
               <p>
                 Experience guaranteed returns and a quality lifestyle with
                 Resident. Our comprehensive services bridge the gap between
@@ -27,7 +27,7 @@ function HeroSection() {
           </>
         ) : (
           <>
-            <div className="md:mx-60 mx-4 font-sfproregular text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
+            <div className="md:mx-60 mx-4 font-generalsans text-xs scale-95 md:text-sm mt-6 text-[#5A5A5A]">
               <p>
                 Experience guaranteed returns and a quality lifestyle with
                 Resident. Our

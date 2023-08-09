@@ -8,8 +8,8 @@ import { studioData, semiDetachedData } from "../Components/data";
 
 const ApartmentCard = ({ name, price, location, image }) => {
   return (
-    <div className="border rounded-lg p-4 shadow-md bg-whites relative">
-      <button className="bg-white text-green-600 font-bold py-2 px-4 rounded-full top-6 left-5 absolute">
+    <div className="border rounded-lg p-4 bg-whites relative">
+      <button className="bg-white text-green-600 font-bold py-1 px-4 rounded-full top-8 left-8 absolute">
         For Rent
       </button>
       <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />

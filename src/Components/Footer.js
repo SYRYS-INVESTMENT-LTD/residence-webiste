@@ -11,27 +11,27 @@ function Footer() {
       <div>
         <img src={rb} alt='Resident' className='h-9' />
 
-        <p className='font-sfproregular text-sm mt-4 text-white'>Experience hassle-free property management </p>
-        <p className='font-sfproregular text-sm text-white'>like never before</p>
+        <p className='font-generalsans text-sm mt-4 text-white'>Experience hassle-free property management </p>
+        <p className='font-generalsans text-sm text-white'>like never before</p>
       </div>
 
       <div>
-        <h1 className='text-xs font-sfproregular text-white'>CONTACT</h1>
+        <h1 className='text-xs font-generalsans text-white'>CONTACT</h1>
         <div className='flex items-center space-x-3 mt-4'>
         <MdMail color='#fff'/>
-          <h1 className='font-sfproregular text-white text-xs'>support@syrysapp.com</h1>
+          <h1 className='font-generalsans text-white text-xs'>support@syrysapp.com</h1>
         </div>
         <div className='flex items-center space-x-3 mt-4'>
           <img src={Linkedin} alt='Linkedin' className='h-4'/>
-          <h1 className='font-sfproregular text-white text-xs'>Linkedin</h1>
+          <h1 className='font-generalsans text-white text-xs'>Linkedin</h1>
         </div>
         <div className='flex items-center space-x-3 mt-4'>
         <img src={Facebook} alt='Facebook' className='h-4'/>
-          <h1 className='font-sfproregular text-white text-xs'>Facebook</h1>
+          <h1 className='font-generalsans text-white text-xs'>Facebook</h1>
         </div>
         <div className='flex items-center space-x-3 mt-4'>
         <img src={Instagram} alt='Instagram' className='h-4'/>
-          <h1 className='font-sfproregular text-white text-xs'>Instagram</h1>
+          <h1 className='font-generalsans text-white text-xs'>Instagram</h1>
         </div>
       </div>
 
