@@ -359,7 +359,7 @@ function ImageLayout() {
         </div>
         <div className="flex flex-col md:flex-row mt-2">
           <div className="md:w-3/5 md:mr-3 flex flex-col md:space-y-2 mb-4">
-            <div className="w-full">
+            <div className="w-full mb-2">
               <div>
                 <h2 className="text-lg font-generalsans text-[262626]">Description</h2>
                 <span className="text-sm sm:px-2 font-generalsans text-[#5A5A5A]">
@@ -412,7 +412,7 @@ function ImageLayout() {
 
           <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
             <div className="flex-row">
-              <div className="bg-[#F5EEEB] text-[#262626] p-4 px-3 rounded-lg shadow-lg">
+              <div className="bg-[#FAF2F0] text-[#262626] p-4 px-3 rounded-lg shadow-lg">
                 <h2 className="text-xl text-center font-generalsansmedium">
                   VIRTUAL TOUR
                 </h2>
@@ -423,7 +423,7 @@ function ImageLayout() {
                   <img
                     src={h2}
                     alt="Virtual Tour"
-                    className="w-full h-auto"
+                    className="w-full h-auto opacity-80"
                   />
                   <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4">
                     <svg
@@ -456,7 +456,7 @@ function ImageLayout() {
                 </button>
               </div>
             </div>
-            <div className="bg-[#F5EEEB] p-6 rounded-lg shadow-lg flex-row font-generalsans">
+            <div className="bg-[#FAF2F0] p-6 rounded-lg shadow-lg flex-row font-generalsans">
               <h2 className="text-xl text-center font-semibold">
                 BOOK A PHYSICAL TOUR
               </h2>
@@ -819,8 +819,8 @@ function ImageLayout() {
       <div>
         {/*Similar Listing*/}
         <div className="flex">
-          <h1 className="font-inter text-xl flex">Similar Listing</h1>
-          <h2 className="flex text-green-700 font-semibold ml-auto">
+          <h1 className="font-inter text-xl flex text-[#262626]">Similar Listing</h1>
+          <h2 className="flex text-[#068965] font-inter ml-auto">
             <Link to="/listings">See more</Link>
           </h2>
         </div>
