@@ -114,18 +114,19 @@ function ImageLayout() {
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
       <div className="border rounded-lg p-4 bg-whites relative">
-        <button className="bg-white text-green-600 font-bold py-1 px-4 rounded-full top-8 left-8 absolute">
+        <button className="bg-white text-green-600 font-generalsans py-1 px-4 rounded-full top-8 left-8 absolute">
           For Rent
         </button>
         <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />
-        <div className="mb-4">
-          <h2 className="text-xl font-generalsansmedium">{name}</h2>
-          <p className="font-generalsansmedium">{price}</p>
-          <p className="font-generalsans">{location}</p>
+        <div className="mb-4 space-y-2">
+          <h2 className="text-xl font-generalsans">{name}</h2>
+          <p className="font-generalsans">{price}</p>
+          <p className="font-sfprotextregular">{location}</p>
         </div>
       </div>
     );
   };
+  
 
   //To handle, Linking thumbnails to images
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
@@ -826,7 +827,7 @@ function ImageLayout() {
 
         <div className="mt-6">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {similarListingData.map((apartment) => (
                 <ApartmentCard key={apartment.id} {...apartment} />
               ))}

@@ -34,7 +34,7 @@ function FAQ() {
 
   return (
     <div className="mt-20 md:mx-20 mb-20 mx-10">
-      <h1 className="text-xl font-sfprosemibold">FAQS</h1>
+      <h1 className="text-xl font-generalsans text-[#262626]">FAQS</h1>
       <div className="flex mt-4">
         <div className="md:w-[50%]">
           {questions.map((question, index) => (
@@ -43,8 +43,8 @@ function FAQ() {
               className="md:cursor-pointer md:mb-8"
               onClick={() => handleQuestionClick(index)}
             >
-              <div className="flex items-center justify-between m-3 space-y-2">
-                <h1 className="font-sfproregular text-[#262626] hover:text-[#199976] text-base items-center justify-center">
+              <div className="flex items-center justify-between space-y-2">
+                <h1 className="font-generalsans text-[#262626] hover:text-[#199976] text-base items-center justify-center">
                   {" "}
                   {question}
                 </h1>
@@ -63,7 +63,7 @@ function FAQ() {
               <img src={ri} alt="Resident Icon Green" className="justify-center items-center" />
               <div>
                 {activeIndex !== null && (
-                  <div>
+                  <div className="space-y-2">
                     <p className="text-lg mt-4 font-semibold ">
                       {questions[activeIndex]}
                     </p>
