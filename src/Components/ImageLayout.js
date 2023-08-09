@@ -113,16 +113,15 @@ function ImageLayout() {
 
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
-      <div className="border rounded-lg p-4 shadow-md bg-whites relative">
-        <button className="bg-white text-green-600 font-bold py-2 px-4 rounded-full top-6 left-5 absolute font-generalsansmedium">
+      <div className="border rounded-lg p-4 bg-whites relative">
+        <button className="bg-white text-green-600 font-bold py-1 px-4 rounded-full top-8 left-8 absolute">
           For Rent
         </button>
         <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />
-
         <div className="mb-4">
-          <h2 className="text-xl font-semibold">{name}</h2>
-          <p className="text-gray-700 dark:text-gray-300">{price}</p>
-          <p className="text-gray-600 dark:text-gray-400">{location}</p>
+          <h2 className="text-xl font-generalsansmedium">{name}</h2>
+          <p className="font-generalsansmedium">{price}</p>
+          <p className="font-generalsans">{location}</p>
         </div>
       </div>
     );

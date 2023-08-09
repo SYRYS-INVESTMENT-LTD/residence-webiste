@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { BsArrowRight } from "react-icons/bs";
+import fa from "../Assets/Icons/ForwardArrow.jpg";
 import ri from "../Assets/Icons/ResidentIcon2.svg";
 
 function FAQ() {
@@ -48,7 +48,7 @@ function FAQ() {
                   {" "}
                   {question}
                 </h1>
-                {activeIndex === index ? <BsArrowRight size={56} color="#199976" /> : null}
+                {activeIndex === index ? <img src={fa} alt="Forward Icon" className="" /> : null}
               </div>
               <div
                 className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${activeIndex === index ? "block" : "hidden"
@@ -74,7 +74,6 @@ function FAQ() {
             </div>
           </div>
         </div>
-
       </div>
     </div>
   );
