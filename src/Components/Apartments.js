@@ -6,6 +6,8 @@ import { Navigation } from "swiper/modules";
 import Product from "./Product";
 import { productData } from "./data";
 import { useNavigate } from "react-router-dom";
+import sl from "../Assets/Icons/SwiperLeft1.svg";
+import sf from "../Assets/Icons/SwiperRight1.svg";
 
 function Apartments() {
   const navigate = useNavigate();
@@ -50,7 +52,10 @@ function Apartments() {
           spaceBetween={1}
           //slidesPerView={2.5}
           pagination={{ clickable: true }}
-          navigation={true}
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
           breakpoints={{
             // when window width is >= 640px
             640: {
@@ -67,6 +72,12 @@ function Apartments() {
           modules={[Navigation]}
         >
           {products}
+          <div className="swiper-button-prev">
+            <img src={sl} alt="Left Navigation" className="h[10vh] ml-10"/>
+          </div>
+          <div className="swiper-button-next">
+            <img src={sf} alt="Right Navigation" className="h-16 mr-10"/>
+          </div>
         </Swiper>
       </div>
     </div>
