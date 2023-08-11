@@ -111,6 +111,38 @@ function ImageLayout() {
     }
   }, [showGallery]);
 
+  //To handle Slider sizes in different screens
+
+  const containerStyles = {
+    width: "60vw",
+    height: "60vh",
+    position: "relative",
+    top: "10vh",
+    left: "20vw",
+  };
+  
+  const smallScreenStyles = {
+    width: "80vw",
+    height: "100vh",
+    top: "5vh",
+    left: "2vh",
+  };
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768); // Adjust the threshold as needed
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
       <div className="border rounded-lg p-4 bg-whites relative">
@@ -126,10 +158,10 @@ function ImageLayout() {
       </div>
     );
   };
-  
 
   //To handle, Linking thumbnails to images
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
   return (
     <div className="md:p-10 sm:p-2">
       <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
@@ -142,7 +174,7 @@ function ImageLayout() {
                 alt="House 1"
                 className="w-full h-[36rem] object-cover cursor-pointer"
               />
-              <div className="md:hidden lg:hidden absolute flex justify-end items-end bottom-4 right-4">
+              <div className="absolute flex justify-end items-end bottom-8 right-4 md:hidden">
                 <div
                   className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-generalsansmedium text-sm cursor-pointer"
                   onClick={handleGalleryDisplay}
@@ -195,16 +227,7 @@ function ImageLayout() {
                 <MdOutlineClose size={24} className="mr-1" color="white" />
               </button>
 
-              <div
-                className="swiper-container relative"
-                style={{
-                  width: "625px",
-                  height: "28rem",
-                  position: "relative",
-                  top: "115px",
-                  left: "408px",
-                }}
-              >
+              <div className="swiper-container relative" style={isSmallScreen ? smallScreenStyles : containerStyles}>
                 <Swiper
                   effect={"coverflow"}
                   grabCursor={true}
@@ -313,8 +336,9 @@ function ImageLayout() {
                     height: "120px",
                     border: "5px solid transparent",
                   }}
-                  className={`thumbnail h-20 ${currentSlideIndex === index ? "active" : ""
-                    } group group-hover:border-199976`}
+                  className={`thumbnail h-20 ${
+                    currentSlideIndex === index ? "active" : ""
+                  } group group-hover:border-199976`}
                   onClick={() => setCurrentSlideIndex(index)}
                 />
               ))}
@@ -361,7 +385,9 @@ function ImageLayout() {
           <div className="md:w-3/5 md:mr-3 flex flex-col md:space-y-2 mb-4">
             <div className="w-full mb-2">
               <div>
-                <h2 className="text-lg font-generalsans text-[262626]">Description</h2>
+                <h2 className="text-lg font-generalsans text-[262626]">
+                  Description
+                </h2>
                 <span className="text-sm sm:px-2 font-generalsans text-[#5A5A5A]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -387,23 +413,33 @@ function ImageLayout() {
               <h2 className="text-lg font-generalsansmedium">Site details</h2>
               <div className="mt-4 md:flex-row font-generalsans">
                 <div className="flex border-b border-[#808080]">
-                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
                 <div className="flex border-b border-[#808080]">
-                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
                 <div className="flex border-b border-[#808080]">
-                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
                 <div className="flex border-b border-[#808080]">
-                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
                 <div className="flex border-b border-[#808080]">
-                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">Parking</h3>
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
               </div>
@@ -460,7 +496,9 @@ function ImageLayout() {
               <h2 className="text-xl text-center font-semibold">
                 BOOK A PHYSICAL TOUR
               </h2>
-              <p className="text-lg text-center text-[#808080]">Experience a world unknown</p>
+              <p className="text-lg text-center text-[#808080]">
+                Experience a world unknown
+              </p>
               <button
                 className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md"
                 onClick={handleBookPhysicalTour}
@@ -471,7 +509,7 @@ function ImageLayout() {
             {/* Modal Form */}
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-4 sm:p-10">
-              <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:max-w-md overflow-y-auto">            
+                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:max-w-md overflow-y-auto">
                   <div className="text-center">
                     <div>
                       <div className="flex items-center justify-between">
@@ -534,10 +572,11 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectDate(date)}
-                            className={`w-full h-12 px-2 py-2 rounded-md ${selectedDate === date
-                              ? "bg-green-700 text-white"
-                              : "border border-gray-300 border-1"
-                              }`}
+                            className={`w-full h-12 px-2 py-2 rounded-md ${
+                              selectedDate === date
+                                ? "bg-green-700 text-white"
+                                : "border border-gray-300 border-1"
+                            }`}
                           >
                             {date}
                           </button>
@@ -551,17 +590,17 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectTime(time)}
-                            className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === time
-                              ? "bg-green-700 text-white"
-                              : "border border-gray-300 border-1"
-                              }`}
+                            className={`w-full h-12 px-2 py-2 rounded-full ${
+                              selectedTime === time
+                                ? "bg-green-700 text-white"
+                                : "border border-gray-300 border-1"
+                            }`}
                           >
                             {time}
                           </button>
                         ))}
                       </div>
                     </div>
-
                   </div>
                   <div className="flex mt-6 space-x-4">
                     <input
@@ -819,7 +858,9 @@ function ImageLayout() {
       <div>
         {/*Similar Listing*/}
         <div className="flex">
-          <h1 className="font-inter text-xl flex text-[#262626]">Similar Listing</h1>
+          <h1 className="font-inter text-xl flex text-[#262626]">
+            Similar Listing
+          </h1>
           <h2 className="flex text-[#068965] font-inter ml-auto">
             <Link to="/listings">See more</Link>
           </h2>
