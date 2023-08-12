@@ -32,7 +32,7 @@ function Apartments() {
   return (
     <div className="mt-20 md:pl-6">
       <div className="flex items-center flex-col justify-center space-y-4">
-        <h1 className="font-generalsans md:text-2xl text-base text-[#262626] flex-row">
+        <h1 className="font-generalsansmedium md:text-2xl text-base text-[#262626] flex-row">
           APARTMENTS AND SITES
         </h1>
         <div className="items-center mx-3 justify-center flex-grow md:text-sm font-generalsans text-xs mt-6 text-[#5A5A5A]">

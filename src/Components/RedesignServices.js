@@ -1,5 +1,5 @@
 import React from "react";
-import services1 from "../Assets/Images/services1.svg";
+import services1 from "../Assets/Images/servicesInspection.png";
 import services2 from "../Assets/Images/services2.svg";
 import services3 from "../Assets/Images/services3.svg";
 
@@ -93,7 +93,7 @@ function RedesignServices() {
             successful sale has never been easier.
           </p>
         </div>
-        <div>
+        <div >
           <img src={services3} className="h-100 w-80" alt="greemily" />
         </div>
       </div>

@@ -6,7 +6,7 @@ import playstore from "../Assets/Icons/GooglePlay.png";
 
 function WhoWeAre() {
   return (
-    <div className="bg-who bg-cover mt-10 md:p-10 pt-10 px-4 pb-3">
+    <div className="bg-[#F5EEEB] bg-cover mt-10 md:p-10 pt-10 px-4 pb-3">
       <div className="flex flex-col items-center justify-center space-x-2">
         <h1 className="font-generalsans text-3xl">WE ARE RESIDENT</h1>
         <img src={sg} alt="grimmy signature" className="mt-2 h-7" />
@@ -52,7 +52,7 @@ function WhoWeAre() {
           </div>
         </div>
         <div className="flex items-start justify-center overflow md:px-7">
-          <div className="h-100 w-80">
+          <div className="h-[20rem] ">
             <img
               className="object-contain h-full w-full"
               src={ai}

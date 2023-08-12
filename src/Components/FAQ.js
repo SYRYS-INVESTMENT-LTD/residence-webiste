@@ -30,46 +30,64 @@ function FAQ() {
 
   const handleQuestionClick = (index) => {
     setActiveIndex(index);
-  };  
+  };
 
   return (
     <div className="mt-20 md:mx-20 mb-20 mx-10">
-      <h1 className="text-xl font-generalsans text-[#262626]">FAQS</h1>
-      <div className="flex mt-4">
-        <div className="md:w-[50%]">
-          {questions.map((question, index) => (
-            <div
-              key={index}
-              className="md:cursor-pointer md:mb-8"
-              onClick={() => handleQuestionClick(index)}
-            >
-              <div className="flex items-center justify-between space-y-2">
-                <h1 className="font-generalsans text-[#262626] hover:text-[#199976] text-base items-center justify-center">
-                  {" "}
-                  {question}
-                </h1>
-                {activeIndex === index ? <img src={fa} alt="Forward Icon" className="" /> : null}
-              </div>
-              <div
-                className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${activeIndex === index ? "block" : "hidden"
-                  }`}
-              ></div>
-            </div>
-          ))}
-        </div>
-        <div className="md:w-[50%] flex text-left">
-          <div className="md:ml-8 md:mt-4 ">
-            <div className="flex flex-col items-center">
-              <img src={ri} alt="Resident Icon Green" className="justify-center items-center" />
-              <div>
-                {activeIndex !== null && (
-                  <div className="space-y-2">
-                    <p className="text-lg mt-4 font-semibold ">
-                      {questions[activeIndex]}
-                    </p>
-                    <p className="text-base">{answers[activeIndex]}</p>
-                  </div>
-                )}
+      <h1 className="text-xl font-generalsansmedium text-[#262626]">FAQS</h1>
+      <div className="flex mt-6">
+      <div className="md:w-[50%]">
+  {questions.map((question, index) => (
+    <div
+      key={index}
+      className={`md:cursor-pointer md:mb-8 ${
+        activeIndex === index ? "rounded-3xl border border-[#199976]" : ""
+      }`}
+      onClick={() => handleQuestionClick(index)}
+    >
+      <div className="flex items-center justify-between space-y-2">
+        <h1
+          className={`font-generalsans text-[#262626] hover:text-[#199976] text-base items-center justify-center`}
+        >
+          {question}
+        </h1>
+        {activeIndex === index ? (
+          <img src={fa} alt="Forward Icon" className="" />
+        ) : null}
+      </div>
+      <div
+        className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${
+          activeIndex === index ? "block" : "hidden"
+        }`}
+      ></div>
+    </div>
+  ))}
+</div>
+
+        <div className="md:w-[50%] flex text-left mx-10 rounded-md justify-center">
+          <div
+            style={{ boxShadow: "3px 3px 8px -1px #0000003D" }}
+            className="px-4"
+          >
+            <div className="md:ml-8 md:mt-4">
+              <div className="flex flex-col items-center">
+                <img
+                  src={ri}
+                  alt="Resident Icon Green"
+                  className="justify-center items-center mt-2"
+                />
+                <div className="justify-center">
+                  {activeIndex !== null && (
+                    <div className="space-y-2">
+                      <p className="text-lg mt-4 font-generalsans">
+                        {questions[activeIndex]}
+                      </p>
+                      <p className="text-base font-generalsans text-[#5A5A5A]">
+                        {answers[activeIndex]}
+                      </p>
+                    </div>
+                  )}
+                </div>
               </div>
             </div>
           </div>
