@@ -40,7 +40,7 @@ function FAQ() {
           {questions.map((question, index) => (
             <div
               key={index}
-              className={`md:cursor-pointer md:mb-8 ${index < questions.length - 1 ? "pb-2 border-b p-4" : ""
+              className={`md:cursor-pointer md:mb-8 ${index < questions.length - 1 ? "pb-2 border-b p-4" : "p-4"
                 } ${activeIndex === index
                   ? "rounded-lg border border-[#199976] p-4"
                   : ""
@@ -55,7 +55,7 @@ function FAQ() {
                   {question}
                 </h1>
                 {activeIndex === index ? (
-                  <img src={fa} alt="Forward Icon" className="ml-4" />
+                  <img src={fa} alt="Forward Icon" className="ml-4 justify-center" />
                 ) : null}
               </div>
             </div>
