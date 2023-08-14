@@ -49,7 +49,7 @@ function Apartments() {
       </div>
       <div className="mt-8">
         <Swiper
-          spaceBetween={1}
+          spaceBetween={12}
           //slidesPerView={2.5}
           pagination={{ clickable: true }}
           navigation={{
