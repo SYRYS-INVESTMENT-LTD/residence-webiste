@@ -7,7 +7,7 @@ function RedesignServices() {
   return (
     <div className="">
       <div className="items-center text-center justify-center mt-20 space-y-4">
-        <p className="font-sfproregular font-semibold text-4xl ">
+        <p className="font-sfproregular font-semibold text-3xl ">
           COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
         </p>
         <p className="font-sfproregular text-[#5a5a5a] text-xl text-center font-medium">
@@ -28,14 +28,14 @@ function RedesignServices() {
             Watch your property's value increase and your stress reduce.
           </p>
         </div>
-        <div>
-          <img src={services2} className="h-100 w-80" alt="greemily" />
+        <div className="">
+          <img src={services2} className="w-96" alt="greemily" />
         </div>
       </div>
       <div>
         {window.innerWidth < 741 ? (
           <>
-            <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-24 sm:flex">
               <div className="md:w-[50%] flex flex-col">
                 <h1 className="font-sfproregular font-medium text-3xl">
                   All-inclusive Property Inspection
