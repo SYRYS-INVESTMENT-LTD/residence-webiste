@@ -9,7 +9,7 @@ function FAQ() {
     "What is property and site management on the Resident platform?",
     "Who can use the Resident platform?",
     "Can the features be customized based on my preferences?",
-    "Yes, Resident can accessed and managed through our mobile app which is available on the App Store and Google Play.",
+    "Can resident app be accessed.",
     "How does the support system work?",
     "What is property inspection?",
   ];
@@ -36,33 +36,32 @@ function FAQ() {
     <div className="mt-20 md:mx-20 mb-20 mx-10">
       <h1 className="text-xl font-generalsansmedium text-[#262626]">FAQS</h1>
       <div className="flex mt-6">
-      <div className="md:w-[50%]">
-  {questions.map((question, index) => (
-    <div
-      key={index}
-      className={`md:cursor-pointer md:mb-8 ${
-        activeIndex === index ? "rounded-3xl border border-[#199976]" : ""
-      }`}
-      onClick={() => handleQuestionClick(index)}
-    >
-      <div className="flex items-center justify-between space-y-2">
-        <h1
-          className={`font-generalsans text-[#262626] hover:text-[#199976] text-base items-center justify-center`}
-        >
-          {question}
-        </h1>
-        {activeIndex === index ? (
-          <img src={fa} alt="Forward Icon" className="" />
-        ) : null}
-      </div>
-      <div
-        className={`h-0.5 bg-[#e3e3e3] w-[100%] mt-4 ${
-          activeIndex === index ? "block" : "hidden"
-        }`}
-      ></div>
-    </div>
-  ))}
-</div>
+        <div className="md:w-[50%]">
+          {questions.map((question, index) => (
+            <div
+              key={index}
+              className={`md:cursor-pointer md:mb-8 ${index < questions.length - 1 ? "pb-2 border-b p-4" : ""
+                } ${activeIndex === index
+                  ? "rounded-lg border border-[#199976] p-4"
+                  : ""
+                }`}
+              onClick={() => handleQuestionClick(index)}
+            >
+              <div className="flex items-center justify-between space-y-2">
+                <h1
+                  className={`font-generalsans text-base items-center justify-center ${activeIndex === index ? "text-[#199976]" : "text-[#262626] hover:text-[#199976]"
+                    }`}
+                >
+                  {question}
+                </h1>
+                {activeIndex === index ? (
+                  <img src={fa} alt="Forward Icon" className="ml-4" />
+                ) : null}
+              </div>
+            </div>
+          ))}
+        </div>
+
 
         <div className="md:w-[50%] flex text-left mx-10 rounded-md justify-center">
           <div

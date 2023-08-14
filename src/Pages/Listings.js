@@ -3,7 +3,7 @@ import Footer from "../Components/Footer";
 import usflag from "../Assets/Icons/USFlag.png";
 import ricon from "../Assets/Icons/ResidentIcon2.svg";
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { studioData, semiDetachedData } from "../Components/data";
 
 const ApartmentCard = ({ name, price, location, image }) => {
@@ -24,6 +24,7 @@ const ApartmentCard = ({ name, price, location, image }) => {
 
 function Listings() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -46,15 +47,11 @@ function Listings() {
                 </div>
               </Link>
               <div className="hidden md:flex space-x-12 items-center">
-                <Link to="/">
-                  <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
-                    Home
-                  </div>
+                <Link to="/" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/' ? 'text-green-700' : 'text-white'}`}>
+                  Home
                 </Link>
-                <Link to="/listings">
-                  <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
-                    Listings
-                  </div>
+                <Link to="/listings" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/listings' ? 'text-white' : 'text-[#262626]'}`}>
+                  Listings
                 </Link>
                 <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
                   Our Services
@@ -72,7 +69,7 @@ function Listings() {
                   onClick={handleMenuToggle}
                 >
                   <img src={usflag} alt="language" className="h-6" />
-                  <MdKeyboardArrowDown size={24} color="white"/>
+                  <MdKeyboardArrowDown size={24} color="white" />
                 </div>
 
                 <MdOutlineMenu

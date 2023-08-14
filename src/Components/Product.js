@@ -7,7 +7,7 @@ export default function Product(props) {
       <div className="relative cursor-pointer">
         <div className=" overflow-hidden">
           <img
-            className="object-cover h-[26rem] w-full"
+            className="object-cover h-[28rem] w-full"
             src={props.url}
             alt={`${props.name} - ${props.location}`}
           />
