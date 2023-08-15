@@ -111,18 +111,49 @@ function ImageLayout() {
     }
   }, [showGallery]);
 
+  //To handle Slider sizes in different screens
+
+  const containerStyles = {
+    width: "60vw",
+    height: "60vh",
+    position: "relative",
+    top: "10vh",
+    left: "20vw",
+  };
+  
+  const smallScreenStyles = {
+    width: "80vw",
+    height: "100vh",
+    top: "5vh",
+    left: "2vh",
+  };
+
+  const [isSmallScreen, setIsSmallScreen] = useState(false);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsSmallScreen(window.innerWidth < 768); // Adjust the threshold as needed
+    };
+
+    handleResize(); // Initial check
+    window.addEventListener('resize', handleResize);
+
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
-      <div className="border rounded-lg p-4 shadow-md bg-whites relative">
-        <button className="bg-white text-green-600 font-bold py-2 px-4 rounded-full top-6 left-5 absolute">
+      <div className="border rounded-lg p-4 bg-whites relative">
+        <button className="bg-white text-green-600 font-generalsans py-1 px-4 rounded-full top-8 left-8 absolute">
           For Rent
         </button>
         <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />
-
-        <div className="mb-4">
-          <h2 className="text-xl font-semibold">{name}</h2>
-          <p className="text-gray-700 dark:text-gray-300">{price}</p>
-          <p className="text-gray-600 dark:text-gray-400">{location}</p>
+        <div className="mb-4 space-y-2">
+          <h2 className="text-xl font-generalsans">{name}</h2>
+          <p className="font-generalsans">{price}</p>
+          <p className="font-sfprotextregular">{location}</p>
         </div>
       </div>
     );
@@ -130,6 +161,7 @@ function ImageLayout() {
 
   //To handle, Linking thumbnails to images
   const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
   return (
     <div className="md:p-10 sm:p-2">
       <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
@@ -142,9 +174,9 @@ function ImageLayout() {
                 alt="House 1"
                 className="w-full h-[36rem] object-cover cursor-pointer"
               />
-              <div className="md:hidden lg:hidden absolute flex justify-end items-end bottom-4 right-4">
+              <div className="absolute flex justify-end items-end bottom-8 right-4 md:hidden">
                 <div
-                  className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer"
+                  className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-generalsansmedium text-sm cursor-pointer"
                   onClick={handleGalleryDisplay}
                 >
                   25+ photos
@@ -168,7 +200,7 @@ function ImageLayout() {
                 />
                 <div className="absolute flex justify-end items-end bottom-4 right-4">
                   <div
-                    className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-sfpromedium text-sm cursor-pointer"
+                    className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-generalsansmedium text-sm cursor-pointer"
                     onClick={handleGalleryDisplay}
                   >
                     25+ photos
@@ -187,7 +219,7 @@ function ImageLayout() {
               backgroundBlendMode: "multiply",
             }}
           >
-            <div className="mr-8 relative">
+            <div className="mr-8  relative">
               <button
                 onClick={handleCloseGallery}
                 className="px-3 py-2 rounded-md justify-center flex items-center absolute top-16 right-16"
@@ -195,16 +227,7 @@ function ImageLayout() {
                 <MdOutlineClose size={24} className="mr-1" color="white" />
               </button>
 
-              <div
-                className="swiper-container relative"
-                style={{
-                  width: "625px",
-                  height: "28rem",
-                  position: "relative",
-                  top: "115px",
-                  left: "408px",
-                }}
-              >
+              <div className="swiper-container relative" style={isSmallScreen ? smallScreenStyles : containerStyles}>
                 <Swiper
                   effect={"coverflow"}
                   grabCursor={true}
@@ -290,7 +313,7 @@ function ImageLayout() {
                 </Swiper>
               </div>
             </div>
-            <div className="text-black w-14 font-bold rounded-full px-12 py-3 justify-center bg-white font-sfpromedium text-sm absolute right-20 cursor-pointer">
+            <div className="text-black w-14 font-bold rounded-full px-12 py-3 justify-center bg-white font-generalsansmedium text-sm absolute right-20 cursor-pointer">
               <button>{currentSlideIndex + 1}/7</button>
             </div>
             {/* Displaying the images at the bottom of the carousel */}
@@ -313,8 +336,9 @@ function ImageLayout() {
                     height: "120px",
                     border: "5px solid transparent",
                   }}
-                  className={`thumbnail h-20 ${currentSlideIndex === index ? "active" : ""
-                    } group group-hover:border-199976`}
+                  className={`thumbnail h-20 ${
+                    currentSlideIndex === index ? "active" : ""
+                  } group group-hover:border-199976`}
                   onClick={() => setCurrentSlideIndex(index)}
                 />
               ))}
@@ -328,17 +352,17 @@ function ImageLayout() {
         <div className="pt-4">
           <div className="flex flex-col md:flex-row">
             <div className="flex flex-col font-sfprotext font-semibold md:flex-grow space-y-2">
-              <p className="mt-6 text-2xl font-sfproregular text-[#262626]">
+              <p className="mt-6 text-2xl font-generalsans text-[#262626]">
                 Atoll Park Site
               </p>
-              <p className="text-xl">$40,000,000</p>
+              <p className="text-xl text-[#262626]">$40,000,000</p>
             </div>
             <div className="flex items-center md:ml-auto">
               <RiMapPinLine color="#000" size={18} className="mr-1" />
               <p>Kardesler sokak, Edremit Kyrenia</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:space-y-3 justify-between md:my-6">
+          <div className="flex flex-col md:flex-row md:space-y-3 justify-between md:my-6 text-[#262626]">
             <div className="flex items-center flex-grow space-x-4">
               <img src={bi} alt="Building Icon" className="h-6" />
               <p>200 units</p>
@@ -359,10 +383,12 @@ function ImageLayout() {
         </div>
         <div className="flex flex-col md:flex-row mt-2">
           <div className="md:w-3/5 md:mr-3 flex flex-col md:space-y-2 mb-4">
-            <div className="w-full">
+            <div className="w-full mb-2">
               <div>
-                <h2 className="text-lg font-semibold">Description</h2>
-                <span className="text-sm sm:px-2">
+                <h2 className="text-lg font-generalsans text-[262626]">
+                  Description
+                </h2>
+                <span className="text-sm sm:px-2 font-generalsans text-[#5A5A5A]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Suspendisse sed nisi lacus sed viverra tellus in hac
@@ -383,27 +409,37 @@ function ImageLayout() {
                 </span>
               </div>
             </div>
-            <div className="mt-4">
-              <h2 className="text-lg font-medium">Site details</h2>
-              <div className="mt-4 md:flex-row font-interlight">
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+            <div className="mt-8">
+              <h2 className="text-lg font-generalsansmedium">Site details</h2>
+              <div className="mt-4 md:flex-row font-generalsans">
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
-                <div className="flex border-b border-black">
-                  <h3 className="flex items-center py-2 flex-grow">Parking</h3>
+                <div className="flex border-b border-[#808080]">
+                  <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
+                    Parking
+                  </h3>
                   <h3 className="flex items-center py-2">Yes</h3>
                 </div>
               </div>
@@ -412,18 +448,18 @@ function ImageLayout() {
 
           <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
             <div className="flex-row">
-              <div className="bg-[#F5EEEB] p-4 px-3 rounded-lg shadow-lg">
-                <h2 className="text-xl text-center font-semibold">
+              <div className="bg-[#FAF2F0] text-[#262626] p-4 px-3 rounded-lg shadow-lg">
+                <h2 className="text-xl text-center font-generalsansmedium">
                   VIRTUAL TOUR
                 </h2>
-                <p className="text-lg text-center">
-                  Experience a world unknown
+                <p className="text-lg text-center font-generalsans text-[#808080]">
+                  Experience your dream properties
                 </p>
                 <div className="relative mt-4">
                   <img
                     src={h2}
                     alt="Virtual Tour"
-                    className="w-full h-auto opacity-40"
+                    className="w-full h-auto opacity-80"
                   />
                   <button className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 rounded-full p-4">
                     <svg
@@ -451,18 +487,20 @@ function ImageLayout() {
                     </svg>
                   </button>
                 </div>
-                <button className="bg-green-700 text-white mt-4 px-6 py-2 w-full rounded-md">
+                <button className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md font-generalsans">
                   Book A Virtual Tour
                 </button>
               </div>
             </div>
-            <div className="bg-[#F5EEEB] p-6 rounded-lg shadow-lg flex-row">
+            <div className="bg-[#FAF2F0] p-6 rounded-lg shadow-lg flex-row font-generalsans">
               <h2 className="text-xl text-center font-semibold">
                 BOOK A PHYSICAL TOUR
               </h2>
-              <p className="text-lg text-center">Experience a world unknown</p>
+              <p className="text-lg text-center text-[#808080]">
+                Experience a world unknown
+              </p>
               <button
-                className="bg-green-700 text-white mt-4 px-6 py-2 w-full rounded-md"
+                className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md"
                 onClick={handleBookPhysicalTour}
               >
                 Book a Physical tour
@@ -470,8 +508,8 @@ function ImageLayout() {
             </div>
             {/* Modal Form */}
             {showModal && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-10">
-                <div className="bg-white p-6 rounded-lg shadow-lg sm:max-h-[80vh] overflow-y-auto">
+              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-4 sm:p-10">
+                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:max-w-md overflow-y-auto">
                   <div className="text-center">
                     <div>
                       <div className="flex items-center justify-between">
@@ -534,10 +572,11 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectDate(date)}
-                            className={`w-full h-12 px-2 py-2 rounded-md ${selectedDate === date
-                              ? "bg-green-700 text-white"
-                              : "border border-gray-300 border-1"
-                              }`}
+                            className={`w-full h-12 px-2 py-2 rounded-md ${
+                              selectedDate === date
+                                ? "bg-green-700 text-white"
+                                : "border border-gray-300 border-1"
+                            }`}
                           >
                             {date}
                           </button>
@@ -551,17 +590,17 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectTime(time)}
-                            className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === time
-                              ? "bg-green-700 text-white"
-                              : "border border-gray-300 border-1"
-                              }`}
+                            className={`w-full h-12 px-2 py-2 rounded-full ${
+                              selectedTime === time
+                                ? "bg-green-700 text-white"
+                                : "border border-gray-300 border-1"
+                            }`}
                           >
                             {time}
                           </button>
                         ))}
                       </div>
                     </div>
-
                   </div>
                   <div className="flex mt-6 space-x-4">
                     <input
@@ -594,37 +633,37 @@ function ImageLayout() {
             {/*APARTMENT PRICES AND AVAILABILITY*/}
 
             <div className="mt-10 ">
-              <h1 className="font-sfprosemibold  text-xl">
+              <h1 className="font-generalsansmedium text-xl">
                 Apartment Prices and availability
               </h1>
               <div className="flex items-center flex-shrink-0 whitespace-nowrap overflow-hidden overflow-x-auto overflow-y-hidden space-x-4 mt-10 mb-4 md:space-x-4">
                 <div className="bg-[#BBBBBB33] px-4 flex items-center justify-center py-3 rounded-full border border-[#262626] md:w-[12%]">
-                  <p className="text-xs font-sfproregular text-[#262626]">
+                  <p className="text-xs font-generalsans text-[#262626]">
                     Bachelor
                   </p>
                 </div>
                 <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                  <p className="text-xs font-generalsans text-[#5A5A5A]">
                     Studio
                   </p>
                 </div>
                 <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                  <p className="text-xs font-generalsans text-[#5A5A5A]">
                     Duplex
                   </p>
                 </div>
                 <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                  <p className="text-xs font-generalsans text-[#5A5A5A]">
                     Loft
                   </p>
                 </div>
                 <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                  <p className="text-xs font-generalsans text-[#5A5A5A]">
                     loft
                   </p>
                 </div>
                 <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-sfproregular text-[#5A5A5A]">
+                  <p className="text-xs font-generalsans text-[#5A5A5A]">
                     loft
                   </p>
                 </div>
@@ -640,54 +679,54 @@ function ImageLayout() {
                     className="h-24 md:h-100"
                   />
                   <div className="md:space-y-8 space-y-4">
-                    <h1 className="font-sfproregular text-sm">
+                    <h1 className="font-generalsansmedium text-sm">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-sfpromedium">$800</h1>
-                      <p className="font-sfproregular text-sm text-[#545454]">
+                      <h1 className="text-base font-generalsansmedium">$800</h1>
+                      <p className="font-generalsanslight text-sm text-[#545454]">
                         /month
                       </p>
                     </div>
                     <div className="flex md:hidden items-center space-x-3">
                       <div className="flex items-center space-x-2 text-center">
                         <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bed
                         </p>
                       </div>
-                      <h1 className=" font-sfproregular text-xs text-green-400">
+                      <h1 className=" font-generalsans text-xs text-green-400">
                         Available
                       </h1>
                     </div>
                     <div className="hidden md:flex items-center md:space-x-8 space-x-4">
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bed
                         </p>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bath} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bath
                         </p>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bp} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           635 sqft
                         </p>
                       </div>
                     </div>
-                    <h1 className="md:flex hidden font-sfproregular text-xs text-green-400">
+                    <h1 className="md:flex hidden font-generalsans text-xs text-green-400">
                       Available
                     </h1>
                   </div>
                 </div>
                 <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-sfpromedium">$800</h1>
-                  <p className="font-sfproregular text-sm text-[#545454]">
+                  <h1 className="text-base font-generalsansmedium">$800</h1>
+                  <p className="font-generalsanslight text-sm text-[#545454]">
                     /month
                   </p>
                 </div>
@@ -700,54 +739,54 @@ function ImageLayout() {
                     className="h-24 md:h-100"
                   />
                   <div className="md:space-y-8 space-y-4">
-                    <h1 className="font-sfproregular text-sm">
+                    <h1 className="font-generalsans text-sm">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-sfpromedium">$800</h1>
-                      <p className="font-sfproregular text-sm text-[#545454]">
+                      <h1 className="text-base font-generalsansmedium">$800</h1>
+                      <p className="font-generalsans text-sm text-[#545454]">
                         /month
                       </p>
                     </div>
                     <div className="flex md:hidden items-center space-x-3">
                       <div className="flex items-center space-x-2 text-center">
                         <img src={bp} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           635 sqft
                         </p>
                       </div>
-                      <h1 className=" font-sfproregular text-xs text-green-400">
+                      <h1 className=" font-generalsans text-xs text-green-400">
                         Available
                       </h1>
                     </div>
                     <div className="hidden md:flex items-center md:space-x-8 space-x-4">
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bed
                         </p>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bath} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bath
                         </p>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center">
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           <img src={bp} alt="Blueprint Icon" className="h-6" />
                           635 sqft
                         </p>
                       </div>
                     </div>
-                    <h1 className="md:flex hidden font-sfproregular text-xs text-green-400">
+                    <h1 className="md:flex hidden font-generalsans text-xs text-green-400">
                       Available
                     </h1>
                   </div>
                 </div>
                 <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-sfpromedium">$800</h1>
-                  <p className="font-sfproregular text-sm text-[#545454]">
+                  <h1 className="text-base font-generalsansmedium">$800</h1>
+                  <p className="font-generalsans text-sm text-[#545454]">
                     /month
                   </p>
                 </div>
@@ -760,54 +799,54 @@ function ImageLayout() {
                     className="h-24 md:h-100"
                   />
                   <div className="md:space-y-8 space-y-4">
-                    <h1 className="font-sfproregular text-sm">
+                    <h1 className="font-generalsans text-sm">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-sfpromedium">$800</h1>
-                      <p className="font-sfproregular text-sm text-[#545454]">
+                      <h1 className="text-base font-generalsansmedium">$800</h1>
+                      <p className="font-generalsans text-sm text-[#545454]">
                         /month
                       </p>
                     </div>
                     <div className="flex md:hidden items-center space-x-3">
                       <div className="flex items-center space-x-2 text-center">
                         <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bed
                         </p>
                       </div>
-                      <h1 className=" font-sfproregular text-xs text-green-400">
+                      <h1 className=" font-generalsans text-xs text-green-400">
                         Available
                       </h1>
                     </div>
                     <div className="hidden md:flex items-center md:space-x-8 space-x-4">
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bed
                         </p>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bath} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           One Bath
                         </p>
                       </div>
                       <div className="flex flex-col items-center justify-center text-center">
                         <img src={bp} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-fproregular text-[#545454] text-xs">
+                        <p className="font-generalsans text-[#545454] text-xs">
                           635 sqft
                         </p>
                       </div>
                     </div>
-                    <h1 className="md:flex hidden font-sfproregular text-xs text-green-400">
+                    <h1 className="md:flex hidden font-generalsans text-xs text-green-400">
                       Available
                     </h1>
                   </div>
                 </div>
                 <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-sfpromedium">$800</h1>
-                  <p className="font-sfproregular text-sm text-[#545454]">
+                  <h1 className="text-base font-generalsansmedium">$800</h1>
+                  <p className="font-generalsans text-sm text-[#545454]">
                     /month
                   </p>
                 </div>
@@ -819,15 +858,17 @@ function ImageLayout() {
       <div>
         {/*Similar Listing*/}
         <div className="flex">
-          <h1 className="font-inter text-xl flex">Similar Listing</h1>
-          <h2 className="flex text-green-700 font-semibold ml-auto">
+          <h1 className="font-inter text-xl flex text-[#262626]">
+            Similar Listing
+          </h1>
+          <h2 className="flex text-[#068965] font-inter ml-auto">
             <Link to="/listings">See more</Link>
           </h2>
         </div>
 
         <div className="mt-6">
           <div className="container mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {similarListingData.map((apartment) => (
                 <ApartmentCard key={apartment.id} {...apartment} />
               ))}

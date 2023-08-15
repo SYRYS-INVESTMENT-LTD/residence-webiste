@@ -6,6 +6,8 @@ import { Navigation } from "swiper/modules";
 import Product from "./Product";
 import { productData } from "./data";
 import { useNavigate } from "react-router-dom";
+import sl from "../Assets/Icons/SwiperLeft1.svg";
+import sf from "../Assets/Icons/SwiperRight1.svg";
 
 function Apartments() {
   const navigate = useNavigate();
@@ -30,10 +32,10 @@ function Apartments() {
   return (
     <div className="mt-20 md:pl-6">
       <div className="flex items-center flex-col justify-center space-y-4">
-        <h1 className="font-sfprobold md:text-2xl text-base text-[rgb(38,38,38)] flex-row">
+        <h1 className="font-generalsansmedium md:text-2xl text-base text-[#262626] flex-row">
           APARTMENTS AND SITES
         </h1>
-        <div className="items-center mx-3 justify-center flex-grow md:text-sm font-sfproregular text-xs mt-6 text-[#5A5A5A]">
+        <div className="items-center mx-3 justify-center flex-grow md:text-sm font-generalsans text-xs mt-6 text-[#5A5A5A]">
           <p className="flex-row">
             Resident takes care of all aspects of property management, including
             tenants screening,
@@ -50,7 +52,10 @@ function Apartments() {
           spaceBetween={1}
           //slidesPerView={2.5}
           pagination={{ clickable: true }}
-          navigation={true}
+          navigation={{
+            prevEl: ".swiper-button-prev",
+            nextEl: ".swiper-button-next",
+          }}
           breakpoints={{
             // when window width is >= 640px
             640: {
@@ -67,6 +72,12 @@ function Apartments() {
           modules={[Navigation]}
         >
           {products}
+          <div className="swiper-button-prev">
+            <img src={sl} alt="Left Navigation" className="h[10vh] ml-10"/>
+          </div>
+          <div className="swiper-button-next">
+            <img src={sf} alt="Right Navigation" className="h-16 mr-10"/>
+          </div>
         </Swiper>
       </div>
     </div>

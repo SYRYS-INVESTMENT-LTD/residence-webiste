@@ -13,6 +13,7 @@ module.exports = {
         sfproregular: ['SFPRODISPLAYREGULAR', 'sans-serif'],
         sfprosemibold: ['SFPRODISPLAYSEMIBOLD', 'sans-serif'],
         generalsans: ['GeneralSans', 'sans-serif'],
+        generalsansmedium: ['GeneralSansMedium', 'sans-serif'],
         generalsansbold: ['GeneralSansBold', 'sans-serif'],
         generalsanssemibold: ['GeneralSansSemiBold', 'sans-serif'],
         generalsanslight: ['GeneralSansLight', 'sans-serif'],

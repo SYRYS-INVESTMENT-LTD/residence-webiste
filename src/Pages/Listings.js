@@ -3,21 +3,20 @@ import Footer from "../Components/Footer";
 import usflag from "../Assets/Icons/USFlag.png";
 import ricon from "../Assets/Icons/ResidentIcon2.svg";
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
-import { Link } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import { studioData, semiDetachedData } from "../Components/data";
 
 const ApartmentCard = ({ name, price, location, image }) => {
   return (
-    <div className="border rounded-lg p-4 shadow-md bg-whites relative">
-      <button className="bg-white text-green-600 font-bold py-2 px-4 rounded-full top-6 left-5 absolute">
+    <div className="border rounded-lg p-4 bg-whites relative">
+      <button className="bg-white text-green-600 font-generalsans py-1 px-4 rounded-full top-8 left-8 absolute">
         For Rent
       </button>
       <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />
-
-      <div className="mb-4">
-        <h2 className="text-xl font-semibold">{name}</h2>
-        <p className="text-gray-700 dark:text-gray-300">{price}</p>
-        <p className="text-gray-600 dark:text-gray-400">{location}</p>
+      <div className="mb-4 space-y-2">
+        <h2 className="text-xl font-generalsans">{name}</h2>
+        <p className="font-generalsans">{price}</p>
+        <p className="font-sfprotextregular">{location}</p>
       </div>
     </div>
   );
@@ -25,6 +24,7 @@ const ApartmentCard = ({ name, price, location, image }) => {
 
 function Listings() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -47,15 +47,11 @@ function Listings() {
                 </div>
               </Link>
               <div className="hidden md:flex space-x-12 items-center">
-                <Link to="/">
-                  <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
-                    Home
-                  </div>
+                <Link to="/" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/' ? 'text-green-700' : 'text-white'}`}>
+                  Home
                 </Link>
-                <Link to="/listings">
-                  <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
-                    Listings
-                  </div>
+                <Link to="/listings" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/listings' ? 'text-white' : 'text-[#262626]'}`}>
+                  Listings
                 </Link>
                 <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
                   Our Services
@@ -73,7 +69,7 @@ function Listings() {
                   onClick={handleMenuToggle}
                 >
                   <img src={usflag} alt="language" className="h-6" />
-                  <MdKeyboardArrowDown size={24} color="white"/>
+                  <MdKeyboardArrowDown size={24} color="white" />
                 </div>
 
                 <MdOutlineMenu
@@ -144,7 +140,7 @@ function Listings() {
       <div className="md:p-10 sm-p-5">
         <div className="container mx-auto p-8">
           <h1 className="mb-6 text-2xl font-semibold">Studio Apartments</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {studioData.map((apartment) => (
               <ApartmentCard key={apartment.id} {...apartment} />
             ))}
@@ -154,7 +150,7 @@ function Listings() {
       <div className="md:p-10 sm-p-5">
         <div className="container mx-auto p-8">
           <h1 className="mb-6 text-2xl font-semibold">Semi-detached</h1>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {semiDetachedData.map((apartment) => (
               <ApartmentCard key={apartment.id} {...apartment} />
             ))}
