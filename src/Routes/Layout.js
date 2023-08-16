@@ -3,8 +3,8 @@ import { Routes, Route } from "react-router-dom";
 import InfoPage from "../Pages/InfoPage";
 import LandingPage from "../Pages/LandingPage";
 import Listings from "../Pages/Listings";
-import BookingModal from "../Pages/ContactUs";
 import PropertyListing from "../Pages/PropertyListing";
+import ContactUs from "../Pages/ContactUs";
 
 export default function Layout() {
   return (
@@ -15,7 +15,7 @@ export default function Layout() {
         <Route path="/siteinformation" element={<InfoPage/>}></Route>
         <Route path="/products/:productId" element={<PropertyListing/>}></Route>
         <Route path="/listings" element= {<Listings/>}></Route>
-        <Route path="/contact" element= {<BookingModal/>}></Route>
+        <Route path="/contact" element= {<ContactUs/>}></Route>
       </Routes>
     </>
   );

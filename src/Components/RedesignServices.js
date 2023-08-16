@@ -8,7 +8,6 @@ function RedesignServices() {
     <div className="">
       <div className="items-center text-center justify-center mt-20 space-y-4">
         <p className="font-generalsans text-3xl text-[#262626] ">
-        <p className="font-sfproregular font-semibold text-3xl ">
           COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
         </p>
         <p className="font-generalsans text-[#5a5a5a] text-xl text-center font-medium">

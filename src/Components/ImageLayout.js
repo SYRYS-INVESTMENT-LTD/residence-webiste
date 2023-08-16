@@ -132,7 +132,7 @@ function ImageLayout() {
 
   useEffect(() => {
     const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768); // Adjust the threshold as needed
+      setIsSmallScreen(window.innerWidth < 768);
     };
 
     handleResize(); // Initial check
@@ -509,7 +509,7 @@ function ImageLayout() {
             {/* Modal Form */}
             {showModal && (
               <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-4 sm:p-10">
-                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:max-w-md overflow-y-auto">
+                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:w-[80%] md:w-[90%] lg:w-[70%] xl:w-[50%] overflow-y-auto">
                   <div className="text-center">
                     <div>
                       <div className="flex items-center justify-between">
@@ -567,15 +567,15 @@ function ImageLayout() {
                   <div>
                     <div className="mt-6">
                       <h3 className="text-lg font-semibold">Select a date</h3>
-                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6">
+                      <div className="grid grid-cols-3 gap-6 mt-2 md:grid-cols-6">
                         {dateOptions.map((date, index) => (
                           <button
                             key={index}
                             onClick={() => handleSelectDate(date)}
                             className={`w-full h-12 px-2 py-2 rounded-md ${
                               selectedDate === date
-                                ? "bg-green-700 text-white"
-                                : "border border-gray-300 border-1"
+                                ? "bg-green-700 text-white p-3"
+                                : "border border-gray-300 border-1 p-3"
                             }`}
                           >
                             {date}
@@ -602,11 +602,11 @@ function ImageLayout() {
                       </div>
                     </div>
                   </div>
-                  <div className="flex mt-6 space-x-4">
+                  <div className="flex mt-6 space-x-24 mt-4">
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-2 rounded-md text-[#B5B5B5] focus:outline-none focus:ring border border-[#B5B5B5] border-1"
+                      className="w-[60%] px-4 py-2 rounded-md text-[#B5B5B5] focus:outline-none focus:ring border border-[#B5B5B5] border-1"
                       placeholder="Enter your email"
                     />
                     <button
@@ -615,9 +615,10 @@ function ImageLayout() {
                         setSelectedDate(null);
                         setSelectedTime(null);
                       }}
-                      className="bg-green-700 text-white px-6 py-2 rounded-md mr-2"
+                      className="bg-[#199976] mr-auto text-white px-6 py-2 rounded-md mr-2"
+                      style={{ display: 'inline' }}
                     >
-                      Book Tour
+                      Book A Tour
                     </button>
                   </div>
                 </div>
