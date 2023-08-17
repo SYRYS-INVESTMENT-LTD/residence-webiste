@@ -111,7 +111,7 @@ function ImageLayout() {
     }
   }, [showGallery]);
 
-  //To handle Slider sizes in different screens
+  //To handle Gallery Slider sizes in different screens
 
   const containerStyles = {
     width: "60vw",
@@ -137,11 +137,14 @@ function ImageLayout() {
 
     handleResize(); // Initial check
     window.addEventListener('resize', handleResize);
-
+    
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+  
+    //To handle, Linking thumbnails to images
+    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
@@ -159,14 +162,11 @@ function ImageLayout() {
     );
   };
 
-  //To handle, Linking thumbnails to images
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
   return (
     <div className="md:p-10 sm:p-2">
       <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
         <div>
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-2">
             {/*Apartment Display and DirectorList Gallery*/}
             <div className="w-full md:w-1/2 flex items-center justify-center">
               <img
@@ -219,7 +219,7 @@ function ImageLayout() {
               backgroundBlendMode: "multiply",
             }}
           >
-            <div className="mr-8  relative">
+            <div className="relative">
               <button
                 onClick={handleCloseGallery}
                 className="px-3 py-2 rounded-md justify-center flex items-center absolute top-16 right-16"
@@ -227,7 +227,7 @@ function ImageLayout() {
                 <MdOutlineClose size={24} className="mr-1" color="white" />
               </button>
 
-              <div className="swiper-container relative" style={isSmallScreen ? smallScreenStyles : containerStyles}>
+              <div className={`swiper-container relative ${isSmallScreen ? 'swiper-container-small' : 'swiper-container-large'}`}>
                 <Swiper
                   effect={"coverflow"}
                   grabCursor={true}
@@ -445,7 +445,6 @@ function ImageLayout() {
               </div>
             </div>
           </div>
-
           <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
             <div className="flex-row">
               <div className="bg-[#FAF2F0] text-[#262626] p-4 px-3 rounded-lg shadow-lg">
@@ -513,7 +512,7 @@ function ImageLayout() {
                   <div className="text-center">
                     <div>
                       <div className="flex items-center justify-between">
-                        <h2 className="text-xl text-center font-semibold flex-grow">
+                        <h2 className="text-3xl text-center font-semibold flex-grow">
                           BOOK A TOUR
                         </h2>
                         <button
@@ -528,10 +527,10 @@ function ImageLayout() {
                         </button>
                       </div>
                     </div>
-                    <h2>
+                    <h2 className="font-generalsans font-lg">
                       We'll connect you with a local agent who can give you a
                     </h2>
-                    <h2>personalized tour of the home in person</h2>
+                    <h2 className="font-generalsans font-lg">personalized tour of the home in person</h2>
                   </div>
                   <div className="flex items-center space-x-4 mt-4">
                     <img
@@ -540,7 +539,7 @@ function ImageLayout() {
                       className="w-32 h-32"
                     />
                     <div className="flex flex-col flex-grow space-y-2">
-                      <h1 className="text-[#262626] font-sfprosemibold text-xl">
+                      <h1 className="text-[#262626] font-generalsansmedium text-xl">
                         Atoll Park Site
                       </h1>
                       <div className="flex items-center space-x-2">
@@ -549,19 +548,24 @@ function ImageLayout() {
                           alt="For Rent Button"
                           className="w-6 h-6"
                         />
-                        <h3 className="text-[#262626] font-sfprotext text-lg">
-                          $800/month
-                        </h3>
+                        <div>
+                          <h3 className="text-[#262626] font-generalsansmedium text-xl" style={{display: 'inline'}}>
+                            $800
+                          </h3>
+                          <h3 className="text-[#262626] font-generalsans" style={{display: 'inline'}}>
+                            /month
+                          </h3>
+                        </div>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RiMapPinLine color="#000" size={18} className="mr-1" />
-                        <h3 className="text-[#262626] font-sfprotext">
+                        <RiMapPinLine color="#000" size={18} className="mr-1 " />
+                        <h3 className="text-[#262626] font-generalsans ">
                           Kardesleer sokak, Edremit Kyrenia
                         </h3>
                       </div>
                     </div>
                     <div className="ml-auto">
-                      <img src={rent} alt="For Rent Button" className="h-10" />
+                      <img src={rent} alt="For Rent Button" className="h-6" />
                     </div>
                   </div>
                   <div>
@@ -584,8 +588,8 @@ function ImageLayout() {
                       </div>
                     </div>
                     <div className="mt-6">
-                      <h3 className="text-lg font-semibold">Select a time</h3>
-                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6">
+                      <h3 className="text-lg font-generalsansmedium">Select a time</h3>
+                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6 font-generalsansmedium">
                         {timeOptions.map((time, index) => (
                           <button
                             key={index}

@@ -5,6 +5,7 @@ import LandingPage from "../Pages/LandingPage";
 import Listings from "../Pages/Listings";
 import PropertyListing from "../Pages/PropertyListing";
 import ContactUs from "../Pages/ContactUs";
+import "../CSS/gallery.css";
 
 export default function Layout() {
   return (

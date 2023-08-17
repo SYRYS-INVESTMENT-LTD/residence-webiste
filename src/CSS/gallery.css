@@ -1,0 +1,14 @@
+.swiper-container-small {
+    width: 90vw;
+    height: 100vh;
+    top: 20vh;
+    left: 5vw;
+  }
+  
+  /* Styles for larger screens */
+  .swiper-container-large {
+    width: 60vw;
+    height: 60vh;
+    top: 10vh;
+    left: 20vw;
+  }
