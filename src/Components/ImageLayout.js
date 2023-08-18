@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Draggable from 'react-draggable';
 //import h1 from "../Assets/Images/House1.svg";
 import h2 from "../Assets/Images/photo1apt.jpg";
 import h3 from "../Assets/Images/photo2apt.jpg";
@@ -19,6 +20,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+
 import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import { similarListingData } from "../Components/data";
@@ -111,23 +113,6 @@ function ImageLayout() {
     }
   }, [showGallery]);
 
-  //To handle Gallery Slider sizes in different screens
-
-  const containerStyles = {
-    width: "60vw",
-    height: "60vh",
-    position: "relative",
-    top: "10vh",
-    left: "20vw",
-  };
-  
-  const smallScreenStyles = {
-    width: "80vw",
-    height: "100vh",
-    top: "5vh",
-    left: "2vh",
-  };
-
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -137,14 +122,14 @@ function ImageLayout() {
 
     handleResize(); // Initial check
     window.addEventListener('resize', handleResize);
-    
+
     return () => {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
-  
-    //To handle, Linking thumbnails to images
-    const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
+
+  //To handle, Linking thumbnails to images
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
@@ -213,7 +198,7 @@ function ImageLayout() {
 
         {showGallery && (
           <div
-            className="fixed inset-0 bg-black bg-opacity-20 focus:outline-none container"
+            className="fixed inset-0 bg-black  focus:outline-none container"
             style={{
               backgroundColor: "rgba(0, 0, 0, 0.75)",
               backgroundBlendMode: "multiply",
@@ -247,10 +232,10 @@ function ImageLayout() {
                     clickable: true,
                   }}
                   modules={[EffectCoverflow, Pagination, Navigation]}
-                  className="swiper_container"
                   onSlideChange={(swiper) => {
-                    setCurrentSlideIndex(swiper.activeIndex);
+                    setCurrentSlideIndex(swiper.realIndex);
                   }}
+                  activeIndex={currentSlideIndex}
                 >
                   <SwiperSlide className="h-[36rem]">
                     <img
@@ -313,36 +298,44 @@ function ImageLayout() {
                 </Swiper>
               </div>
             </div>
-            <div className="text-black w-14 font-bold rounded-full px-12 py-3 justify-center bg-white font-generalsansmedium text-sm absolute right-20 cursor-pointer">
+            <div className="text-black font-bold rounded-full px-3 py-1 absolute md:bottom-32 sm:bottom-8 right-4 bg-white font-generalsansmedium text-sm cursor-pointer">
               <button>{currentSlideIndex + 1}/7</button>
             </div>
-            {/* Displaying the images at the bottom of the carousel */}
-            <div className="gap-[20px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
-              {[
-                slide_image_1,
-                slide_image_2,
-                slide_image_4,
-                slide_image_5,
-                slide_image_6,
-                slide_image_7,
-                slide_image_3,
-              ].map((imagePath, index) => (
-                <img
-                  key={index}
-                  src={imagePath}
-                  alt="thumbnail"
-                  style={{
-                    width: "175px",
-                    height: "120px",
-                    border: "5px solid transparent",
-                  }}
-                  className={`thumbnail h-20 ${
-                    currentSlideIndex === index ? "active" : ""
-                  } group group-hover:border-199976`}
-                  onClick={() => setCurrentSlideIndex(index)}
-                />
-              ))}
+            {/* Thumbnail Gallery */}
+            <div className="thumbnail-container">   
+            <Draggable axis="X">          
+            <div
+            className="gap-[20px] bottom-0 left-0 absolute flex justify-center mt-4 space-x-4 thumbnail-inner"
+          >
+            {[
+              slide_image_1,
+              slide_image_2,
+              slide_image_3,
+              slide_image_4,
+              slide_image_5,
+              slide_image_6,
+              slide_image_7,
+            ].map((imagePath, index) => (
+              <img
+                key={index}
+                src={imagePath}
+                alt="thumbnail"
+                style={{
+                  width: "175px",
+                  height: "100%",
+                  border: `5px solid ${currentSlideIndex === index ? "#199976" : "transparent"}`,
+                  scrollSnapAlign: "start",
+                }}
+                className={`thumbnail h-full ${
+                  currentSlideIndex === index ? "active" : ""
+                } group`}
+                onClick={() => setCurrentSlideIndex(index)}
+              />
+            ))}
+          </div>
+            </Draggable>    
             </div>
+                   
           </div>
         )}
       </div>
@@ -549,10 +542,10 @@ function ImageLayout() {
                           className="w-6 h-6"
                         />
                         <div>
-                          <h3 className="text-[#262626] font-generalsansmedium text-xl" style={{display: 'inline'}}>
+                          <h3 className="text-[#262626] font-generalsansmedium text-xl" style={{ display: 'inline' }}>
                             $800
                           </h3>
-                          <h3 className="text-[#262626] font-generalsans" style={{display: 'inline'}}>
+                          <h3 className="text-[#262626] font-generalsans" style={{ display: 'inline' }}>
                             /month
                           </h3>
                         </div>
@@ -576,11 +569,10 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectDate(date)}
-                            className={`w-full h-12 px-2 py-2 rounded-md ${
-                              selectedDate === date
+                            className={`w-full h-12 px-2 py-2 rounded-md ${selectedDate === date
                                 ? "bg-green-700 text-white p-3"
                                 : "border border-gray-300 border-1 p-3"
-                            }`}
+                              }`}
                           >
                             {date}
                           </button>
@@ -594,11 +586,10 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectTime(time)}
-                            className={`w-full h-12 px-2 py-2 rounded-full ${
-                              selectedTime === time
+                            className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === time
                                 ? "bg-green-700 text-white"
                                 : "border border-gray-300 border-1"
-                            }`}
+                              }`}
                           >
                             {time}
                           </button>

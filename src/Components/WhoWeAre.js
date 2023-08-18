@@ -54,7 +54,7 @@ function WhoWeAre() {
           </div>
         </div>
         <div className="flex items-start overflow md:px-2">
-          <div className="h-[24rem]">
+          <div className="h-[30rem]">
             <img
               className="object-contain justify-center h-full w-full"
               src={ai}

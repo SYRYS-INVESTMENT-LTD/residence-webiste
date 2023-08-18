@@ -12,3 +12,34 @@
     top: 10vh;
     left: 20vw;
   }
+  
+ /* styles.css */
+.thumbnail-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: 4px;
+}
+
+.thumbnail-inner {
+  display: flex;
+  width: fit-content;
+  cursor: grab;
+  user-drag: none; /* Disable default drag behavior on elements */
+}
+
+.thumbnail-inner:active {
+  cursor: grabbing;
+}
+
+.thumbnail {
+  flex-shrink: 0;
+  width: 175px;
+  height: 120px;
+  margin-right: 20px;
+  border: 5px solid transparent;
+  transition: border-color 0.3s;
+}
+
+.thumbnail.active {
+  border-color: #199976;
+}

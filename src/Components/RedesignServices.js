@@ -18,7 +18,7 @@ function RedesignServices() {
 
       <div className="md:flex items-center mt-20 justify-center md:space-x-32">
         <div className="md:w-[50%] flex flex-col">
-          <h1 className="font-generalsans font-medium text-3xl">
+          <h1 className="font-generalsans font-medium text-2xl">
             Efficient Property Management
           </h1>
           <p className="font-generalsans text-[#5a5a5a] mt-1">
