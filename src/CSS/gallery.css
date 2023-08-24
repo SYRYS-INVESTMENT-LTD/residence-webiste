@@ -1,0 +1,145 @@
+/* Styles for the gallery overlay */
+.gallery-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Close button styles */
+.close-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  margin-top: 3%;
+  margin-right: 8%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.close-icon {
+  color: white;
+  margin-right: 1px;
+}
+
+/* Container for the main gallery */
+.gallery-container {
+  width: 40%; 
+  height: 50vh; 
+  max-height: 80vh; 
+}
+
+.gallery-container-small{
+  width: 100%;
+  height: 60vh;
+  justify-content: center;
+  margin-top: 30%;
+}
+
+.main-gallery {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  justify-content: center; /* for Center horizontally */
+  align-items: center; /* Center vertically */
+}
+
+/* Container for thumbnails */
+.thumbnail-container {
+  width: 100%;
+  overflow: hidden;
+  margin-top: auto; 
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+/* Swiper for thumbnails */
+.thumbnail-swiper {
+  width: fit-content;
+  cursor: grab;
+}
+
+.thumbnail-swiper:active {
+  cursor: grabbing;
+}
+
+/* Thumbnail styles */
+.thumbnail {
+  flex-shrink: 0;
+  width: 130px;
+  margin-right: 5px;
+  border: 5px solid transparent;
+  transition: border-color 0.3s;
+  cursor: pointer;
+}
+
+.thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.thumbnail.active {
+  border-color: #199976;
+}
+
+.gallery-overlay .counter {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  margin-bottom: 10%;
+  margin-right: 15%;
+
+  @media (max-width: 768px) {
+    bottom: 72px; /* Increase the distance from the bottom */
+  }
+}
+
+@media (max-width: 768px) {
+  .gallery-container-small {
+    width: 100vw;
+    height: 60vh;
+    justify-content: center;
+    margin-top: 30%;
+  }
+
+  .main-gallery {
+    display: flex;
+    width: 100%;
+    overflow-x: auto; /* Allow horizontal scrolling */
+    justify-content: flex-start; /* Start from the left edge */
+    align-items: center; /* Center vertically */
+    white-space: nowrap;
+  }
+
+  .gallery-overlay .counter {
+    position: absolute;
+    bottom: 72px; /* Increase the distance from the bottom */
+    right: 16px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    margin-right: 15%;
+  }
+  .swiper-slide img {
+    width: 100vw; /* Take up the screen width */
+    height: auto; /* Maintain the image's aspect ratio */
+    object-fit: contain; /* Fit the image within the slide */
+    max-height: 100%; /* Ensure the image doesn't exceed slide height */
+  }
+}
+

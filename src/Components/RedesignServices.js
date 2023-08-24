@@ -1,7 +1,7 @@
 import React from "react";
-import services1 from "../Assets/Images/servicesInspection.png";
-import services2 from "../Assets/Images/services2.svg";
-import services3 from "../Assets/Images/services3.svg";
+import services1 from "../Assets/Images/services2.png";
+import services2 from "../Assets/Images/services1.png";
+import services3 from "../Assets/Images/services3.png";
 
 function RedesignServices() {
   return (
@@ -18,10 +18,10 @@ function RedesignServices() {
 
       <div className="md:flex items-center mt-20 justify-center md:space-x-32">
         <div className="md:w-[50%] flex flex-col">
-          <h1 className="font-generalsans font-medium text-3xl">
+          <h1 className="font-generalsans font-medium text-2xl">
             Efficient Property Management
           </h1>
-          <p className="font-generalsans text-[#5a5a5a] mt-1">
+          <p className="font-generalsans text-[#5a5a5a] mt-3">
             We use technology to ease communication and management for
             homeowner, landlords and investors. Our experienced team handles
             tenants screening, rent collection, maintenance, and much more.
@@ -37,10 +37,10 @@ function RedesignServices() {
           <>
             <div className="md:flex items-center mt-20 justify-center md:space-x-24 sm:flex">
               <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-generalsans font-medium text-3xl">
+                <h1 className="font-generalsans font-medium text-2xl">
                   All-inclusive Property Inspection
                 </h1>
-                <p className="font-generalsans text-[#5a5a5a] mt-1">
+                <p className="font-generalsans text-[#5a5a5a] mt-3">
                   Gain peace of mind with Resident's comprehensive property
                   inspections. Our experienced inspectors provide detailed
                   reports for informed decisions. From pre-purchase evaluations
@@ -57,7 +57,7 @@ function RedesignServices() {
           </>
         ) : (
           <>
-            <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-32 sm:flex row-reverse">
               <div>
                 <img src={services1} className="h-100 w-80 " alt="greemily" />
               </div>
@@ -79,7 +79,6 @@ function RedesignServices() {
           </>
         )}
       </div>
-
       <div className="md:flex items-center mt-20 justify-center md:space-x-32 ">
         <div className="md:w-[50%] flex flex-col">
           <h1 className="font-generalsans font-medium text-3xl">
@@ -94,7 +93,7 @@ function RedesignServices() {
           </p>
         </div>
         <div >
-          <img src={services3} className="h-100 w-80" alt="greemily" />
+          <img src={services3} className="sm:mt-2 h-100 w-80" alt="greemily" />
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import ai from "../Assets/Images/appsImage.svg";
+import ai from "../Assets/Images/appsImage.png";
 import sg from "../Assets/Images/Signature.svg";
 import appstore from "../Assets/Icons/AppStore.png";
 import playstore from "../Assets/Icons/GooglePlay.png";
@@ -54,7 +54,7 @@ function WhoWeAre() {
           </div>
         </div>
         <div className="flex items-start overflow md:px-2">
-          <div className="h-[24rem]">
+          <div className="h-[30rem]">
             <img
               className="object-contain justify-center h-full w-full"
               src={ai}

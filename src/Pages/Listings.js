@@ -3,7 +3,7 @@ import Footer from "../Components/Footer";
 import usflag from "../Assets/Icons/USFlag.png";
 import ricon from "../Assets/Icons/ResidentIcon2.svg";
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
-import { useLocation, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { studioData, semiDetachedData } from "../Components/data";
 
 const ApartmentCard = ({ name, price, location, image }) => {
@@ -24,7 +24,6 @@ const ApartmentCard = ({ name, price, location, image }) => {
 
 function Listings() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const location = useLocation();
 
   const handleMenuToggle = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -47,19 +46,19 @@ function Listings() {
                 </div>
               </Link>
               <div className="hidden md:flex space-x-12 items-center">
-                <Link to="/" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/' ? 'text-green-700' : 'text-white'}`}>
+                <Link to="/" className="font-generalsans text-white text-sm cursor-pointer">
                   Home
                 </Link>
-                <Link to="/listings" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/listings' ? 'text-white' : 'text-[#262626]'}`}>
+                <Link to="/listings" className="font-generalsans text-green-700 text-sm cursor-pointer">
                   Listings
                 </Link>
-                <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
+                <div className="font-generalsans text-white text-sm cursor-pointer">
                   Our Services
                 </div>
-                <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
+                <div className="font-generalsans text-white text-sm cursor-pointer">
                   About Us
                 </div>
-                <div className="font-sfpromedium text-white hover:text-green-700 text-sm cursor-pointer">
+                <div className="font-generalsans text-white text-sm cursor-pointer">
                   Contact
                 </div>
               </div>

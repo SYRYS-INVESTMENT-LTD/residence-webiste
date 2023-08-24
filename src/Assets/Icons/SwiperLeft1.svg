@@ -1,14 +1,1 @@
-<svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-<g id="Frame" filter="url(#filter0_b_1883_5589)">
-<rect width="45" height="45.0004" rx="22.5" transform="matrix(-1 0 0 1 45 0)" fill="white" fill-opacity="0.3"/>
-<path id="Vector" d="M16.5033 20.7438L24.2141 13.033L22.1812 11L11 22.1813L22.1812 33.3625L24.2141 31.3295L16.5033 23.6188H34V20.7438H16.5033Z" fill="white"/>
-</g>
-<defs>
-<filter id="filter0_b_1883_5589" x="-19" y="-19" width="83" height="83.0005" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
-<feFlood flood-opacity="0" result="BackgroundImageFix"/>
-<feGaussianBlur in="BackgroundImageFix" stdDeviation="9.5"/>
-<feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1883_5589"/>
-<feBlend mode="normal" in="SourceGraphic" in2="effect1_backgroundBlur_1883_5589" result="shape"/>
-</filter>
-</defs>
-</svg>
+<svg width="45" height="45" fill="none" xmlns="http://www.w3.org/2000/svg"><g filter="url(#a)" fill="#fff"><rect width="45" height="45" rx="22.5" transform="matrix(-1 0 0 1 45 0)" fill-opacity=".3"/><path d="m16.503 20.744 7.711-7.711L22.181 11 11 22.181l11.181 11.181 2.033-2.033-7.71-7.71H34v-2.875H16.503Z"/></g><defs><filter id="a" x="-19" y="-19" width="83" height="83.001" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB"><feFlood flood-opacity="0" result="BackgroundImageFix"/><feGaussianBlur in="BackgroundImageFix" stdDeviation="9.5"/><feComposite in2="SourceAlpha" operator="in" result="effect1_backgroundBlur_1883_5589"/><feBlend in="SourceGraphic" in2="effect1_backgroundBlur_1883_5589" result="shape"/></filter></defs></svg>

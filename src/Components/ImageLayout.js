@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-//import h1 from "../Assets/Images/House1.svg";
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import h2 from "../Assets/Images/photo1apt.jpg";
 import h3 from "../Assets/Images/photo2apt.jpg";
 import bp from "../Assets/Icons/blueprintIcon.svg";
@@ -12,25 +12,18 @@ import money from "../Assets/Icons/MoneyIcon.svg";
 import tourImg from "../Assets/Icons/TourButton.svg";
 import apartment from "../Assets/Images/apartment.png";
 import { MdOutlineClose } from "react-icons/md";
+import {BsChevronCompactRight, BsChevronCompactLeft} from "react-icons/bs"
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
+import { Navigation, Thumbs, EffectCoverflow } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/swiper-bundle.css";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
-import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
+import { slide_images } from "../Components/data";
 import { similarListingData } from "../Components/data";
-import slide_image_1 from "../Assets/Images/photo1apt.jpg";
-import slide_image_2 from "../Assets/Images/photo2apt.jpg";
-import slide_image_3 from "../Assets/Images/photo3apt.jpg";
-import slide_image_4 from "../Assets/Images/photo4apt.jpg";
-import slide_image_5 from "../Assets/Images/photo5apt.jpg";
-import slide_image_6 from "../Assets/Images/photo6apt.jpg";
-import slide_image_7 from "../Assets/Images/House.png";
-import "react-multi-carousel/lib/styles.css";
-import { Link } from "react-router-dom";
 
 function ImageLayout() {
   // State to control modal(for Book a Tour) visibility and user selections
@@ -111,23 +104,6 @@ function ImageLayout() {
     }
   }, [showGallery]);
 
-  //To handle Slider sizes in different screens
-
-  const containerStyles = {
-    width: "60vw",
-    height: "60vh",
-    position: "relative",
-    top: "10vh",
-    left: "20vw",
-  };
-  
-  const smallScreenStyles = {
-    width: "80vw",
-    height: "100vh",
-    top: "5vh",
-    left: "2vh",
-  };
-
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -142,6 +118,12 @@ function ImageLayout() {
       window.removeEventListener('resize', handleResize);
     };
   }, []);
+
+  const mainSwiperRef = useRef(null);
+  const thumbsSwiperRef = useRef(null);
+
+  //To handle, Linking thumbnails to images
+  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
@@ -159,20 +141,17 @@ function ImageLayout() {
     );
   };
 
-  //To handle, Linking thumbnails to images
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
-
   return (
     <div className="md:p-10 sm:p-2">
       <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
         <div>
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-5">
+          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-2">
             {/*Apartment Display and DirectorList Gallery*/}
             <div className="w-full md:w-1/2 flex items-center justify-center">
               <img
                 src={h2}
                 alt="House 1"
-                className="w-full h-[36rem] object-cover cursor-pointer"
+                className="w-full h-[38rem] object-cover cursor-pointer"
               />
               <div className="absolute flex justify-end items-end bottom-8 right-4 md:hidden">
                 <div
@@ -184,20 +163,14 @@ function ImageLayout() {
               </div>
             </div>
             <div className="w-full md:w-1/2 flex flex-col space-y-2">
-              <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block">
-                <img
-                  src={h2}
-                  alt="House 2"
-                  className="w-full h-[18rem] object-cover cursor-pointer"
-                />
-              </div>
+              <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block bg-no-repeat bg-cover" style={{
+                backgroundImage: `url(${h2})`
+              }}>
 
-              <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative">
-                <img
-                  src={h3}
-                  alt="House 3"
-                  className="w-full h-[18rem] object-cover"
-                />
+              </div>
+              <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative bg-no-repeat bg-cover" style={{
+                backgroundImage: `url(${h3})`
+              }}>
                 <div className="absolute flex justify-end items-end bottom-4 right-4">
                   <div
                     className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-generalsansmedium text-sm cursor-pointer"
@@ -212,136 +185,80 @@ function ImageLayout() {
         </div>
 
         {showGallery && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-20 focus:outline-none container"
-            style={{
-              backgroundColor: "rgba(0, 0, 0, 0.75)",
-              backgroundBlendMode: "multiply",
-            }}
-          >
-            <div className="mr-8  relative">
-              <button
-                onClick={handleCloseGallery}
-                className="px-3 py-2 rounded-md justify-center flex items-center absolute top-16 right-16"
-              >
-                <MdOutlineClose size={24} className="mr-1" color="white" />
-              </button>
-
-              <div className="swiper-container relative" style={isSmallScreen ? smallScreenStyles : containerStyles}>
+          <div className="gallery-overlay">
+            <button onClick={handleCloseGallery} className="close-button">
+              <MdOutlineClose size={24} className="close-icon " color="white" />
+            </button>
+            <div className={isSmallScreen ? "gallery-container-small" : "gallery-container"}>
+              <div className="main-gallery justify-center md:mt-[20%]">
                 <Swiper
-                  effect={"coverflow"}
-                  grabCursor={true}
-                  centeredSlides={true}
+                  onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
                   loop={true}
-                  slidesPerView={"auto"}
-                  coverflowEffect={{
-                    rotate: 0,
-                    stretch: 0,
-                    depth: 100,
-                    modifier: 2.5,
-                  }}
-                  pagination={{ el: ".swiper-pagination", clickable: true }}
+                  modules={[Navigation]}
+                  spaceBetween={10}
                   navigation={{
-                    nextEl: ".swiper-button-next",
-                    prevEl: ".swiper-button-prev",
-                    clickable: true,
+                    prevEl: ".prev",
+                    nextEl: ".next",
                   }}
-                  modules={[EffectCoverflow, Pagination, Navigation]}
-                  className="swiper_container"
+                  className={isSmallScreen ? "" : "swiper-container-large"}
                   onSlideChange={(swiper) => {
-                    setCurrentSlideIndex(swiper.activeIndex);
+                    setCurrentSlideIndex(swiper.realIndex);
+                    thumbsSwiperRef.current && thumbsSwiperRef.current.slideTo(swiper.realIndex);
                   }}
                 >
-                  <SwiperSlide className="h-[36rem]">
-                    <img
-                      src={slide_image_1}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="h-[28rem]">
-                    <img
-                      src={slide_image_2}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="h-[36rem]">
-                    <img
-                      src={slide_image_3}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="h-[28rem]">
-                    <img
-                      src={slide_image_4}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="h-[28rem]">
-                    <img
-                      src={slide_image_5}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="h-[28rem]">
-                    <img
-                      src={slide_image_6}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <SwiperSlide className="h-[28rem]">
-                    <img
-                      src={slide_image_7}
-                      alt="slide_image"
-                      className="w-full h-full object-cover"
-                    />
-                  </SwiperSlide>
-                  <div className="slider-controler">
-                    <div className="swiper-button-prev slider-arrow">
-                      <FaChevronLeft className="text-2xl" />
-                    </div>
-                    <div className="swiper-button-next slider-arrow">
-                      <FaChevronRight className="text-2xl" />
-                    </div>
-                    <div className="swiper-pagination"></div>
+                  <div className="swiper-wrapper">
+                    {slide_images.map((imagePath, index) => (
+                      <SwiperSlide key={index} >
+                        <img src={imagePath} alt={`Slide ${index}`} className="sm:h-[28rem]" />
+                      </SwiperSlide>
+                    ))}
                   </div>
                 </Swiper>
               </div>
             </div>
-            <div className="text-black w-14 font-bold rounded-full px-12 py-3 justify-center bg-white font-generalsansmedium text-sm absolute right-20 cursor-pointer">
-              <button>{currentSlideIndex + 1}/7</button>
+            <div className="thumbnail-container">
+              <Swiper
+                onSwiper={(swiper) => (thumbsSwiperRef.current = swiper)}
+                loop={true}
+                spaceBetween={10}
+                centeredSlides={true}
+                slidesPerView={isSmallScreen ? 2 : 7}
+                effect="coverflow"
+                navigation={{
+                  prevEl: ".null",
+                  nextEl: ".null",
+                }}
+                coverflowEffect={{
+                  rotate: 0,
+                  stretch: 0,
+                  depth: 100,
+                  modifier: 2.5,
+                }}
+                className="thumbnail-swiper"
+              >
+                {slide_images.map((imagePath, index) => (
+                  <SwiperSlide key={index}>
+                    <div
+                      className={`thumbnail ${currentSlideIndex === index ? "active" : ""}`}
+                      onClick={() => {
+                        thumbsSwiperRef.current && thumbsSwiperRef.current.slideTo(index);
+                        mainSwiperRef.current && mainSwiperRef.current.slideTo(index);
+                      }}
+                    >
+                      <img src={imagePath} alt={`Thumbnail ${index}`} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
             </div>
-            {/* Displaying the images at the bottom of the carousel */}
-            <div className="gap-[20px] bottom-0 left-0 fixed flex justify-center mt-4 space-x-4">
-              {[
-                slide_image_1,
-                slide_image_2,
-                slide_image_4,
-                slide_image_5,
-                slide_image_6,
-                slide_image_7,
-                slide_image_3,
-              ].map((imagePath, index) => (
-                <img
-                  key={index}
-                  src={imagePath}
-                  alt="thumbnail"
-                  style={{
-                    width: "175px",
-                    height: "120px",
-                    border: "5px solid transparent",
-                  }}
-                  className={`thumbnail h-20 ${
-                    currentSlideIndex === index ? "active" : ""
-                  } group group-hover:border-199976`}
-                  onClick={() => setCurrentSlideIndex(index)}
-                />
-              ))}
+            <div className="counter px-8 py-2 bg-white rounded-full">
+              {currentSlideIndex + 1}/{slide_images.length}
+            </div>
+            <div className="prev absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+              <BsChevronCompactLeft alt="Left Navigation" className="ml-4" color="white" size={38} />
+            </div>
+            <div className="next absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
+              <BsChevronCompactRight alt="Right Navigation" className="mr-4" color="white" size={38} />
             </div>
           </div>
         )}
@@ -362,27 +279,28 @@ function ImageLayout() {
               <p>Kardesler sokak, Edremit Kyrenia</p>
             </div>
           </div>
-          <div className="flex flex-col md:flex-row md:space-y-3 justify-between md:my-6 text-[#262626]">
-            <div className="flex items-center flex-grow space-x-4">
+          <div className="flex flex-col md:flex-row justify-between my-6 text-[#262626] sm:space-y-2">
+            <div className="flex md:items-start space-x-4 md:space-x-2 md:space-y-2 items-baseline">
               <img src={bi} alt="Building Icon" className="h-6" />
-              <p>200 units</p>
+              <p className="md:text-left">200 units</p>
             </div>
-            <div className="flex items-center flex-grow space-x-4">
+            <div className="flex items-center md:items-start space-x-4 md:space-x-2 md:space-y-2 items-baseline">
               <img src={ti} alt="Pets Icon" className="h-6" />
-              <p>Pets allowed</p>
+              <p className="md:text-left">Pets allowed</p>
             </div>
-            <div className="flex items-center flex-grow space-x-4">
+            <div className="flex items-center md:items-start space-x-4 md:space-x-2 md:space-y-2 text-baseline">
               <img src={bp} alt="Blueprint Icon" className="h-6" />
-              <p>2,000 Sqft</p>
+              <p className="md:text-left">2,000 Sqft</p>
             </div>
-            <div className="flex items-center flex-grow space-x-4">
-              <BsPerson color="#000" size={18} className="mr-2" />
-              <p>Apartment management</p>
+            <div className="flex items-center md:items-end space-x-4 md:space-x-2 md:space-y-2 text-baseline">
+              <BsPerson color="#000" size={20} className="mr-2" />
+              <p className="md:text-right">Apartment management</p>
             </div>
           </div>
+
         </div>
         <div className="flex flex-col md:flex-row mt-2">
-          <div className="md:w-3/5 md:mr-3 flex flex-col md:space-y-2 mb-4">
+          <div className="md:w-3/5 flex flex-col md:space-y-2 mb-4">
             <div className="w-full mb-2">
               <div>
                 <h2 className="text-lg font-generalsans text-[262626]">
@@ -445,11 +363,10 @@ function ImageLayout() {
               </div>
             </div>
           </div>
-
-          <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7">
+          <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7 ml-auto w-full">
             <div className="flex-row">
-              <div className="bg-[#FAF2F0] text-[#262626] p-4 px-3 rounded-lg shadow-lg">
-                <h2 className="text-xl text-center font-generalsansmedium">
+              <div className="bg-[#FAF2F0] text-[#262626] p-4 px-3 rounded-lg">
+                <h2 className="text-2xl text-center font-generalsansmedium">
                   VIRTUAL TOUR
                 </h2>
                 <p className="text-lg text-center font-generalsans text-[#808080]">
@@ -493,7 +410,7 @@ function ImageLayout() {
               </div>
             </div>
             <div className="bg-[#FAF2F0] p-6 rounded-lg shadow-lg flex-row font-generalsans">
-              <h2 className="text-xl text-center font-semibold">
+              <h2 className="text-2xl text-center font-semibold">
                 BOOK A PHYSICAL TOUR
               </h2>
               <p className="text-lg text-center text-[#808080]">
@@ -513,7 +430,7 @@ function ImageLayout() {
                   <div className="text-center">
                     <div>
                       <div className="flex items-center justify-between">
-                        <h2 className="text-xl text-center font-semibold flex-grow">
+                        <h2 className="text-3xl text-center font-semibold flex-grow">
                           BOOK A TOUR
                         </h2>
                         <button
@@ -528,10 +445,10 @@ function ImageLayout() {
                         </button>
                       </div>
                     </div>
-                    <h2>
+                    <h2 className="font-generalsans font-lg">
                       We'll connect you with a local agent who can give you a
                     </h2>
-                    <h2>personalized tour of the home in person</h2>
+                    <h2 className="font-generalsans font-lg">personalized tour of the home in person</h2>
                   </div>
                   <div className="flex items-center space-x-4 mt-4">
                     <img
@@ -540,7 +457,7 @@ function ImageLayout() {
                       className="w-32 h-32"
                     />
                     <div className="flex flex-col flex-grow space-y-2">
-                      <h1 className="text-[#262626] font-sfprosemibold text-xl">
+                      <h1 className="text-[#262626] font-generalsansmedium text-xl">
                         Atoll Park Site
                       </h1>
                       <div className="flex items-center space-x-2">
@@ -549,19 +466,24 @@ function ImageLayout() {
                           alt="For Rent Button"
                           className="w-6 h-6"
                         />
-                        <h3 className="text-[#262626] font-sfprotext text-lg">
-                          $800/month
-                        </h3>
+                        <div>
+                          <h3 className="text-[#262626] font-generalsansmedium text-xl" style={{ display: 'inline' }}>
+                            $800
+                          </h3>
+                          <h3 className="text-[#262626] font-generalsans" style={{ display: 'inline' }}>
+                            /month
+                          </h3>
+                        </div>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RiMapPinLine color="#000" size={18} className="mr-1" />
-                        <h3 className="text-[#262626] font-sfprotext">
+                        <RiMapPinLine color="#000" size={18} className="mr-1 " />
+                        <h3 className="text-[#262626] font-generalsans ">
                           Kardesleer sokak, Edremit Kyrenia
                         </h3>
                       </div>
                     </div>
                     <div className="ml-auto">
-                      <img src={rent} alt="For Rent Button" className="h-10" />
+                      <img src={rent} alt="For Rent Button" className="h-6" />
                     </div>
                   </div>
                   <div>
@@ -572,11 +494,10 @@ function ImageLayout() {
                           <button
                             key={index}
                             onClick={() => handleSelectDate(date)}
-                            className={`w-full h-12 px-2 py-2 rounded-md ${
-                              selectedDate === date
-                                ? "bg-green-700 text-white p-3"
-                                : "border border-gray-300 border-1 p-3"
-                            }`}
+                            className={`w-full h-12 px-2 py-2 rounded-md ${selectedDate === date
+                              ? "bg-green-700 text-white p-3"
+                              : "border border-gray-300 border-1 p-3"
+                              }`}
                           >
                             {date}
                           </button>
@@ -584,17 +505,16 @@ function ImageLayout() {
                       </div>
                     </div>
                     <div className="mt-6">
-                      <h3 className="text-lg font-semibold">Select a time</h3>
-                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6">
+                      <h3 className="text-lg font-generalsansmedium">Select a time</h3>
+                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6 font-generalsansmedium">
                         {timeOptions.map((time, index) => (
                           <button
                             key={index}
                             onClick={() => handleSelectTime(time)}
-                            className={`w-full h-12 px-2 py-2 rounded-full ${
-                              selectedTime === time
-                                ? "bg-green-700 text-white"
-                                : "border border-gray-300 border-1"
-                            }`}
+                            className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === time
+                              ? "bg-green-700 text-white"
+                              : "border border-gray-300 border-1"
+                              }`}
                           >
                             {time}
                           </button>
@@ -677,10 +597,10 @@ function ImageLayout() {
                   <img
                     src={apartment}
                     alt="apartment"
-                    className="h-24 md:h-100"
+                    className="md:w-[12rem] h-24 md:h-[8rem]"
                   />
-                  <div className="md:space-y-8 space-y-4">
-                    <h1 className="font-generalsansmedium text-sm">
+                  <div className="md:space-y-6 space-y-4">
+                    <h1 className="font-generalsansmedium text-xl">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
@@ -696,7 +616,7 @@ function ImageLayout() {
                           One Bed
                         </p>
                       </div>
-                      <h1 className=" font-generalsans text-xs text-green-400">
+                      <h1 className=" font-generalsansmedium text-[#1FA41C]">
                         Available
                       </h1>
                     </div>
@@ -720,7 +640,7 @@ function ImageLayout() {
                         </p>
                       </div>
                     </div>
-                    <h1 className="md:flex hidden font-generalsans text-xs text-green-400">
+                    <h1 className="md:flex hidden font-generalsans text-xs text-[#1FA41C]">
                       Available
                     </h1>
                   </div>
@@ -737,10 +657,10 @@ function ImageLayout() {
                   <img
                     src={apartment}
                     alt="apartment"
-                    className="h-24 md:h-100"
+                    className="md:w-[12rem] h-24 md:h-[8rem]"
                   />
-                  <div className="md:space-y-8 space-y-4">
-                    <h1 className="font-generalsans text-sm">
+                  <div className="md:space-y-6 space-y-4">
+                    <h1 className="font-generalsansmedium text-xl">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
@@ -756,7 +676,7 @@ function ImageLayout() {
                           635 sqft
                         </p>
                       </div>
-                      <h1 className=" font-generalsans text-xs text-green-400">
+                      <h1 className=" font-generalsans text-xs text-[#1FA41C]">
                         Available
                       </h1>
                     </div>
@@ -780,7 +700,7 @@ function ImageLayout() {
                         </p>
                       </div>
                     </div>
-                    <h1 className="md:flex hidden font-generalsans text-xs text-green-400">
+                    <h1 className="md:flex hidden font-generalsans text-xs text-[#1FA41C]">
                       Available
                     </h1>
                   </div>
@@ -797,10 +717,10 @@ function ImageLayout() {
                   <img
                     src={apartment}
                     alt="apartment"
-                    className="h-24 md:h-100"
+                    className="md:w-[12rem] h-24 md:h-[8rem]"
                   />
-                  <div className="md:space-y-8 space-y-4">
-                    <h1 className="font-generalsans text-sm">
+                  <div className="md:space-y-6 space-y-4">
+                    <h1 className="font-generalsansmedium text-xl">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
@@ -816,7 +736,7 @@ function ImageLayout() {
                           One Bed
                         </p>
                       </div>
-                      <h1 className=" font-generalsans text-xs text-green-400">
+                      <h1 className=" font-generalsans text-xs text-[#1FA41C]">
                         Available
                       </h1>
                     </div>
@@ -840,7 +760,7 @@ function ImageLayout() {
                         </p>
                       </div>
                     </div>
-                    <h1 className="md:flex hidden font-generalsans text-xs text-green-400">
+                    <h1 className="md:flex hidden font-generalsans text-xs text-[#1FA41C]">
                       Available
                     </h1>
                   </div>

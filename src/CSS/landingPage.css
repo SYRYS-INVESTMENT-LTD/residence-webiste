@@ -1,0 +1,29 @@
+/* For screens with width up to 740px (mobile) */
+@media (max-width: 740px) {
+    .md:flex {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .md-w-50 {
+      width: 100%;
+    }
+    .md-w-50 + div {
+      margin-top: 1rem;
+    }
+  }
+  
+  /* For screens with width greater than 740px (desktop) */
+  @media (min-width: 741px) {
+    .md:flex {
+      flex-direction: row-reverse;
+      justify-content: center;
+      align-items: center;
+      text-align: left;
+    }
+    .md-w-50 + div {
+      margin-top: 0;
+      margin-left: 1rem;
+    }
+  }
+  

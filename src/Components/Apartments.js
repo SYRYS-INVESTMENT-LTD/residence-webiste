@@ -36,15 +36,21 @@ function Apartments() {
           APARTMENTS AND SITES
         </h1>
         <div className="items-center mx-3 justify-center flex-grow md:text-sm font-generalsans text-xs mt-6 text-[#5A5A5A]">
-          <p className="flex-row">
-            Resident takes care of all aspects of property management, including
-            tenants screening,
+          {/* For mobile screens */}
+          <p className="md:hidden text-justify text-center">
+            Resident takes care of all aspects of property management, including tenants screening, lease agreements, rent collection, and handling maintenance and repair requests.
           </p>
-          <p className="text-center">
-            lease agreements, rent collection, and handling maintenance and
-            repair
-          </p>
-          <p className="text-center">requests.</p>
+
+          {/* For desktop, tablet, and larger screens */}
+          <div className="hidden md:flex flex-col items-center">
+            <p className="text-center mb-1">
+              Resident takes care of all aspects of property management, including tenants screening,
+            </p>
+            <p className="text-center mb-1">
+              lease agreements, rent collection, and handling maintenance and repair
+            </p>
+            <p className="text-center mb-1">requests.</p>
+          </div>
         </div>
       </div>
       <div className="mt-8">
@@ -53,8 +59,8 @@ function Apartments() {
           //slidesPerView={2.5}
           pagination={{ clickable: true }}
           navigation={{
-            prevEl: ".swiper-button-prev",
-            nextEl: ".swiper-button-next",
+            prevEl: ".prev",
+            nextEl: ".next",
           }}
           breakpoints={{
             // when window width is >= 640px
@@ -72,12 +78,13 @@ function Apartments() {
           modules={[Navigation]}
         >
           {products}
-          <div className="swiper-button-prev">
-            <img src={sl} alt="Left Navigation" className="h[10vh] ml-10"/>
+          <div className="prev absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
+            <img src={sl} alt="Left Navigation" className="h-10 ml-4" />
           </div>
-          <div className="swiper-button-next">
-            <img src={sf} alt="Right Navigation" className="h-16 mr-10"/>
+          <div className="next absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
+            <img src={sf} alt="Right Navigation" className="h-10 mr-4" />
           </div>
+
         </Swiper>
       </div>
     </div>

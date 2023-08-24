@@ -5,13 +5,21 @@ export default function Product(props) {
   return (
     <div className="relative h-[28rem]">
       <div className="relative cursor-pointer">
-        <div className=" overflow-hidden">
+        <div
+          className="overflow-hidden h-[26rem]"
+          style={{
+            backgroundImage: `url(${props.url})`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
           <img
-            className="object-cover h-[26rem] w-full"
+            className="hidden object-cover h-full w-full"
             src={props.url}
             alt={`${props.name} - ${props.location}`}
           />
         </div>
+
         <div className="absolute bottom-6 left-0 w-full h-auto px-4 py-3 text-white rounded-b-lg">
           <div className="font-generalsans text-xl mb-1 rounded-md">
             {props.name}

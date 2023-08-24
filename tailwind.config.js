@@ -8,10 +8,6 @@ module.exports = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         interlight: ['INTERDISPLAYLIGHT', 'sans-serif'],
-        sfprobold: ['SFPRODISPLAYBOLD', 'sans-serif'],
-        sfpromedium: ['SFPRODISPLAYMEDIUM', 'sans-serif'],
-        sfproregular: ['SFPRODISPLAYREGULAR', 'sans-serif'],
-        sfprosemibold: ['SFPRODISPLAYSEMIBOLD', 'sans-serif'],
         generalsans: ['GeneralSans', 'sans-serif'],
         generalsansmedium: ['GeneralSansMedium', 'sans-serif'],
         generalsansbold: ['GeneralSansBold', 'sans-serif'],
@@ -21,7 +17,6 @@ module.exports = {
       backgroundImage: {
         'hero': "url('/src/Assets/Images/HeroGradient1.png')",
         'who': "url('/src/Assets/Images/Whoarewe.png')",
-        'listbg': "url('/src/Assets/Images/listingsbg3.png')",
         'listbg2': "url('/src/Assets/Images/listingsbg5.png')",
       }
     },

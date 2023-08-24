@@ -2,50 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-    font-family: "SFPRODISPLAYBOLD";
-    src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
-  }
   @font-face {
     font-family: "GeneralSans";
     src: url("../public/Fonts/GeneralSans-Regular.otf");
   }
   @font-face {
     font-family: "GeneralSansBold";
-    src: url("../public/Fonts/SF-Pro-Text-Bold.ttf");
+    src: url("../public/Fonts/GeneralSans-Bold.otf");
   }
   @font-face {
     font-family: "GeneralSansMedium";
     src: url("../public/Fonts/GeneralSans-Medium.otf");
   }
   @font-face {
-    font-family: "GeneralSansLight";
-    src: url("../public/Fonts/GeneralSans-Light.otf");
-  }
-  @font-face {
     font-family: "GeneralSansSemiBold";
     src: url("../public/Fonts/GeneralSans-Semibold.otf");
   }
-  @font-face {
-    font-family: "Inter";
-    src: url("../public/Fonts/Inter-Bold.otf");
-  }
-  
+
   @font-face {
     font-family: "INTERDISPLAYLIGHT";
     src: url("../public/Fonts/Inter-Light.otf");
   }
-  @font-face {
-    font-family: "SFPRODISPLAYSEMIBOLD";
-    src: url("../public/Fonts/SF-Pro-Text-Semibold.ttf");
-  }
-
-  @font-face {
-    font-family: "SFPRODISPLAYMEDIUM";
-    src: url("../public/Fonts/SF-Pro-Text-Medium.ttf");
-  }
-
-  @font-face {
-    font-family: "SFPRODISPLAYREGULAR";
-    src: url("../public/Fonts/SF-Pro-Text-Regular.ttf");
-  }
+ 

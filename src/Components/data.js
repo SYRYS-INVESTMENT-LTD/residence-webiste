@@ -7,7 +7,13 @@ import apt3 from "../Assets/Images/photo3apt.jpg";
 import apt4 from "../Assets/Images/photo4apt.jpg";
 import apt5 from "../Assets/Images/photo5apt.jpg";
 import apt6 from "../Assets/Images/photo6apt.jpg";
-
+import slide_image_1 from "../Assets/Images/photo1apt.jpg";
+import slide_image_2 from "../Assets/Images/photo2apt.jpg";
+import slide_image_3 from "../Assets/Images/photo3apt.jpg";
+import slide_image_4 from "../Assets/Images/photo4apt.jpg";
+import slide_image_5 from "../Assets/Images/photo5apt.jpg";
+import slide_image_6 from "../Assets/Images/photo6apt.jpg";
+import slide_image_7 from "../Assets/Images/House.png";
 
 
   export const productData = [
@@ -144,3 +150,14 @@ import apt6 from "../Assets/Images/photo6apt.jpg";
       price: "500$/month",
     },
   ]
+
+  export const slide_images = [
+    slide_image_1,
+    slide_image_2,
+    slide_image_3,
+    slide_image_4,
+    slide_image_5,
+    slide_image_6,
+    slide_image_7,
+
+];
