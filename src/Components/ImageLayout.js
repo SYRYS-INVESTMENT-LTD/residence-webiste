@@ -445,10 +445,10 @@ function ImageLayout() {
                         </button>
                       </div>
                     </div>
-                    <h2 className="font-generalsans font-lg">
+                    <h2>
                       We'll connect you with a local agent who can give you a
                     </h2>
-                    <h2 className="font-generalsans font-lg">personalized tour of the home in person</h2>
+                    <h2>personalized tour of the home in person</h2>
                   </div>
                   <div className="flex items-center space-x-4 mt-4">
                     <img
@@ -457,7 +457,7 @@ function ImageLayout() {
                       className="w-32 h-32"
                     />
                     <div className="flex flex-col flex-grow space-y-2">
-                      <h1 className="text-[#262626] font-generalsansmedium text-xl">
+                      <h1 className="text-[#262626] font-sfprosemibold text-xl">
                         Atoll Park Site
                       </h1>
                       <div className="flex items-center space-x-2">
@@ -466,24 +466,19 @@ function ImageLayout() {
                           alt="For Rent Button"
                           className="w-6 h-6"
                         />
-                        <div>
-                          <h3 className="text-[#262626] font-generalsansmedium text-xl" style={{ display: 'inline' }}>
-                            $800
-                          </h3>
-                          <h3 className="text-[#262626] font-generalsans" style={{ display: 'inline' }}>
-                            /month
-                          </h3>
-                        </div>
+                        <h3 className="text-[#262626] font-sfprotext text-lg">
+                          $800/month
+                        </h3>
                       </div>
                       <div className="flex items-center space-x-2">
-                        <RiMapPinLine color="#000" size={18} className="mr-1 " />
-                        <h3 className="text-[#262626] font-generalsans ">
+                        <RiMapPinLine color="#000" size={18} className="mr-1" />
+                        <h3 className="text-[#262626] font-sfprotext">
                           Kardesleer sokak, Edremit Kyrenia
                         </h3>
                       </div>
                     </div>
                     <div className="ml-auto">
-                      <img src={rent} alt="For Rent Button" className="h-6" />
+                      <img src={rent} alt="For Rent Button" className="h-10" />
                     </div>
                   </div>
                   <div>
