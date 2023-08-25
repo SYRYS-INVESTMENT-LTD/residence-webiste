@@ -10,7 +10,6 @@ function Footer() {
     <div className='bg-[#0A0A0A] py-14 px-4 md:p-14 md:flex justify-between items-start md:space-y-0 space-y-10'>
       <div>
         <img src={rb} alt='Resident' className='h-9' />
-
         <p className='font-generalsans text-sm mt-4 text-white'>Experience hassle-free property management </p>
         <p className='font-generalsans text-sm text-white'>like never before</p>
       </div>

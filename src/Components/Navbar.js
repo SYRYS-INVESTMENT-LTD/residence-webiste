@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import usflag from "../Assets/Icons/USFlag.png";
-import ricon from "../Assets/Icons/ResidentIcon2.svg";
+import ricon from "../Assets/Icons/ResidentIcon.svg";
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 import { useLocation, Link } from "react-router-dom";
 
@@ -21,23 +21,44 @@ function Navbar() {
           </div>
         </Link>
         <div className="hidden md:flex space-x-12 items-center">
-          <Link to="/" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/' ? 'text-green-700' : 'text-[#262626]'}`}>
-            Home
-          </Link>
-          <Link to="/listings" className={`font-generalsans text-sm cursor-pointer ${location.pathname === '/listings' ? 'text-green-700' : 'text-[#262626]'}`}>
-            Listings
+          <Link
+            to="/listings"
+            className={`font-generalsans text-sm cursor-pointer ${
+              location.pathname === "/listings"
+                ? "text-green-700"
+                : "text-[#262626]"
+            }`}
+          >
+            Apartment Listing
           </Link>
           <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
-            Our Services
+            Projects
           </div>
           <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
-            About Us
+            CRM
+          </div>
+          <Link
+            to="/"
+            className={`font-generalsans text-sm cursor-pointer ${
+              location.pathname === "/" ? "text-green-700" : "text-[#262626]"
+            }`}
+          >
+            Home
+          </Link>
+          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+            Pricing
+          </div>
+          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+            Affliate
           </div>
           <Link to="/contact">
             <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
-              Contact
+              Contact Us
             </div>
           </Link>
+          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+            Blog
+          </div>
         </div>
         <div className="flex items-center space-x-4">
           <div
@@ -57,7 +78,7 @@ function Navbar() {
       </div>
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-transparent border-white b-1 text-gray-300 flex flex-col items-center space-y-4 py-4 left-0 " >
+        <div className="md:hidden bg-transparent border-white b-1 text-gray-300 flex flex-col items-center space-y-4 py-4 left-0 ">
           <Link to="/">
             <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
               Home
