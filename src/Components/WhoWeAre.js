@@ -14,19 +14,27 @@ function WhoWeAre() {
 
       <div className="md:flex md:space-x-20 items-start mt-10">
         <div className="md:w-[50%]">
-          <div className="flex items-start space-x-4">
-            <div className="mt-4 space-y-2">
-              <p className="font-generalsans text-[#5A5A5A] mt-1">
+          <div className="flex items-start space-x-4 md:mt-6">
+            <div className="mt-4 space-y-2 text-base leading-[24px]">
+              <p className="font-generalsans text-[#5A5A5A] ">
                 We use technology to build efficiency and delight in property
                 management and life. No barriers to an organized and happy life.
                 Our expertise focuses on a guaranteed return on investment,
                 property longevity, and a gratifying experience.
               </p>
               <div>
-                <p className="font-generalsans text-[#5A5A5A] mt-8" style={{ display: 'inline' }}>
-                  Our team is fast-paced, result-driven, and enjoys creative freedom. With years of experience in the industry, we strive to give everyone access to a well-managed and enjoyable life.
+                <p
+                  className="font-generalsans text-[#5A5A5A] mt-8"
+                  style={{ display: "inline" }}
+                >
+                  Our team is fast-paced, result-driven, and enjoys creative
+                  freedom. With years of experience in the industry, we strive
+                  to give everyone access to a well-managed and enjoyable life.
                 </p>{" "}
-                <span className="font-generalsansbold" style={{ display: 'inline' }}>
+                <span
+                  className="font-generalsansbold"
+                  style={{ display: "inline" }}
+                >
                   Join the Resident family today!
                 </span>
               </div>
@@ -53,10 +61,10 @@ function WhoWeAre() {
             </a>
           </div>
         </div>
-        <div className="flex items-start overflow md:px-2">
+        <div className="flex items-center justify-center md:px-2 md:pl-24">
           <div className="h-[30rem]">
             <img
-              className="object-contain justify-center h-full w-full"
+              className="object-contain h-full w-full"
               src={ai}
               alt="Apps_Image"
             />

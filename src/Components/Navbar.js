@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import usflag from "../Assets/Icons/USFlag.png";
-import ricon from "../Assets/Icons/ResidentIcon.svg";
+import ricon from "../Assets/Icons/ResidentBlackIcon.png";
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 import { useLocation, Link } from "react-router-dom";
 
@@ -62,10 +62,20 @@ function Navbar() {
         </div>
         <div className="flex items-center space-x-4">
           <div
-            className="flex items-center space-x-2 cursor-pointer"
-            onClick={handleMenuToggle}
+            className="flex items-center space-x-2 cursor-pointer bg-[#FAF2F0] p-2 hidden md:flex"
           >
-            <img src={usflag} alt="language" className="h-6" />
+            <img
+              src={usflag}
+              alt="language"
+              className="h-6 "
+              style={{
+                borderRadius: "13px",
+                background: "var(--secondary-2, #FAF2F0)",
+                boxShadow:
+                  "0px 2.2142858505249023px 5.904762268066406px -0.7380952835083008px rgba(0, 0, 0, 0.05), 0px 0px 0.7380952835083008px 0px rgba(0, 0, 0, 0.24)",
+              }}
+            />
+
             <MdKeyboardArrowDown size={24} />
           </div>
 

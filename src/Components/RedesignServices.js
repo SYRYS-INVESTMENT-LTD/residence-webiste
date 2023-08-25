@@ -6,7 +6,7 @@ import services3 from "../Assets/Images/services3.png";
 function RedesignServices() {
   return (
     <div className="">
-      <div className="items-center text-center justify-center mt-20 space-y-4">
+      <div className="hidden md:flex flex-col items-center text-center justify-center mt-20 space-y-4">
         <p className="font-generalsans text-3xl text-[#262626] ">
           COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
         </p>
