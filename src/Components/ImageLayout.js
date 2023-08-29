@@ -5,14 +5,11 @@ import h3 from "../Assets/Images/photo2apt.jpg";
 import bp from "../Assets/Icons/blueprintIcon.svg";
 import bi from "../Assets/Icons/buildingIcon.svg";
 import ti from "../Assets/Icons/trackIcon.svg";
-import bed from "../Assets/Icons/bedIcon.svg";
-import bath from "../Assets/Icons/bath-tubIcon.svg";
 import { format } from "date-fns";
 import rent from "../Assets/Icons/ForRentIcon.svg";
 import money from "../Assets/Icons/MoneyIcon.svg";
 import tourImg from "../Assets/Icons/TourButton.svg";
-import mapPin from "../Assets/Icons/mapLocation.svg"
-import apartment from "../Assets/Images/apartment.png";
+import mapPin from "../Assets/Icons/mapLocation.svg";
 import { MdOutlineClose } from "react-icons/md";
 import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs"
 import { RiMapPinLine } from "react-icons/ri";
@@ -24,9 +21,11 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import BookingModal from "./QR Code Components/physicalTour";
+import GalleryLayout from "./QR Code Components/GalleryLayout";
+import ApartmentPricing from "./QR Code Components/ApartmentPricing";
 import { slide_images } from "../Components/data";
 import { similarListingData } from "../Components/data";
+
 
 function ImageLayout() {
   const [showModal, setShowModal] = useState(false);
@@ -86,57 +85,17 @@ function ImageLayout() {
       document.body.classList.remove("overflow-y-hidden");
     }
   }, [showModal]);
-  
-
-  //To handle galley dispaly
-  //Function to handle gallery display
-  const [showGallery, setShowGallery] = useState(false);
-  const handleCloseGallery = () => {
-    setShowGallery(false);
-  };
-  const handleGalleryDisplay = () => {
-    setShowGallery(true);
-  };
-
-  useEffect(() => {
-    if (showGallery) {
-      document.body.classList.add("overflow-y-hidden");
-    } else {
-      document.body.classList.remove("overflow-y-hidden");
-    }
-  }, [showGallery]);
-
-  const [isSmallScreen, setIsSmallScreen] = useState(false);
-
-  useEffect(() => {
-    const handleResize = () => {
-      setIsSmallScreen(window.innerWidth < 768);
-    };
-
-    handleResize(); // Initial check
-    window.addEventListener('resize', handleResize);
-
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
-  const mainSwiperRef = useRef(null);
-  const thumbsSwiperRef = useRef(null);
-
-  //To handle, Linking thumbnails to images
-  const [currentSlideIndex, setCurrentSlideIndex] = useState(0);
 
   const ApartmentCard = ({ name, price, location, image }) => {
     return (
       <div className="border rounded-lg p-4 bg-whites relative">
-        <button className="bg-white text-green-600 font-generalsans py-1 px-4 rounded-full top-8 left-8 absolute">
+        <button className="bg-white text-green-600 font-aeonik py-1 px-4 rounded-full top-8 left-8 absolute">
           For Rent
         </button>
         <img src={image} alt={name} className="w-full h-50 object-cover mb-4" />
         <div className="mb-4 space-y-2">
-          <h2 className="text-xl font-generalsans">{name}</h2>
-          <p className="font-generalsans">{price}</p>
+          <h2 className="text-xl font-aeonik">{name}</h2>
+          <p className="font-aeonik">{price}</p>
           <p className="font-aeonik">{location}</p>
         </div>
       </div>
@@ -145,133 +104,14 @@ function ImageLayout() {
 
   return (
     <div className="md:p-10 sm:p-2">
-      <div className={`md:py-5 ${showGallery ? "bg-opacity-75" : ""}`}>
-        <div>
-          <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 space-x-2">
-            {/*Apartment Display and DirectorList Gallery*/}
-            <div className="w-full md:w-1/2 flex items-center justify-center">
-              <img
-                src={h2}
-                alt="House 1"
-                className="w-full h-[38rem] object-cover cursor-pointer"
-              />
-              <div className="absolute flex justify-end items-end bottom-8 right-4 md:hidden">
-                <div
-                  className="text-white rounded-full bg-black bg-opacity-60 p-2 font-aeonikmedium text-sm cursor-pointer"
-                  onClick={handleGalleryDisplay}
-                >
-                  25+ photos
-                </div>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 flex flex-col space-y-2">
-              <div className="bg-blue-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block bg-no-repeat bg-cover" style={{
-                backgroundImage: `url(${h2})`
-              }}>
-
-              </div>
-              <div className="bg-yellow-500 flex-1 aspect-w-1 aspect-h-1 hidden sm:block cursor-pointer relative bg-no-repeat bg-cover" style={{
-                backgroundImage: `url(${h3})`
-              }}>
-                <div className="absolute flex justify-end items-end bottom-4 right-4">
-                  <div
-                    className="text-white rounded-full bg-black bg-opacity-60 p-2 font-aeonikmedium text-sm cursor-pointer"
-                    onClick={handleGalleryDisplay}
-                  >
-                    25+ photos
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {showGallery && (
-          <div className="gallery-overlay">
-            <button onClick={handleCloseGallery} className="close-button">
-              <MdOutlineClose size={24} className="close-icon " color="white" />
-            </button>
-            <div className={isSmallScreen ? "gallery-container-small" : "gallery-container"}>
-              <div className="main-gallery justify-center md:mt-[20%]">
-                <Swiper
-                  onSwiper={(swiper) => (mainSwiperRef.current = swiper)}
-                  loop={true}
-                  modules={[Navigation]}
-                  spaceBetween={10}
-                  navigation={{
-                    prevEl: ".prev",
-                    nextEl: ".next",
-                  }}
-                  className={isSmallScreen ? "" : "swiper-container-large"}
-                  onSlideChange={(swiper) => {
-                    setCurrentSlideIndex(swiper.realIndex);
-                    thumbsSwiperRef.current && thumbsSwiperRef.current.slideTo(swiper.realIndex);
-                  }}
-                >
-                  <div className="swiper-wrapper">
-                    {slide_images.map((imagePath, index) => (
-                      <SwiperSlide key={index} >
-                        <img src={imagePath} alt={`Slide ${index}`} className="sm:h-[28rem]" />
-                      </SwiperSlide>
-                    ))}
-                  </div>
-                </Swiper>
-              </div>
-            </div>
-            <div className="thumbnail-container">
-              <Swiper
-                onSwiper={(swiper) => (thumbsSwiperRef.current = swiper)}
-                loop={true}
-                spaceBetween={10}
-                centeredSlides={true}
-                slidesPerView={isSmallScreen ? 2 : 7}
-                effect="coverflow"
-                navigation={{
-                  prevEl: ".null",
-                  nextEl: ".null",
-                }}
-                coverflowEffect={{
-                  rotate: 0,
-                  stretch: 0,
-                  depth: 100,
-                  modifier: 2.5,
-                }}
-                className="thumbnail-swiper"
-              >
-                {slide_images.map((imagePath, index) => (
-                  <SwiperSlide key={index}>
-                    <div
-                      className={`thumbnail ${currentSlideIndex === index ? "active" : ""}`}
-                      onClick={() => {
-                        thumbsSwiperRef.current && thumbsSwiperRef.current.slideTo(index);
-                        mainSwiperRef.current && mainSwiperRef.current.slideTo(index);
-                      }}
-                    >
-                      <img src={imagePath} alt={`Thumbnail ${index}`} />
-                    </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
-            <div className="counter px-8 py-2 bg-white rounded-full">
-              {currentSlideIndex + 1}/{slide_images.length}
-            </div>
-            <div className="prev absolute top-1/2 left-0 transform -translate-y-1/2 z-10">
-              <BsChevronCompactLeft alt="Left Navigation" className="ml-4" color="white" size={38} />
-            </div>
-            <div className="next absolute top-1/2 right-0 transform -translate-y-1/2 z-10">
-              <BsChevronCompactRight alt="Right Navigation" className="mr-4" color="white" size={38} />
-            </div>
-          </div>
-        )}
-      </div>
+      <GalleryLayout/>
 
       <div className="px-2">
         {/*Apartment Description*/}
         <div className="pt-4">
           <div className="flex flex-col md:flex-row">
             <div className="flex flex-col font-aeonikmedium md:flex-grow space-y-2">
-              <p className="mt-6 text-2xl font-generalsans text-[#262626]">
+              <p className="mt-6 text-2xl font-aeonik text-[#262626]">
                 Atoll Park Site
               </p>
               <p className="text-xl text-[#262626]">$40,000,000</p>
@@ -284,7 +124,7 @@ function ImageLayout() {
           <div className="flex flex-col md:flex-row justify-between my-6 text-[#262626] sm:space-y-2">
             <div className="flex md:items-start space-x-4 md:space-x-2 md:space-y-2 items-baseline">
               <img src={bi} alt="Building Icon" className="h-6" />
-              <p className="md:text-left">200 units</p>
+              <p className="md:text-left md:mb-2">200 units</p>
             </div>
             <div className="flex items-center md:items-start space-x-4 md:space-x-2 md:space-y-2 items-baseline">
               <img src={ti} alt="Pets Icon" className="h-6" />
@@ -305,10 +145,10 @@ function ImageLayout() {
           <div className="md:w-3/5 flex flex-col md:space-y-2 mb-4">
             <div className="w-full mb-2">
               <div>
-                <h2 className="text-lg font-generalsans text-[262626]">
+                <h2 className="text-lg font-aeonik text-[262626]">
                   Description
                 </h2>
-                <span className="text-sm sm:px-2 font-generalsans text-[#5A5A5A]">
+                <span className="text-sm sm:px-2 font-aeonik text-[#5A5A5A]">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Suspendisse sed nisi lacus sed viverra tellus in hac
@@ -331,7 +171,7 @@ function ImageLayout() {
             </div>
             <div className="mt-8">
               <h2 className="text-lg font-aeonikmedium">Site details</h2>
-              <div className="mt-4 md:flex-row font-generalsans">
+              <div className="mt-4 md:flex-row font-aeonik">
                 <div className="flex border-b border-[#808080]">
                   <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
                     Parking
@@ -371,7 +211,7 @@ function ImageLayout() {
                 <h2 className="text-2xl text-center font-aeonikmedium">
                   VIRTUAL TOUR
                 </h2>
-                <p className="text-lg text-center font-generalsans text-[#808080]">
+                <p className="text-lg text-center font-aeonik text-[#808080]">
                   Experience your dream properties
                 </p>
                 <div className="relative mt-4">
@@ -406,12 +246,12 @@ function ImageLayout() {
                     </svg>
                   </button>
                 </div>
-                <button className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md font-generalsans">
+                <button className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md font-aeonik">
                   Book A Virtual Tour
                 </button>
               </div>
             </div>
-            <div className="bg-[#FAF2F0] p-6 rounded-lg shadow-lg flex-row font-generalsans">
+            <div className="bg-[#FAF2F0] p-6 rounded-lg shadow-lg flex-row font-aeonik">
               <h2 className="text-2xl text-center font-aeonikmedium">
                 BOOK A PHYSICAL TOUR
               </h2>
@@ -558,233 +398,7 @@ function ImageLayout() {
         </div>
       </div>
       <div>
-        <div className="mb-16">
-          {/*SITE INFORMATION*/}
-          <div>
-            {/*APARTMENT PRICES AND AVAILABILITY*/}
-
-            <div className="mt-10 ">
-              <h1 className="font-aeonikmedium text-xl">
-                Apartment Prices and availability
-              </h1>
-              <div className="flex items-center flex-shrink-0 whitespace-nowrap overflow-hidden overflow-x-auto overflow-y-hidden space-x-4 mt-10 mb-4 md:space-x-4">
-                <div className="bg-[#BBBBBB33] px-4 flex items-center justify-center py-3 rounded-full border border-[#262626] md:w-[12%]">
-                  <p className="text-xs font-generalsans text-[#262626]">
-                    Bachelor
-                  </p>
-                </div>
-                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-generalsans text-[#5A5A5A]">
-                    Studio
-                  </p>
-                </div>
-                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-generalsans text-[#5A5A5A]">
-                    Duplex
-                  </p>
-                </div>
-                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-generalsans text-[#5A5A5A]">
-                    Loft
-                  </p>
-                </div>
-                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-generalsans text-[#5A5A5A]">
-                    loft
-                  </p>
-                </div>
-                <div className="px-4 flex items-center justify-center py-3 rounded-full border border-[#B5B5B5] md:w-[12%]">
-                  <p className="text-xs font-generalsans text-[#5A5A5A]">
-                    loft
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-16 space-y-8 mb-6">
-              <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
-                <div className="flex space-x-6">
-                  <img
-                    src={apartment}
-                    alt="apartment"
-                    className="md:w-[12rem] h-24 md:h-[8rem]"
-                  />
-                  <div className="md:space-y-6 space-y-4">
-                    <h1 className="font-aeonikmedium text-xl">
-                      Block 13, Number 5
-                    </h1>
-                    <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-aeonikmedium">$800</h1>
-                      <p className="font-generalsanslight text-sm text-[#545454]">
-                        /month
-                      </p>
-                    </div>
-                    <div className="flex md:hidden items-center space-x-3">
-                      <div className="flex items-center space-x-2 text-center">
-                        <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bed
-                        </p>
-                      </div>
-                      <h1 className=" font-aeonikmedium text-[#1FA41C]">
-                        Available
-                      </h1>
-                    </div>
-                    <div className="hidden md:flex items-center md:space-x-8 space-x-4">
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bed
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bath} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bath
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bp} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          635 sqft
-                        </p>
-                      </div>
-                    </div>
-                    <h1 className="md:flex hidden font-generalsans text-xs text-[#1FA41C]">
-                      Available
-                    </h1>
-                  </div>
-                </div>
-                <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-aeonikmedium">$800</h1>
-                  <p className="font-generalsanslight text-sm text-[#545454]">
-                    /month
-                  </p>
-                </div>
-              </div>
-              <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
-                <div className="flex space-x-6">
-                  <img
-                    src={apartment}
-                    alt="apartment"
-                    className="md:w-[12rem] h-24 md:h-[8rem]"
-                  />
-                  <div className="md:space-y-6 space-y-4">
-                    <h1 className="font-aeonikmedium text-xl">
-                      Block 13, Number 5
-                    </h1>
-                    <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-aeonikmedium">$800</h1>
-                      <p className="font-generalsans text-sm text-[#545454]">
-                        /month
-                      </p>
-                    </div>
-                    <div className="flex md:hidden items-center space-x-3">
-                      <div className="flex items-center space-x-2 text-center">
-                        <img src={bp} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          635 sqft
-                        </p>
-                      </div>
-                      <h1 className=" font-generalsans text-xs text-[#1FA41C]">
-                        Available
-                      </h1>
-                    </div>
-                    <div className="hidden md:flex items-center md:space-x-8 space-x-4">
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bed
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bath} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bath
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          <img src={bp} alt="Blueprint Icon" className="h-6" />
-                          635 sqft
-                        </p>
-                      </div>
-                    </div>
-                    <h1 className="md:flex hidden font-generalsans text-xs text-[#1FA41C]">
-                      Available
-                    </h1>
-                  </div>
-                </div>
-                <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-aeonikmedium">$800</h1>
-                  <p className="font-generalsans text-sm text-[#545454]">
-                    /month
-                  </p>
-                </div>
-              </div>
-              <div className="py-4 px-4 md:flex items-center rounded-md justify-between border border-[#DCDCDC]">
-                <div className="flex space-x-6">
-                  <img
-                    src={apartment}
-                    alt="apartment"
-                    className="md:w-[12rem] h-24 md:h-[8rem]"
-                  />
-                  <div className="md:space-y-6 space-y-4">
-                    <h1 className="font-aeonikmedium text-xl">
-                      Block 13, Number 5
-                    </h1>
-                    <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-aeonikmedium">$800</h1>
-                      <p className="font-generalsans text-sm text-[#545454]">
-                        /month
-                      </p>
-                    </div>
-                    <div className="flex md:hidden items-center space-x-3">
-                      <div className="flex items-center space-x-2 text-center">
-                        <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bed
-                        </p>
-                      </div>
-                      <h1 className=" font-generalsans text-xs text-[#1FA41C]">
-                        Available
-                      </h1>
-                    </div>
-                    <div className="hidden md:flex items-center md:space-x-8 space-x-4">
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bed} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bed
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bath} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          One Bath
-                        </p>
-                      </div>
-                      <div className="flex flex-col items-center justify-center text-center">
-                        <img src={bp} alt="Blueprint Icon" className="h-6" />
-                        <p className="font-generalsans text-[#545454] text-xs">
-                          635 sqft
-                        </p>
-                      </div>
-                    </div>
-                    <h1 className="md:flex hidden font-generalsans text-xs text-[#1FA41C]">
-                      Available
-                    </h1>
-                  </div>
-                </div>
-                <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-aeonikmedium">$800</h1>
-                  <p className="font-generalsans text-sm text-[#545454]">
-                    /month
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+       <ApartmentPricing/>
       </div>
       <div>
         {/*Similar Listing*/}
@@ -796,7 +410,6 @@ function ImageLayout() {
             <Link to="/listings">See more</Link>
           </h2>
         </div>
-
         <div className="mt-6">
           <div className="container mx-auto">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
