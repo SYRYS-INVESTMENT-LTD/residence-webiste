@@ -8,7 +8,7 @@ function WhoWeAre() {
   return (
     <div className="bg-[#F5EEEB] bg-cover mt-10 md:p-10 pt-10 px-4">
       <div className="flex flex-col items-center justify-center space-x-2">
-        <h1 className="font-generalsans text-3xl">WE ARE RESIDENT</h1>
+        <h1 className="font-aeonik text-3xl">WE ARE RESIDENT</h1>
         <img src={sg} alt="grimmy signature" className="mt-2 h-7" />
       </div>
 
@@ -16,7 +16,7 @@ function WhoWeAre() {
         <div className="md:w-[50%]">
           <div className="flex items-start space-x-4 md:mt-6">
             <div className="mt-4 space-y-2 text-base leading-[24px]">
-              <p className="font-generalsans text-[#5A5A5A] ">
+              <p className="font-aeonik text-[#5A5A5A] ">
                 We use technology to build efficiency and delight in property
                 management and life. No barriers to an organized and happy life.
                 Our expertise focuses on a guaranteed return on investment,
@@ -24,7 +24,7 @@ function WhoWeAre() {
               </p>
               <div>
                 <p
-                  className="font-generalsans text-[#5A5A5A] mt-8"
+                  className="font-aeonik text-[#5A5A5A] mt-8"
                   style={{ display: "inline" }}
                 >
                   Our team is fast-paced, result-driven, and enjoys creative
@@ -32,7 +32,7 @@ function WhoWeAre() {
                   to give everyone access to a well-managed and enjoyable life.
                 </p>{" "}
                 <span
-                  className="font-generalsansbold"
+                  className="font-aeonikmedium"
                   style={{ display: "inline" }}
                 >
                   Join the Resident family today!

@@ -32,10 +32,10 @@ function Apartments() {
   return (
     <div className="mt-20 md:pl-6">
       <div className="flex items-center flex-col justify-center space-y-4">
-        <h1 className="font-generalsansmedium md:text-2xl text-base text-[#262626] flex-row">
+        <h1 className="font-aeonikmedium md:text-2xl text-base text-[#262626] flex-row">
           APARTMENTS AND SITES
         </h1>
-        <div className="items-center mx-3 justify-center flex-grow md:text-sm font-generalsans text-xs mt-6 text-[#5A5A5A]">
+        <div className="items-center mx-3 justify-center flex-grow md:text-sm font-aeonik text-xs mt-6 text-[#5A5A5A]">
           {/* For mobile screens */}
           <p className="md:hidden text-justify text-center">
             Resident takes care of all aspects of property management, including tenants screening, lease agreements, rent collection, and handling maintenance and repair requests.

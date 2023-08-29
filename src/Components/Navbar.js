@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import usflag from "../Assets/Icons/USFlag.png";
 import ricon from "../Assets/Icons/ResidentBlackIcon.png";
+import rgreen from "../Assets/Icons/ResidentIcon2.svg"
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
 import { useLocation, Link } from "react-router-dom";
 
-function Navbar() {
+function Navbar({ whitelinks }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
 
@@ -17,52 +18,74 @@ function Navbar() {
       <div className="h-10 md:p-10 py-10 px-4 flex justify-between items-center">
         <Link to="/">
           <div>
-            <img src={ricon} alt="Resident" className="h-6" />
+            <img  src={whitelinks ? rgreen : ricon} alt="Resident" className="h-6" />
           </div>
         </Link>
         <div className="hidden md:flex space-x-12 items-center">
           <Link
             to="/listings"
-            className={`font-generalsans text-sm cursor-pointer ${
-              location.pathname === "/listings"
-                ? "text-green-700"
-                : "text-[#262626]"
-            }`}
+            className={`font-aeonik text-sm cursor-pointer ${location.pathname === "/listings"
+              ? "text-green-700"
+              : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}
           >
             Apartment Listing
           </Link>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          <Link
+            to=""
+            className={`font-aeonik text-sm cursor-pointer ${location.pathname === ""
+              ? "text-green-700"
+              : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}
+          >
             Projects
-          </div>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          </Link>
+          <Link
+            to=""
+            className={`font-aeonik text-sm cursor-pointer ${location.pathname === ""
+              ? "text-green-700"
+              : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}
+          >
             CRM
-          </div>
+          </Link>
           <Link
             to="/"
-            className={`font-generalsans text-sm cursor-pointer ${
-              location.pathname === "/" ? "text-green-700" : "text-[#262626]"
-            }`}
+            className={`font-aeonik text-sm cursor-pointer ${location.pathname === "/" ? "text-green-700" : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}
           >
-            Home
+            Property Management
           </Link>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          <Link
+            to=""
+            className={`font-aeonik text-sm cursor-pointer ${location.pathname === "" ? "text-green-700" : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}
+          >
             Pricing
-          </div>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          </Link>
+          <Link
+            to=""
+            className={`font-aeonik text-sm cursor-pointer ${location.pathname === "" ? "text-green-700" : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}
+          >
             Affliate
-          </div>
+          </Link>
           <Link to="/contact">
-            <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+            <div className={`font-aeonik text-sm cursor-pointer ${location.pathname === "/contact" ? "text-green-700" : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}>
               Contact Us
             </div>
           </Link>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
-            Blog
-          </div>
+          <Link to="">
+            <div className={`font-aeonik text-sm cursor-pointer ${location.pathname === "" ? "text-green-700" : "text-[#262626]"
+              } ${whitelinks ? "text-white" : ""}`}>
+              Blog
+            </div>
+          </Link>
         </div>
         <div className="flex items-center space-x-4">
           <div
-            className="flex items-center space-x-2 cursor-pointer bg-[#FAF2F0] p-2 hidden md:flex"
+            className="flex items-center space-x-2 cursor-pointer p-2 hidden md:flex"
           >
             <img
               src={usflag}
@@ -76,7 +99,7 @@ function Navbar() {
               }}
             />
 
-            <MdKeyboardArrowDown size={24} />
+            <MdKeyboardArrowDown size={24} color={whitelinks ? "white" : undefined} />
           </div>
 
           <MdOutlineMenu
@@ -88,24 +111,24 @@ function Navbar() {
       </div>
       {/* Mobile menu */}
       {isMenuOpen && (
-        <div className="md:hidden bg-transparent border-white b-1 text-gray-300 flex flex-col items-center space-y-4 py-4 left-0 ">
+        <div className="md:hidden bg-transparent border-white b-1 text-gray-300 flex flex-col items-center space-y-4 py-4 left-0">
           <Link to="/">
-            <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
-              Home
+            <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
+              Property Management
             </div>
           </Link>
           <Link to="/listings">
-            <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+            <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
               Listings
             </div>
           </Link>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
             Our Services
           </div>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
             About Us
           </div>
-          <div className="font-generalsans text-[#262626] text-sm cursor-pointer">
+          <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
             Contact
           </div>
         </div>

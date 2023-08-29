@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Aeonik";
+  src: url("../public/Fonts/Aeonik-Regular.otf");
+}
+@font-face {
+  font-family: "AeonikMedium";
+  src: url("../public/Fonts/Aeonik-Medium.otf");
+}
+@font-face {
+  font-family: "AeonikBold";
+  src: url("../public/Fonts/Aeonik-Bold.otf");
+}
   @font-face {
     font-family: "GeneralSans";
     src: url("../public/Fonts/GeneralSans-Regular.otf");

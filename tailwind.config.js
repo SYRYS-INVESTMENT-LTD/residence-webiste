@@ -8,6 +8,9 @@ module.exports = {
       fontFamily: {
         inter: ['Inter', 'sans-serif'],
         interlight: ['INTERDISPLAYLIGHT', 'sans-serif'],
+        aeonik: ['Aeonik', 'sans-serif'],
+        aeonikmedium: ['AeonikMedium', 'sans-serif'],
+        aeonikbold: ['AeonikBold', 'sans-serif'],
         generalsans: ['GeneralSans', 'sans-serif'],
         generalsansmedium: ['GeneralSansMedium', 'sans-serif'],
         generalsansbold: ['GeneralSansBold', 'sans-serif'],

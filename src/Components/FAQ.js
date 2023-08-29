@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import fa from "../Assets/Icons/ForwardArrow.jpg";
 import ri from "../Assets/Icons/ResidentIcon2.svg";
-import { BsArrowDown } from "react-icons/bs";
+import ad from "../Assets/Icons/arrowDown.svg"
 
 function FAQ() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -16,12 +16,17 @@ function FAQ() {
   ];
 
   const answers = [
-    "Property and Site Management on the Resident platform allows you to manage your properties and sites with ease...",
-    "The Resident platform is open to all property owners, landlords, and tenants looking to streamline property management...",
-    "Yes, the features on the Resident platform can be tailored and expanded upon to meet your individual needs...",
-    "Yes, Resident can be accessed and managed through our mobile app which is available on the App Store and Google Play...",
-    "The support system facilitates direct communication with the management company. You can report maintenance issues...",
-    "The property inspection feature, currently in BETA mode, allows you to conduct property inspections, perform checks...",
+    "Property and Site Management on the Resident platform allows you to manage your properties and sites with ease. It provides a comprehensive overview of each property, including contract details, utility payment information, and payment history.",
+
+    "The Resident platform is open to all property owners, landlords, and tenants looking to streamline property management, access additional services, and enhance communication with the management company.",
+
+    "Yes, the features on the Resident platform can be tailored and expanded upon to meet your individual needs.The Services Section offers additional services beyond regular maintenance. Users can browse available services, select desired options, and make service requests, ensuring convenience and personalized solutions.",
+
+    "Yes, Resident can accessed and managed through our mobile app which is available on the App Store and Google Play.",
+
+    "The support system facilitates direct communication with the management company. You can report maintenance issues, seek assistance, and make inquiries, fostering seamless and efficient support.",
+
+    "The property inspection feature, currently in BETA mode, allows you to conduct property inspections, perform checks, and provide feedback on your property's condition, further enhancing property management efficiency.",
   ];
 
   const handleQuestionClick = (index) => {
@@ -32,33 +37,31 @@ function FAQ() {
 
   return (
     <div className="mt-20 md:mx-20 mb-20 mx-10">
-      <h1 className="text-2xl font-generalsansmedium text-[#262626]">FAQS</h1>
+      <h1 className="text-2xl font-aeonikmedium text-[#262626]">FAQS</h1>
       <div className={`flex mt-2 md:mt-8 ${isMobile ? "flex-col" : ""}`}>
         {isMobile ? (
           questions.map((question, index) => (
             <div
               key={index}
-              className={`cursor-pointer mb-2 py-6 px-2 pb-2 border-b ${
-                activeIndex === index ? "" : ""
-              }`}
+              className={`cursor-pointer mb-2 py-6 px-2 pb-2 border-b ${activeIndex === index ? "" : ""
+                }`}
               onClick={() => handleQuestionClick(index)}
             >
               <div className="flex items-center justify-between">
                 <h1
-                  className={`font-generalsans text-base mb-2 ${
-                    activeIndex === index
-                      ? "text-[#199976]"
-                      : "text-[#262626] hover:text-[#199976]"
-                  }`}
+                  className={`font-aeonik text-base mb-2 ${activeIndex === index
+                    ? "text-[#199976]"
+                    : "text-[#262626] hover:text-[#199976]"
+                    }`}
                 >
                   {question}
                 </h1>
                 {activeIndex === index ? (
-                  <BsArrowDown className="ml-auto" size={18} color="green-600" />
+                  <img src={ad} alt="Arrow Down" className="h-10"/>
                 ) : null}
               </div>
               {activeIndex === index && (
-                <p className="text-base font-generalsans text-[#5A5A5A] mt-2">
+                <p className="text-base font-aeonik text-[#5A5A5A] mt-2">
                   {answers[index]}
                 </p>
               )}
@@ -70,22 +73,19 @@ function FAQ() {
               {questions.map((question, index) => (
                 <div
                   key={index}
-                  className={`cursor-pointer md:mb-8 ${
-                    index < questions.length - 1 ? "pb-2 border-b p-4" : "p-4"
-                  } ${
-                    activeIndex === index
+                  className={`cursor-pointer md:mb-8 ${index < questions.length - 1 ? "pb-2 border-b p-4" : "p-4"
+                    } ${activeIndex === index
                       ? "rounded-lg border border-[#199976] p-4"
                       : ""
-                  }`}
+                    }`}
                   onClick={() => handleQuestionClick(index)}
                 >
                   <div className="flex items-center justify-between space-x-2 relative md:h-[4rem]">
                     <h1
-                      className={`font-generalsans text-base ${
-                        activeIndex === index
-                          ? "text-[#199976]"
-                          : "text-[#262626] hover:text-[#199976]"
-                      }`}
+                      className={`font-aeonik text-base ${activeIndex === index
+                        ? "text-[#199976]"
+                        : "text-[#262626] hover:text-[#199976]"
+                        }`}
                     >
                       {question}
                     </h1>
@@ -115,10 +115,10 @@ function FAQ() {
                     <div className="justify-center">
                       {activeIndex !== null && (
                         <div className="space-y-2">
-                          <p className="text-lg mt-4 font-generalsans">
+                          <p className="text-lg mt-4 font-aeonik">
                             {questions[activeIndex]}
                           </p>
-                          <p className="text-base font-generalsans text-[#5A5A5A]">
+                          <p className="text-base font-aeonik text-[#5A5A5A]">
                             {answers[activeIndex]}
                           </p>
                         </div>

@@ -7,12 +7,14 @@ import bi from "../Assets/Icons/buildingIcon.svg";
 import ti from "../Assets/Icons/trackIcon.svg";
 import bed from "../Assets/Icons/bedIcon.svg";
 import bath from "../Assets/Icons/bath-tubIcon.svg";
+import { format } from "date-fns";
 import rent from "../Assets/Icons/ForRentIcon.svg";
 import money from "../Assets/Icons/MoneyIcon.svg";
 import tourImg from "../Assets/Icons/TourButton.svg";
+import mapPin from "../Assets/Icons/mapLocation.svg"
 import apartment from "../Assets/Images/apartment.png";
 import { MdOutlineClose } from "react-icons/md";
-import {BsChevronCompactRight, BsChevronCompactLeft} from "react-icons/bs"
+import { BsChevronCompactRight, BsChevronCompactLeft } from "react-icons/bs"
 import { RiMapPinLine } from "react-icons/ri";
 import { BsPerson } from "react-icons/bs";
 import { Navigation, Thumbs, EffectCoverflow } from "swiper/modules";
@@ -22,14 +24,59 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
+import BookingModal from "./QR Code Components/physicalTour";
 import { slide_images } from "../Components/data";
 import { similarListingData } from "../Components/data";
 
 function ImageLayout() {
-  // State to control modal(for Book a Tour) visibility and user selections
   const [showModal, setShowModal] = useState(false);
+  const [inspectionActivities, setInspectionActivities] = useState([]);
   const [selectedDate, setSelectedDate] = useState(null);
   const [selectedTime, setSelectedTime] = useState(null);
+
+  const handleBookPhysicalTour = () => {
+    setShowModal(true);
+
+    // Set default selected date to the first available date
+    if (activitiesWithTimes.length > 0) {
+      setSelectedDate(activitiesWithTimes[0].date);
+
+      // Set default selected time to the first available time slot of the first date
+      setSelectedTime(activitiesWithTimes[0].freeTime[0].time);
+    }
+  }
+
+  useEffect(() => {
+    // Fetch data from the API endpoint
+    fetch("https://api.syrysapp.com/api/maintenance/schedule/formatted")
+      .then((response) => response.json())
+      .then((data) => {
+        // Set inspection activities from the API response
+        setInspectionActivities(data.activities.cleaning);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }, []);
+
+  
+  // Function to handle date selection
+  const handleDateSelect = (date) => {
+    setSelectedDate(date);
+    // Set default selected time to the first available time slot for the selected date
+    const selectedActivity = activitiesWithTimes.find(activity => activity.date === date);
+    setSelectedTime(selectedActivity.freeTime[0].time);
+  };
+
+  // Function to handle time selection
+  const handleTimeSelect = (time) => {
+    setSelectedTime(time);
+  };
+
+  // Filter activities that have available times
+  const activitiesWithTimes = inspectionActivities.filter(
+    (activity) => activity.freeTime.length > 0
+  );
 
   // To prevent bg from scrolling
   useEffect(() => {
@@ -39,52 +86,7 @@ function ImageLayout() {
       document.body.classList.remove("overflow-y-hidden");
     }
   }, [showModal]);
-
-  // Array of time and date options for the modal form
-  const dateOptions = [
-    "2023-07-01",
-    "2023-07-02",
-    "2023-07-03",
-    "2023-07-01",
-    "2023-07-02",
-    "2023-07-03",
-    "2023-07-01",
-    "2023-07-02",
-    "2023-07-03",
-    "2023-07-01",
-    "2023-07-02",
-    "2023-07-03",
-  ];
-
-  const timeOptions = [
-    "09:00 AM",
-    "10:00 AM",
-    "11:00 AM",
-    "12:00 PM",
-    "01:00 PM",
-    "02:00 PM",
-    "03:00 PM",
-    "04:00 PM",
-    "05:00 PM",
-    "06:00 PM",
-    "07:00 PM",
-    "08:00 PM",
-  ];
-
-  // Function to handle the "Book a Physical tour" button click
-  const handleBookPhysicalTour = () => {
-    setShowModal(true);
-  };
-
-  // Function to handle when the user selects a date
-  const handleSelectDate = (date) => {
-    setSelectedDate(date);
-  };
-
-  // Function to handle when the user selects a time
-  const handleSelectTime = (time) => {
-    setSelectedTime(time);
-  };
+  
 
   //To handle galley dispaly
   //Function to handle gallery display
@@ -135,7 +137,7 @@ function ImageLayout() {
         <div className="mb-4 space-y-2">
           <h2 className="text-xl font-generalsans">{name}</h2>
           <p className="font-generalsans">{price}</p>
-          <p className="font-sfprotextregular">{location}</p>
+          <p className="font-aeonik">{location}</p>
         </div>
       </div>
     );
@@ -155,7 +157,7 @@ function ImageLayout() {
               />
               <div className="absolute flex justify-end items-end bottom-8 right-4 md:hidden">
                 <div
-                  className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-generalsansmedium text-sm cursor-pointer"
+                  className="text-white rounded-full bg-black bg-opacity-60 p-2 font-aeonikmedium text-sm cursor-pointer"
                   onClick={handleGalleryDisplay}
                 >
                   25+ photos
@@ -173,7 +175,7 @@ function ImageLayout() {
               }}>
                 <div className="absolute flex justify-end items-end bottom-4 right-4">
                   <div
-                    className="text-white font-bold rounded-full bg-black bg-opacity-60 p-2 font-generalsansmedium text-sm cursor-pointer"
+                    className="text-white rounded-full bg-black bg-opacity-60 p-2 font-aeonikmedium text-sm cursor-pointer"
                     onClick={handleGalleryDisplay}
                   >
                     25+ photos
@@ -268,7 +270,7 @@ function ImageLayout() {
         {/*Apartment Description*/}
         <div className="pt-4">
           <div className="flex flex-col md:flex-row">
-            <div className="flex flex-col font-sfprotext font-semibold md:flex-grow space-y-2">
+            <div className="flex flex-col font-aeonikmedium md:flex-grow space-y-2">
               <p className="mt-6 text-2xl font-generalsans text-[#262626]">
                 Atoll Park Site
               </p>
@@ -328,7 +330,7 @@ function ImageLayout() {
               </div>
             </div>
             <div className="mt-8">
-              <h2 className="text-lg font-generalsansmedium">Site details</h2>
+              <h2 className="text-lg font-aeonikmedium">Site details</h2>
               <div className="mt-4 md:flex-row font-generalsans">
                 <div className="flex border-b border-[#808080]">
                   <h3 className="flex items-center py-2 flex-grow text-[#5A5A5A]">
@@ -366,7 +368,7 @@ function ImageLayout() {
           <div className="md:w-2/5 flex flex-col md:space-y-4 sm:mt-4 md:mx-20 md:px-7 ml-auto w-full">
             <div className="flex-row">
               <div className="bg-[#FAF2F0] text-[#262626] p-4 px-3 rounded-lg">
-                <h2 className="text-2xl text-center font-generalsansmedium">
+                <h2 className="text-2xl text-center font-aeonikmedium">
                   VIRTUAL TOUR
                 </h2>
                 <p className="text-lg text-center font-generalsans text-[#808080]">
@@ -410,135 +412,148 @@ function ImageLayout() {
               </div>
             </div>
             <div className="bg-[#FAF2F0] p-6 rounded-lg shadow-lg flex-row font-generalsans">
-              <h2 className="text-2xl text-center font-semibold">
+              <h2 className="text-2xl text-center font-aeonikmedium">
                 BOOK A PHYSICAL TOUR
               </h2>
               <p className="text-lg text-center text-[#808080]">
                 Experience a world unknown
               </p>
-              <button
-                className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md"
-                onClick={handleBookPhysicalTour}
-              >
-                Book a Physical tour
-              </button>
-            </div>
-            {/* Modal Form */}
-            {showModal && (
-              <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-4 sm:p-10">
-                <div className="bg-white p-4 sm:p-6 rounded-lg shadow-lg w-full sm:w-[80%] md:w-[90%] lg:w-[70%] xl:w-[50%] overflow-y-auto">
-                  <div className="text-center">
-                    <div>
-                      <div className="flex items-center justify-between">
-                        <h2 className="text-3xl text-center font-semibold flex-grow">
-                          BOOK A TOUR
-                        </h2>
-                        <button
-                          onClick={() => {
-                            setShowModal(false);
-                            setSelectedDate(null);
-                            setSelectedTime(null);
-                          }}
-                          className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
-                        >
-                          <MdOutlineClose size={20} className="mr-1" />
-                        </button>
-                      </div>
-                    </div>
-                    <h2>
-                      We'll connect you with a local agent who can give you a
-                    </h2>
-                    <h2>personalized tour of the home in person</h2>
-                  </div>
-                  <div className="flex items-center space-x-4 mt-4">
-                    <img
-                      src={tourImg}
-                      alt="For Rent Button"
-                      className="w-32 h-32"
-                    />
-                    <div className="flex flex-col flex-grow space-y-2">
-                      <h1 className="text-[#262626] font-sfprosemibold text-xl">
-                        Atoll Park Site
-                      </h1>
-                      <div className="flex items-center space-x-2">
-                        <img
-                          src={money}
-                          alt="For Rent Button"
-                          className="w-6 h-6"
-                        />
-                        <h3 className="text-[#262626] font-sfprotext text-lg">
-                          $800/month
-                        </h3>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <RiMapPinLine color="#000" size={18} className="mr-1" />
-                        <h3 className="text-[#262626] font-sfprotext">
-                          Kardesleer sokak, Edremit Kyrenia
-                        </h3>
-                      </div>
-                    </div>
-                    <div className="ml-auto">
-                      <img src={rent} alt="For Rent Button" className="h-10" />
-                    </div>
-                  </div>
-                  <div>
-                    <div className="mt-6">
-                      <h3 className="text-lg font-semibold">Select a date</h3>
-                      <div className="grid grid-cols-3 gap-6 mt-2 md:grid-cols-6">
-                        {dateOptions.map((date, index) => (
+              <div>
+                <button
+                  className="bg-[#199978] text-white mt-4 px-6 py-2 w-full rounded-md"
+                  onClick={handleBookPhysicalTour}
+                >
+                  Book a Physical tour
+                </button>
+                {showModal && (
+                  <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-10 p-4 sm:p-10">
+                    <div className="bg-white p-6 sm:p-6 rounded-lg shadow-lg w-full sm:w-[80%] md:w-[80vw] lg:w-[70%] xl:w-[50%] overflow-y-auto">
+                      <div className="h-full overflow-y-auto">
+                        <div className="text-center">
+                          <div>
+                            <div className="flex items-center justify-between">
+                              <h2 className="text-3xl text-center font-aeoniksemibold flex-grow">
+                                BOOK A TOUR
+                              </h2>
+                              <button
+                                onClick={() => {
+                                  setShowModal(false);
+                                  setSelectedDate(null);
+                                  setSelectedTime(null);
+                                }}
+                                className="px-3 py-2 rounded-md justify-center flex items-center ml-auto"
+                              >
+                                <MdOutlineClose size={20} className="mr-1" />
+                              </button>
+                            </div>
+                          </div>
+                          <h2 className="font-aeonik font-lg">
+                            We'll connect you with a local agent who can give you a
+                          </h2>
+                          <h2 className="font-aeonik font-lg">personalized tour of the home in person</h2>
+                        </div>
+                        <div className="flex items-center space-x-4 mt-4">
+                          <img
+                            src={tourImg}
+                            alt="For Rent Button"
+                            className="w-32 h-32"
+                          />
+                          <div className="flex flex-col flex-grow space-y-2">
+                            <h1 className="text-[#262626] font-aeonikmedium text-xl">
+                              Atoll Park Site
+                            </h1>
+                            <div className="flex items-center space-x-2">
+                              <img
+                                src={money}
+                                alt="For Rent Button"
+                                className="w-6 h-6"
+                              />
+                              <div>
+                                <h3 className="text-[#262626] font-aeonikmedium text-xl" style={{ display: 'inline' }}>
+                                  $800
+                                </h3>
+                                <h3 className="text-[#262626] font-aeonik" style={{ display: 'inline' }}>
+                                  /month
+                                </h3>
+                              </div>
+                            </div>
+                            <div className="flex items-center space-x-2">
+                              <img src={mapPin} alt="Map Pin" className="h-6 mr-1 " />
+                              <h3 className="text-[#262626] font-aeonik ">
+                                Kardesleer sokak, Edremit Kyrenia
+                              </h3>
+                            </div>
+                          </div>
+                          <div className="ml-auto">
+                            <img src={rent} alt="For Rent Button" className="h-6" />
+                          </div>
+                        </div>
+                        <div>
+                          {/*The Select a day and select a time*/}
+                          <div className="mt-6">
+                            <h3 className="text-lg font-aeonikmedium">Select a date</h3>
+                            <div className="grid grid-cols-3 gap-6 mt-2 md:grid-cols-6">
+                              {activitiesWithTimes.map((inspectionActivity, index) => (
+                                <button
+                                  key={index}
+                                  onClick={() => handleDateSelect(inspectionActivity.date)}
+                                  className={`w-full h-14 px-2 py-2 rounded-md ${selectedDate === inspectionActivity.date
+                                    ? "text-green-700 border border-gray-300 border-1 p-3"
+                                    : "border border-gray-300 border-1 p-6"
+                                    }`}
+                                >
+                                  {format(new Date(inspectionActivity.date), "eeee MMM d")}
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                          {selectedDate && (
+                            <div className="mt-6">
+                              <h3 className="text-lg font-aeonikmedium">Select a time</h3>
+                              <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6">
+                                {activitiesWithTimes.find(
+                                  (activity) => activity.date === selectedDate
+                                ).freeTime.map((timeSlot, index) => (
+                                  <button
+                                    key={index}
+                                    onClick={() => handleTimeSelect(timeSlot.time)}
+                                    className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === timeSlot.time
+                                      ? "text-green-700 border border-gray-300 border-1 "
+                                      : "border border-gray-300 border-1"
+                                      }`}
+                                  >
+                                    {timeSlot.time}
+                                  </button>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </div>
+                        <div className="flex mt-6 md:space-x-24 sm:space-x-10 mt-4">
+                          <input
+                            type="email"
+                            id="email"
+                            className="w-[60%] px-4 py-2 rounded-md text-[#B5B5B5] focus:outline-none focus:ring border border-[#B5B5B5] border-1"
+                            placeholder="Enter your email"
+                          />
                           <button
-                            key={index}
-                            onClick={() => handleSelectDate(date)}
-                            className={`w-full h-12 px-2 py-2 rounded-md ${selectedDate === date
-                              ? "bg-green-700 text-white p-3"
-                              : "border border-gray-300 border-1 p-3"
-                              }`}
+                            onClick={() => {
+                              setShowModal(false);
+                              setSelectedDate(null);
+                              setSelectedTime(null);
+                            }}
+                            className="bg-[#199976] mr-auto text-white px-6 py-2 rounded-md mr-2"
+                            style={{ display: 'inline' }}
                           >
-                            {date}
+                            Book A Tour
                           </button>
-                        ))}
-                      </div>
-                    </div>
-                    <div className="mt-6">
-                      <h3 className="text-lg font-generalsansmedium">Select a time</h3>
-                      <div className="grid grid-cols-3 gap-2 mt-2 md:grid-cols-6 font-generalsansmedium">
-                        {timeOptions.map((time, index) => (
-                          <button
-                            key={index}
-                            onClick={() => handleSelectTime(time)}
-                            className={`w-full h-12 px-2 py-2 rounded-full ${selectedTime === time
-                              ? "bg-green-700 text-white"
-                              : "border border-gray-300 border-1"
-                              }`}
-                          >
-                            {time}
-                          </button>
-                        ))}
+                        </div>
                       </div>
                     </div>
                   </div>
-                  <div className="flex mt-6 space-x-24 mt-4">
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-[60%] px-4 py-2 rounded-md text-[#B5B5B5] focus:outline-none focus:ring border border-[#B5B5B5] border-1"
-                      placeholder="Enter your email"
-                    />
-                    <button
-                      onClick={() => {
-                        setShowModal(false);
-                        setSelectedDate(null);
-                        setSelectedTime(null);
-                      }}
-                      className="bg-[#199976] mr-auto text-white px-6 py-2 rounded-md mr-2"
-                      style={{ display: 'inline' }}
-                    >
-                      Book A Tour
-                    </button>
-                  </div>
-                </div>
+                )}
               </div>
-            )}
+            </div>
           </div>
         </div>
       </div>
@@ -549,7 +564,7 @@ function ImageLayout() {
             {/*APARTMENT PRICES AND AVAILABILITY*/}
 
             <div className="mt-10 ">
-              <h1 className="font-generalsansmedium text-xl">
+              <h1 className="font-aeonikmedium text-xl">
                 Apartment Prices and availability
               </h1>
               <div className="flex items-center flex-shrink-0 whitespace-nowrap overflow-hidden overflow-x-auto overflow-y-hidden space-x-4 mt-10 mb-4 md:space-x-4">
@@ -595,11 +610,11 @@ function ImageLayout() {
                     className="md:w-[12rem] h-24 md:h-[8rem]"
                   />
                   <div className="md:space-y-6 space-y-4">
-                    <h1 className="font-generalsansmedium text-xl">
+                    <h1 className="font-aeonikmedium text-xl">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-generalsansmedium">$800</h1>
+                      <h1 className="text-base font-aeonikmedium">$800</h1>
                       <p className="font-generalsanslight text-sm text-[#545454]">
                         /month
                       </p>
@@ -611,7 +626,7 @@ function ImageLayout() {
                           One Bed
                         </p>
                       </div>
-                      <h1 className=" font-generalsansmedium text-[#1FA41C]">
+                      <h1 className=" font-aeonikmedium text-[#1FA41C]">
                         Available
                       </h1>
                     </div>
@@ -641,7 +656,7 @@ function ImageLayout() {
                   </div>
                 </div>
                 <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-generalsansmedium">$800</h1>
+                  <h1 className="text-base font-aeonikmedium">$800</h1>
                   <p className="font-generalsanslight text-sm text-[#545454]">
                     /month
                   </p>
@@ -655,11 +670,11 @@ function ImageLayout() {
                     className="md:w-[12rem] h-24 md:h-[8rem]"
                   />
                   <div className="md:space-y-6 space-y-4">
-                    <h1 className="font-generalsansmedium text-xl">
+                    <h1 className="font-aeonikmedium text-xl">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-generalsansmedium">$800</h1>
+                      <h1 className="text-base font-aeonikmedium">$800</h1>
                       <p className="font-generalsans text-sm text-[#545454]">
                         /month
                       </p>
@@ -701,7 +716,7 @@ function ImageLayout() {
                   </div>
                 </div>
                 <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-generalsansmedium">$800</h1>
+                  <h1 className="text-base font-aeonikmedium">$800</h1>
                   <p className="font-generalsans text-sm text-[#545454]">
                     /month
                   </p>
@@ -715,11 +730,11 @@ function ImageLayout() {
                     className="md:w-[12rem] h-24 md:h-[8rem]"
                   />
                   <div className="md:space-y-6 space-y-4">
-                    <h1 className="font-generalsansmedium text-xl">
+                    <h1 className="font-aeonikmedium text-xl">
                       Block 13, Number 5
                     </h1>
                     <div className="flex items-center md:hidden">
-                      <h1 className="text-base font-generalsansmedium">$800</h1>
+                      <h1 className="text-base font-aeonikmedium">$800</h1>
                       <p className="font-generalsans text-sm text-[#545454]">
                         /month
                       </p>
@@ -761,7 +776,7 @@ function ImageLayout() {
                   </div>
                 </div>
                 <div className="md:flex items-center hidden">
-                  <h1 className="text-base font-generalsansmedium">$800</h1>
+                  <h1 className="text-base font-aeonikmedium">$800</h1>
                   <p className="font-generalsans text-sm text-[#545454]">
                     /month
                   </p>
