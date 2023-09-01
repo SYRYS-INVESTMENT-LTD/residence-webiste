@@ -3,6 +3,7 @@ import usflag from "../Assets/Icons/USFlag.png";
 import ricon from "../Assets/Icons/ResidentBlackIcon.png";
 import rgreen from "../Assets/Icons/ResidentIcon2.svg"
 import { MdKeyboardArrowDown, MdOutlineMenu } from "react-icons/md";
+import { BiUser, BiChevronDown } from "react-icons/bi"
 import { useLocation, Link } from "react-router-dom";
 
 function Navbar({ whitelinks }) {
@@ -18,7 +19,7 @@ function Navbar({ whitelinks }) {
       <div className="h-10 md:p-10 py-10 px-4 flex justify-between items-center">
         <Link to="/">
           <div>
-            <img  src={whitelinks ? rgreen : ricon} alt="Resident" className="h-6" />
+            <img src={whitelinks ? rgreen : ricon} alt="Resident" className="h-6" />
           </div>
         </Link>
         <div className="hidden md:flex space-x-12 items-center">
@@ -87,19 +88,37 @@ function Navbar({ whitelinks }) {
           <div
             className="flex items-center space-x-2 cursor-pointer p-2 hidden md:flex"
           >
-            <img
-              src={usflag}
-              alt="language"
-              className="h-6 "
+            <div
+              className="inline-flex p-2 justify-center items-center"
               style={{
-                borderRadius: "13px",
-                background: "var(--secondary-2, #FAF2F0)",
-                boxShadow:
-                  "0px 2.2142858505249023px 5.904762268066406px -0.7380952835083008px rgba(0, 0, 0, 0.05), 0px 0px 0.7380952835083008px 0px rgba(0, 0, 0, 0.24)",
+                borderRadius: '13px',
+                background: 'var(--secondary-2, #FAF2F0)',
+                boxShadow: '0px 2.21429px 5.90476px -0.7381px rgba(0, 0, 0, 0.05), 0px 0px 0.7381px 0px rgba(0, 0, 0, 0.24)',
               }}
-            />
+            >
+              <img
+                src={usflag}
+                alt="language"
+                className="h-6 "
+              />
+              <MdKeyboardArrowDown size={24} color={whitelinks ? 'white' : undefined} />
+            </div>
+          </div>
 
-            <MdKeyboardArrowDown size={24} color={whitelinks ? "white" : undefined} />
+          <div
+            className="flex items-center space-x-2 cursor-pointer p-2 hidden md:flex"
+          >
+            <div
+              className="inline-flex p-2 justify-center items-center"
+              style={{
+                borderRadius: '13px',
+                background: 'var(--secondary-2, #FAF2F0)',
+                boxShadow: '0px 2.21429px 5.90476px -0.7381px rgba(0, 0, 0, 0.05), 0px 0px 0.7381px 0px rgba(0, 0, 0, 0.24)',
+              }}
+            >
+              <BiUser size={24} color={whitelinks ? 'white' : undefined} />
+              <MdKeyboardArrowDown size={24} color={whitelinks ? 'white' : undefined} />
+            </div>
           </div>
 
           <MdOutlineMenu

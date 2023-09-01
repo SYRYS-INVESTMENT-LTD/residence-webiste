@@ -8,22 +8,12 @@ function RedesignServices() {
   const isMobileScreen = window.innerWidth < 741;
   return (
     <div className="">
-      <div className="hidden md:flex flex-col items-center text-center justify-center mt-20 space-y-4">
-        <p className="font-aeonik text-3xl text-[#262626] ">
-          COMPREHENSIVE SERVICES TAILORED TO YOUR NEEDS
-        </p>
-        <p className="font-aeonik text-[#5a5a5a] text-xl text-center font-medium">
-          Discover a Wide Range of Services for Buying, Selling, and Managing
-          Properties
-        </p>
-      </div>
-
       <div>
         {window.innerWidth < 741 ? (
           <>
             <div className="items-center mt-20 ">
               <div className="flex flex-col">
-                <h1 className="font-aeonik font-medium text-2xl">
+                <h1 className="font-aeonikmedium text-2xl">
                   Efficient Property Management
                 </h1>
                 <div className="">
@@ -41,9 +31,9 @@ function RedesignServices() {
         ) : (
           <>
 
-            <div className="md:flex items-center mt-20 justify-center md:space-x-32">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-24">
               <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-aeonik font-medium text-2xl">
+                <h1 className="font-aeonikmedium text-2xl">
                   Efficient Property Management
                 </h1>
                 <p className="font-aeonik text-[#5a5a5a] mt-3">
