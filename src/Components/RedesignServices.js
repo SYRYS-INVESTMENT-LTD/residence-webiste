@@ -31,12 +31,12 @@ function RedesignServices() {
         ) : (
           <>
 
-            <div className="md:flex items-center mt-20 justify-center md:space-x-24">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-24 md:px-12">
               <div className="md:w-[50%] flex flex-col">
                 <h1 className="font-aeonikmedium text-2xl">
                   Efficient Property Management
                 </h1>
-                <p className="font-aeonik text-[#5a5a5a] mt-3">
+                <p className="font-aeonik text-[#5a5a5a] mt-3 leading-[30px]">
                   We use technology to ease communication and management for
                   homeowner, landlords and investors. Our experienced team handles
                   tenants screening, rent collection, maintenance, and much more.
@@ -81,10 +81,10 @@ function RedesignServices() {
                 <img src={services1} className="h-100 w-80 " alt="greemily" />
               </div>
               <div className="md:w-[50%] flex flex-col text-right">
-                <h1 className="font-aeonikmedium text-3xl">
+                <h1 className="font-aeonikmedium text-2xl">
                   All-inclusive Property Inspection
                 </h1>
-                <p className="font-aeonik text-[#5a5a5a] mt-1">
+                <p className="font-aeonik text-[#5a5a5a] mt-1 leading-[30px]">
                   Gain peace of mind with Resident's comprehensive property
                   inspections. Our experienced inspectors provide detailed
                   reports for informed decisions. From pre-purchase evaluations
@@ -122,12 +122,12 @@ function RedesignServices() {
           </>
         ) : (
           <>
-            <div className="md:flex items-center mt-20 justify-center md:space-x-32 ">
+            <div className="md:flex items-center mt-20 justify-center md:space-x-32 md:px-12">
               <div className="md:w-[50%] flex flex-col">
-                <h1 className="font-aeonikmedium text-3xl">
+                <h1 className="font-aeonikmedium text-2xl">
                   Rental and Sales Services
                 </h1>
-                <p className="font-aeonik text-[#5a5a5a] mt-1">
+                <p className="font-aeonik text-[#5a5a5a] mt-1 leading-[30px]">
                   Looking to rent or sell a property? Our dedicated team is here to
                   assist you. With extensive property listings, tenant screening,
                   strategic pricing, and professional representation, we ensure a
