@@ -129,27 +129,51 @@ function Navbar({ whitelinks }) {
         </div>
       </div>
       {/* Mobile menu */}
-      {isMenuOpen && (
+    {/* Mobile menu */}
+    {isMenuOpen && (
         <div className="md:hidden bg-transparent border-white b-1 text-gray-300 flex flex-col items-center space-y-4 py-4 left-0">
+          {/* Mobile Menu Links */}
+          <Link to="/listings">
+            <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
+              Apartment Listing
+            </div>
+          </Link>
+          <Link to="">
+            <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
+              Projects
+            </div>
+          </Link>
+          <Link to="">
+            <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
+              CRM
+            </div>
+          </Link>
           <Link to="/">
             <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
               Property Management
             </div>
           </Link>
-          <Link to="/listings">
+          <Link to="">
             <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
-              Listings
+              Pricing
             </div>
           </Link>
-          <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
-            Our Services
-          </div>
-          <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
-            About Us
-          </div>
-          <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
-            Contact
-          </div>
+          <Link to="">
+            <div className="font-aeonik text-[#262626] text-sm cursor-pointer">
+              Affliate
+            </div>
+          </Link>
+          <Link to="/contact">
+            <div className={`font-aeonik text-[#262626] text-sm cursor-pointer ${location.pathname === "/contact" ? "text-green-700" : ""}`}>
+              Contact Us
+            </div>
+          </Link>
+          <Link to="">
+            <div className={`font-aeonik text-[#262626] text-sm cursor-pointer ${location.pathname === "" ? "text-green-700" : ""}`}>
+              Blog
+            </div>
+          </Link>
+          {/* End of Mobile Menu Links */}
         </div>
       )}
     </div>
